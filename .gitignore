@@ -10,9 +10,11 @@
 !.yarn/releases
 !.yarn/versions
 
+atlas-credentials.env
+
 # testing
 /coverage
-
+.env.local
 # next.js
 /.next/
 /out/
