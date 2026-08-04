@@ -21,7 +21,7 @@ export default function Registration() {
       const data = await response.json();
 
       if  (response.ok) {
-        router.push("/home");
+        router.push("/verifyopt");
       //window.location.href = "/login";
       }   else {
         console.log(data);
