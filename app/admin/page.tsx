@@ -113,6 +113,10 @@ export default function Admin() {
                   <p className="error">{error.confirmPassword}</p>
                 )}
               </div>
+
+              <div>
+                <button type="button" className="Add-account">Create Account</button>
+              </div>
             </form>
           </div>
         )}

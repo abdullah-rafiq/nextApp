@@ -117,3 +117,10 @@ body {
   font-size: 14px;
   margin-top: 5px;
 }
+
+.Add-account{
+ display: flex;
+  justify-content: space-between;
+  margin-top: 10px; 
+  color:lightblue;
+}
