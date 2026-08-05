@@ -29,7 +29,7 @@ export default function AdminLayout({
           Settings
         </Link>
       </aside>
-
+        <button >Logout</button>
       <main className="content">
         {children}
       </main>
