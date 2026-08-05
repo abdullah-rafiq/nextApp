@@ -38,12 +38,12 @@ export default function Admin() {
 
     function handleStudent() {
         setRole("Student");
-        setShowForm(true);
+        setShowForm(false);
     }
 
     function handleTeacher(){
         setRole("Teacher");
-        setShowForm(true);
+        setShowForm(false);
     }
 
   return (
