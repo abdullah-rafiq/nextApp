@@ -24,6 +24,7 @@ export const POST = async (req) => {
       email,
       password: hashedPassword,
       role,
+      isVerified:true,
     });
 
     await newUser.save();
