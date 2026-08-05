@@ -20,7 +20,7 @@ const router = useRouter();
     role:"",
   };
 
-      if (name.trim() === "") {
+  if (name.trim() === "") {
     newErrors.name = "Name is required";
   }
 
@@ -149,6 +149,7 @@ const [error, setError] = useState({ name: "",
                 <p className="error">{error.confirmPassword}</p>
               )}
         </div>
+        <div className="Role">
         <label>Role</label>
         <div>
           <input
@@ -159,9 +160,6 @@ const [error, setError] = useState({ name: "",
             checked={role === "Student"}
             onChange={(e) => setRole(e.target.value)}  
           />
-          {error.role && (
-                <p className="error">{error.role}</p>
-              )}
           <label>Student</label>
         </div>
 
@@ -174,10 +172,11 @@ const [error, setError] = useState({ name: "",
             checked={role === "Teacher"}
             onChange={(e) => setRole(e.target.value)}
           />
+          <label>Teacher</label>
+        </div>
            {error.role && (
                 <p className="error">{error.role}</p>
               )}
-          <label>Teacher</label>
         </div>
   </form>
 
