@@ -11,21 +11,21 @@ export default function AdminLayout({
       <aside className="sidebar">
         <h2 className="title">Admin Panel</h2>
 
-        <Link href="/admin">Dashboard</Link>
+        <Link className="text" href="/admin">Dashboard</Link>
 
-        <Link href="/admin/students">
+        <Link  className="text" href="/admin/students">
           Students
         </Link>
 
-        <Link href="/admin/teachers">
+        <Link className="text" href="/admin/teachers">
           Teachers
         </Link>
 
-        <Link href="/admin/courses">
+        <Link className="text" href="/admin/courses">
           Courses
         </Link>
 
-        <Link href="/admin/settings">
+        <Link className="text" href="/admin/settings">
           Settings
         </Link>
       </aside>
