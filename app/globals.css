@@ -156,6 +156,7 @@ body {
 .sidebar {
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
   width: 250px;
   min-height: 100vh;
   padding: 20px;
