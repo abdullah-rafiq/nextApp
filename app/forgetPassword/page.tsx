@@ -67,19 +67,21 @@ export default function Registration() {
         )}
       
   </form>
-
-
-    {showOTP ?(
-  <button className="button" type="button" onClick={handleCheckEmail}>
-    Reset Password
-  </button>):
-
-  ( <button className="button" type="button" onClick={handleCheckOTP}>
+  
+// CONDITIONALLY RENDERING BUTTONS BASED ON showOTP STATE
+    { showOTP ? 
+    
+    ( 
+    <button className="button" type="button" onClick={handleCheckOTP}>
     Verify OTP
-  </button>
-  )
-    }
-  </main>
-        </div>
+      </button>
+  ):
+    (
+    <button className="button" type="button" onClick={handleCheckEmail}>
+      Reset Password
+      </button>)
+  }
+    </main>
+      </div>
   );
 }
