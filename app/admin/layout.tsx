@@ -6,12 +6,12 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   return (
-    
+
     <div className="admin-layout">
 
       <aside className="sidebar">
         <h2 className="title">Admin Panel</h2>
-
+ <nav className="nav-links">
         <Link className="text" href="/admin">Dashboard</Link>
 
         <Link  className="text" href="/admin/student">
@@ -29,8 +29,10 @@ export default function AdminLayout({
         <Link className="text" href="/admin/settings">
           Settings
         </Link>
+          </nav>
         <button className="logout-btn">Logout</button>
       </aside>
+      
       <main className="content">
         {children}
       </main>
