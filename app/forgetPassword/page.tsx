@@ -68,7 +68,6 @@ export default function Registration() {
       
   </form>
   
-// CONDITIONALLY RENDERING BUTTONS BASED ON showOTP STATE
     { showOTP ? 
     
     ( 
