@@ -6,8 +6,14 @@ import { useState } from "react";
 
 export default function Registration() {
 
+  
   const router = useRouter();
+  
   const [email, setEmail] = useState("");
+  const [otp, setOtp] = useState("");
+  const [showOTP, setShowOTP] = useState(false);
+  
+  
   async function handleCheckEmail(){   
     const response = await fetch("/api/checkuser",{
 
@@ -21,8 +27,9 @@ export default function Registration() {
       const data = await response.json();
 
       if  (response.ok) {
-        router.push("/verifyotp");
+       // router.push("/verifyotp");
       //window.location.href = "/login";
+          setShowOTP(true);
       }   else {
         console.log(data);
       }
@@ -31,10 +38,10 @@ export default function Registration() {
   return (
     <div className="page">
 <main className="registration-form">
-  <h1 className="title">Reset Password</h1>
+  <h1 className="title">{showOTP ? "Verify OTP" : "Reset Password"}</h1>
 
   <form className="form">
-
+      { !showOTP ? (
          <div>
           <label>Email</label>
           <input className="input-field"
@@ -43,11 +50,23 @@ export default function Registration() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email address"/>
         </div>
+       ) :
+        ( <div>
+          <label>Enter OTP</label>
+          <input className="input-field"
+            type="text"
+            value={otp}
+            onChange={(e) => setOtp(e.target.value)}
+            placeholder="Enter OTP"/>
+        </div>
+        )}
+      
   </form>
 
   <button className="button" type="button" onClick={handleCheckEmail}>
     Reset Password
   </button>
+  
   </main>
         </div>
   );
