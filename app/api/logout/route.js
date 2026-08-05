@@ -1,7 +1,7 @@
 import {cookies} from "next/headers";
 
 
-export const POST = async  =>{
+export const POST = async()  =>{
 
     try {
 
