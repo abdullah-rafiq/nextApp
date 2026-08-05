@@ -38,12 +38,12 @@ export default function Admin() {
 
     function handleStudent() {
         setRole("Student");
-        setShowForm(false);
+        setShowForm(true);
     }
 
     function handleTeacher(){
         setRole("Teacher");
-        setShowForm(false);
+        setShowForm(true);
     }
 
   return (
@@ -61,8 +61,8 @@ export default function Admin() {
             <button className="Add-account" type="button" onClick={handleTeacher}>Create Teacher Account</button>
         </div>
 
-        {!showForm && (
-          <div className="form">
+        {showForm && (
+          <div className="registration-form">
             <form className="form">
               <div>
                 <label>Name</label>
