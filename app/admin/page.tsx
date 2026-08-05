@@ -204,6 +204,10 @@ export default function Admin() {
             </form>
           </div>
         )}
+
+        {showDetails &&(
+          <button>show myseld</button>
+        )}
     </main>
         </div>
  );
