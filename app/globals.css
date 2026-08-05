@@ -90,11 +90,13 @@ body {
 .button:hover {
   background: #ff5252;
 }
-.tetx-buttons {
+
+.text-buttons {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
 }
+
 .text-button {
   background: none;
   border: none;
@@ -103,6 +105,7 @@ body {
   font-size: 14px;
   margin-top: 10px;
 }
+
 .text-button:hover {
   color: #ff5252;
   transition: background 0.2s ease;
