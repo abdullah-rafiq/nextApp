@@ -6,6 +6,73 @@ import { useState } from "react";
 export default function Admin() {
 
   const router = useRouter();
+  async function handleRegister(){
+    // Later we will save user data here
+    const newErrors = {
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    role: "",
+  };
+
+  if (name.trim() === "") {
+    newErrors.name = "Name is required";
+  }
+
+  if (email.trim() === "") {
+    newErrors.email = "Email is required";
+  } else if (!/\S+@\S+\.\S+/.test(email)) {
+    newErrors.email = "Invalid email format";
+  }
+
+  if (password.trim() === "") {
+    newErrors.password = "Password is required";
+  } else if (password.length < 6) {
+    newErrors.password = "Password must be at least 6 characters long";
+  }
+
+  if (confirmPassword.trim() === "") {
+    newErrors.confirmPassword = "Confirm Password is required";
+  } else if (confirmPassword !== password) {
+    newErrors.confirmPassword = "Passwords do not match";
+  }
+
+  if(role===""){
+    newErrors.role="Do select a role"
+  }
+  setError(newErrors);
+  
+  if (
+    newErrors.name ||
+    newErrors.email ||
+    newErrors.password ||
+    newErrors.confirmPassword ||
+    newErrors.role)
+    {
+    return;
+  }
+  // If there are no errors, proceed with registration
+    //router.push("/login");
+
+    const response = await fetch("/api/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, password, role}),
+    });
+
+    const data = await response.json();
+    if (response.ok) {
+      //TODO implement Email send       
+        console.log("data")
+    } else {
+      console.log(data);
+    }
+
+  }
+
 
   async function handleLogout(){
     
@@ -22,6 +89,7 @@ export default function Admin() {
       console.log("error");
     }
   }
+
   const [showForm, setShowForm] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -41,7 +109,7 @@ export default function Admin() {
         setShowForm(true);
     }
 
-    function handleTeacher(){
+    function handleTeacher() {
         setRole("Teacher");
         setShowForm(true);
     }
@@ -50,17 +118,16 @@ export default function Admin() {
 
 <div className="page">
   <main className="homePage">
-    <div className="leftSide">
+   
    <h1 className="title">Admin</h1>
         <div className="homeBody">
             <button className="button" type="button" onClick={handleLogout}>Logout</button>
         </div>
-
         <div className="Account Creation ">
             <button className="Add-account" type="button" onClick={handleStudent}>Create Student Account</button>
             <button className="Add-account" type="button" onClick={handleTeacher}>Create Teacher Account</button>
         </div>
-</div>
+
         {showForm && (
           <div className="registration-form">
             <button type="button" className="close-btn" onClick={()=>setShowForm(false)}>Close</button>

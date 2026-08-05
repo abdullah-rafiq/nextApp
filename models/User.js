@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { type } from "os";
 
 const userSchema = new mongoose.Schema({
   
@@ -23,7 +24,12 @@ const userSchema = new mongoose.Schema({
     enum: ["Student", "Teacher", "Admin"],
     required:true,
   },
-
+   
+  isVerified:{
+    type:Boolean,
+    required:true,
+  },
+  
   date: {
     type: Date,
     default: Date.now,
