@@ -124,9 +124,15 @@ export default function Admin() {
         <div className="homeBody">
             <button className="button" type="button" onClick={handleLogout}>Logout</button>
         </div>
+        
         <div className="Account Creation ">
             <button className="Add-account" type="button" onClick={handleStudent}>Create Student Account</button>
             <button className="Add-account" type="button" onClick={handleTeacher}>Create Teacher Account</button>
+        </div>
+        
+        <div className="View Accounts ">
+            <button className="Add-account" type="button" >Show Student Accounts</button>
+            <button className="Add-account" type="button" >Show Teacher Accounts</button>
         </div>
 
         {showForm && (
