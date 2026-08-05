@@ -28,7 +28,7 @@ export default function AdminLayout({
         <Link className="text" href="/admin/settings">
           Settings
         </Link>
-        <button >Logout</button>
+        <button className="logout-btn">Logout</button>
       </aside>
       <main className="content">
         {children}
