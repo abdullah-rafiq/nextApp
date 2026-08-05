@@ -68,8 +68,6 @@ const router = useRouter();
     });
 
     const data = await response.json();
-console.log(response.status);
-console.log(data);
     if (response.ok) {
        router.push("/login")
       //window.location.href = "/login";
