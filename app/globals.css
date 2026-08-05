@@ -158,7 +158,8 @@ body {
   flex-direction: column;
   box-sizing: border-box;
   width: 250px;
-  min-height: 100vh;
+  min-height: 80vh;
+  padding: 20px;
   background: #1f2937;
   color: white;
 }
@@ -176,5 +177,5 @@ body {
 .nav-links {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 15px;
 }
