@@ -118,15 +118,19 @@ body {
   margin-top: 5px;
 }
 
-.Add-account{
-  display: flex;
-  justify-content: space-between;
+.Add-account {
+  width: 100%;
+  padding: 12px;
   margin-top: 10px;
-  color:whitesmoke;
-  cursor: pointer;
-  font-size: 14px;
-  background:  rgb(70, 208, 254);;
-  transition: background 0.2s ease;
-  border-radius: 6px;
+  background: rgb(70, 208, 254);
+  color: white;
   border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.2s ease;
+}
+
+.Add-account:hover {
+  background: rgb(40, 190, 240);
 }
