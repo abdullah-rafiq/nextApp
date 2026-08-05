@@ -131,7 +131,11 @@ body {
   font-size: 16px;
   transition: background 0.2s ease;
 }
+.leftSide{
+ position: relative;
+ align-self: start;a
 
+}
 .Add-account:hover {
   background: rgb(40, 190, 240);
 }

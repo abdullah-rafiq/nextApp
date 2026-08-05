@@ -50,7 +50,7 @@ export default function Admin() {
 
 <div className="page">
   <main className="homePage">
-
+    <div className="leftSide">
    <h1 className="title">Admin</h1>
         <div className="homeBody">
             <button className="button" type="button" onClick={handleLogout}>Logout</button>
@@ -60,7 +60,7 @@ export default function Admin() {
             <button className="Add-account" type="button" onClick={handleStudent}>Create Student Account</button>
             <button className="Add-account" type="button" onClick={handleTeacher}>Create Teacher Account</button>
         </div>
-
+</div>
         {showForm && (
           <div className="registration-form">
             <button type="button" className="close-btn" onClick={()=>setShowForm(false)}>Close</button>
