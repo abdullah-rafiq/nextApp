@@ -26,11 +26,9 @@ export default function Admin() {
 <div className="page">
   <main className="homePage">
 
-   <h1 className="title">Admin</h1>
+   <h1 className="title" color="white">Admin</h1>
         <div className="homeBody">
-
-      <button className="button" type="button" onClick={handleLogout}>Logout</button>
-
+            <button className="button" type="button" onClick={handleLogout}>Logout</button>
         </div>
     </main>
         </div>

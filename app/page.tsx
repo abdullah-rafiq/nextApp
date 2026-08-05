@@ -149,10 +149,9 @@ const [error, setError] = useState({ name: "",
                 <p className="error">{error.confirmPassword}</p>
               )}
         </div>
-        <div className="Role">
         <label>Role</label>
         <div>
-          <input
+          <input className="radio"
             type="radio"
             id="student"
             value="Student"
@@ -164,7 +163,7 @@ const [error, setError] = useState({ name: "",
         </div>
 
         <div>
-          <input
+          <input className="radio"
             type="radio"
             id="teacher"
             value="Teacher"
@@ -173,7 +172,6 @@ const [error, setError] = useState({ name: "",
             onChange={(e) => setRole(e.target.value)}
           />
           <label>Teacher</label>
-        </div>
            {error.role && (
                 <p className="error">{error.role}</p>
               )}
