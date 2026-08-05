@@ -119,8 +119,12 @@ body {
 }
 
 .Add-account{
- display: flex;
+  display: flex;
   justify-content: space-between;
   margin-top: 10px; 
   color:lightblue;
+  cursor: pointer;
+  font-size: 14px;
+  background: none;
+  border:none;
 }
