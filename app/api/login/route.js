@@ -36,14 +36,14 @@ export const POST = async (req) => {
         const token= jwt.sign(
 
             {
-                id:user_id,
-                email:user_email,
+                id:user._id,
+                email:user.email,
             },
             
             process.env.JWT_SECRET,
             {
 
-                expiresIn:'id',
+                expiresIn:'1d',
             }
         );
 
@@ -52,25 +52,16 @@ export const POST = async (req) => {
         //saving jwt to cookies
 
 
-        const cookies = await cookieStore();
+        const cookieStore = await cookies();
         
-        cookies.set("token",token,{
+        cookieStore.set("token",token,{
 
             httpOnly:true,
             secure: process.env.NODE_ENV === "production",
             sameSite: "strict",
             maxAge: 60 * 60 * 24, // 1 day
 
-
         });
-
-
-
-
-
-
-
-
 
 
 
