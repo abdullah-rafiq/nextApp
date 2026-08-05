@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -39,11 +38,11 @@ export default function Registration() {
           console.log(data);
       }
     }
-   // Later we will save user data her}e
+
   return (
     <div className="page">
-<main className="registration-form">
-  <h1 className="title">{showOTP ? "Verify OTP" : "Reset Password"}</h1>
+      <main className="registration-form">
+        <h1 className="title">{showOTP ? "Verify OTP" : "Reset Password"}</h1>
 
   <form className="form">
       { !showOTP ? (
@@ -68,7 +67,7 @@ export default function Registration() {
       
   </form>
   
-    { showOTP ? 
+  { showOTP ? 
     
     ( 
     <button className="button" type="button" onClick={handleCheckOTP}>
@@ -80,6 +79,8 @@ export default function Registration() {
       Reset Password
       </button>)
   }
+  
+  
     </main>
       </div>
   );

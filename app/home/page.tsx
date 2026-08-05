@@ -1,20 +1,16 @@
-"use client";
-import Image from "next/image";
-
-
-import { useRouter } from "next/navigation";
-
-
 export default function Home() {
 
   return (
 
 <div className="page">
-  <main className="registration-form">
+  <main className="homePage">
 
    <h1 className="title">Home</h1>
-      <form className="form">
-  </form>
+        <div className="homeBody">
+
+
+
+        </div>
 
     </main>
         </div>
