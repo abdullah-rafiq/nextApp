@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: hsl(0, 56%, 95%);
+  --background: #fac5c5;
   --foreground: #171717;
 }
 
@@ -122,9 +122,11 @@ body {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
-  color: rgb(70, 208, 254);
+  color:whitesmoke;
   cursor: pointer;
   font-size: 14px;
-  background: none;
+  background:  rgb(70, 208, 254);;
+  transition: background 0.2s ease;
+  border-radius: 6px;
   border: none;
 }
