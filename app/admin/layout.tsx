@@ -9,7 +9,7 @@ export default function AdminLayout({
     <div className="admin-layout">
 
       <aside className="sidebar">
-        <h2>Admin Panel</h2>
+        <h2 className="title">Admin Panel</h2>
 
         <Link href="/admin">Dashboard</Link>
 
