@@ -6,7 +6,9 @@ export default function Registration() {
 
 //route hook to navigate to other pages
 const router = useRouter();
-
+  function handleLogin(){   
+    router.push("/login");
+  }
   async function handleRegister(){
     // Later we will save user data here
     const newErrors = {
@@ -144,6 +146,10 @@ const [error, setError] = useState({ name: "",
 
     <button className="button" type="button" onClick={handleRegister}>
       Register
+    </button>
+
+    <button className="button" type="button" onClick={handleLogin}>
+      Login
     </button>
   </main>
   </div>
