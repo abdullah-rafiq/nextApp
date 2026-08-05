@@ -66,7 +66,8 @@ export default function Admin() {
     const data = await response.json();
     if (response.ok) {
       //TODO implement Email send       
-        console.log("data")
+        console.log("data");
+        setShowForm(false);
     } else {
       console.log(data);
     }
@@ -183,7 +184,7 @@ export default function Admin() {
               </div>
 
               <div>
-                <button type="button" className="Add-account">Create Account</button>
+                <button type="button" className="Add-account" onClick={handleRegister}>Create Account</button>
               </div>
             </form>
           </div>
