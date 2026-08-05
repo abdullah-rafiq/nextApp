@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fac5c5;
+  --background: hsl(0, 56%, 95%);
   --foreground: #171717;
 }
 
@@ -121,10 +121,10 @@ body {
 .Add-account{
   display: flex;
   justify-content: space-between;
-  margin-top: 10px; 
-  color:lightblue;
+  margin-top: 10px;
+  color: rgb(70, 208, 254);
   cursor: pointer;
   font-size: 14px;
   background: none;
-  border:none;
+  border: none;
 }
