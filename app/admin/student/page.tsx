@@ -4,7 +4,7 @@ import {useRouter} from "next/navigation"
 import { useState } from "react";
 
 export default function Admin() {
-
+  const [complete, setcomplete]=useState(false);
   const router = useRouter();
   async function handleRegister(){
     // Later we will save user data here
@@ -66,6 +66,7 @@ export default function Admin() {
     const data = await response.json();
     if (response.ok) {
       //TODO implement Email send       
+      setcomplete(true);
         console.log("data");
     } else {
       console.log(data);
@@ -91,69 +92,72 @@ export default function Admin() {
 
 <div className="page">
   <main className="homePage">
-   
-   <h1 className="title">Create Student Account</h1>
-        
+   {complete ? (
+    <h1 className="title">Account Created Successfully</h1>
+   ) : (
+    <div>
+      <h1 className="title">Create Student Account</h1>
 
-      
-          <div className="registration-form">
-            <form className="form">
-              <div>
-                <label>Name</label>
-                <input
-                  className="input-field"
-                  type="text"
-                  placeholder="Enter your name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-                {error.name && <p className="error">{error.name}</p>}
-              </div>
-
-              <div>
-                <label>Email</label>
-                <input
-                  className="input-field"
-                  type="email"
-                  placeholder="Enter your email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                {error.email && <p className="error">{error.email}</p>}
-              </div>
-
-              <div>
-                <label>Password</label>
-                <input
-                  className="input-field"
-                  type="password"
-                  placeholder="Enter your password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                {error.password && <p className="error">{error.password}</p>}
-              </div>
-
-              <div>
-                <label>Confirm Password</label>
-                <input
-                  className="input-field"
-                  type="password"
-                  placeholder="Confirm your password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                />
-                {error.confirmPassword && (
-                  <p className="error">{error.confirmPassword}</p>
-                )}
-              </div>
-
-              <div>
-                <button type="button" className="Add-account" onClick={handleRegister}>Create Account</button>
-              </div>
-            </form>
+      <div className="registration-form">
+        <form className="form">
+          <div>
+            <label>Name</label>
+            <input
+              className="input-field"
+              type="text"
+              placeholder="Enter your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            {error.name && <p className="error">{error.name}</p>}
           </div>
-      
+
+          <div>
+            <label>Email</label>
+            <input
+              className="input-field"
+              type="email"
+              placeholder="Enter your email address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            {error.email && <p className="error">{error.email}</p>}
+          </div>
+
+          <div>
+            <label>Password</label>
+            <input
+              className="input-field"
+              type="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            {error.password && <p className="error">{error.password}</p>}
+          </div>
+
+          <div>
+            <label>Confirm Password</label>
+            <input
+              className="input-field"
+              type="password"
+              placeholder="Confirm your password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+            {error.confirmPassword && (
+              <p className="error">{error.confirmPassword}</p>
+            )}
+          </div>
+
+          <div>
+            <button type="button" className="Add-account" onClick={handleRegister}>Create Account</button>
+          </div>
+        </form>
+      </div>
+    </div>
+   )}
+    
     </main>
         </div>
  );
