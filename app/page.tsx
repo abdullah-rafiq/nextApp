@@ -42,7 +42,7 @@ const router = useRouter();
     newErrors.confirmPassword = "Passwords do not match";
   }
 
-  if(role===null){
+  if(role===""){
     newErrors.role="Do select a role"
   }
   setError(newErrors);
@@ -64,22 +64,13 @@ const router = useRouter();
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, email, password, role }),
+      body: JSON.stringify({ name, email, password, role}),
     });
 
     const data = await response.json();
 
     if (response.ok) {
-       if(data.role=="Teacher"){
-            router.push("/teacher")
-          }
-          else if (data.role=="Student"){
-            router.push("/student")
-          }
-
-          else if (data.role=="Admin"){
-            router.push("/admin")
-          }
+       router.push("/login")
       //window.location.href = "/login";
     } else {
       console.log(data);
@@ -92,13 +83,14 @@ const [name, setName] = useState("");
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 const [confirmPassword, setConfirmPassword] = useState("");
-
 const [role,setRole]= useState("");
+
 // for showing error messages
 const [error, setError] = useState({ name: "",
     email: "",
     password: "",
     confirmPassword: "",
+    role:"",
   });
 
 
@@ -168,6 +160,9 @@ const [error, setError] = useState({ name: "",
             checked={role === "Student"}
             onChange={(e) => setRole(e.target.value)}  
           />
+          {error.role && (
+                <p className="error">{error.role}</p>
+              )}
           <label>Student</label>
         </div>
 
@@ -180,6 +175,9 @@ const [error, setError] = useState({ name: "",
             checked={role === "Teacher"}
             onChange={(e) => setRole(e.target.value)}
           />
+           {error.role && (
+                <p className="error">{error.role}</p>
+              )}
           <label>Teacher</label>
         </div>
   </form>
