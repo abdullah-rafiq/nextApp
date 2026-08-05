@@ -6,6 +6,7 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   return (
+    
     <div className="admin-layout">
 
       <aside className="sidebar">
