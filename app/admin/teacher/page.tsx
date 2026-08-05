@@ -79,7 +79,8 @@ export default function Admin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [role, setRole] = useState("Student");
+  
+  const [role, setRole] = useState("Teacher");
 
   const [error, setError] = useState({ name: "",
     email: "",
@@ -92,7 +93,7 @@ export default function Admin() {
 <div className="page">
   <main className="homePage">
    
-   <h1 className="title">Create Student Account</h1>
+   <h1 className="title">Create Teacher Account</h1>
         
 
       
