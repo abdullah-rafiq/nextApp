@@ -1,8 +1,8 @@
 "use client";
-import Image from "next/image";
 
 
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 
 export default function Login() {
@@ -21,11 +21,30 @@ const router = useRouter();
   router.push("/");
   }
 
-  function handleClickGoHome(){ 
+ const [email, setEmail] = useState("");
+ const [password, setPassword] = useState("");
 
-    router.push("/home");
-    console.log("Go Home button clicked");
-  }
+  async function handleClickGoHome(){ 
+    
+    const response = await fetch("/api/login", {
+      method: "POST",
+      headers: { 
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
+       const data = await response.json();
+
+
+       if (response.ok){
+          router.push("/home")
+       }
+       else{
+        console.log(data);
+       }
+       }
+    
+    
 
   return (
 
