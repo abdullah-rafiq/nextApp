@@ -5,7 +5,10 @@ import { useState } from "react";
 
 export default function Registration() {
 
-  
+  function handleGoLogin(){
+
+    router.push("/login")
+  }
   const router = useRouter();
   
   const [email, setEmail] = useState("");
@@ -77,9 +80,17 @@ export default function Registration() {
     (
     <button className="button" type="button" onClick={handleCheckEmail}>
       Reset Password
-      </button>)
+      </button>
+    )
   }
-  
+
+  if (showOTP == false){
+
+     <button className="button" type="button" onClick={handleGoLogin}>
+      Login
+      </button>
+  }
+
   
     </main>
       </div>
