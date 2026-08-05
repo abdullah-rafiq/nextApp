@@ -6,9 +6,20 @@ export default function Home() {
 
   const router = useRouter();
 
-  function handleLogout(){
+  async function handleLogout(){
+    
+    const respone = await fetch("/api/logout",{
+        method: "Post",
 
+    });
+
+    if(respone.ok){
     router.push("/login");
+    }
+    else{
+
+      console.log("error");
+    }
   }
   return (
 
