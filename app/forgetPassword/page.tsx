@@ -84,11 +84,11 @@ export default function Registration() {
     )
   }
 
-  if (showOTP == false){
+  {showOTP ? null :(
 
      <button className="button" type="button" onClick={handleGoLogin}>
       Login
-      </button>
+      </button>)
   }
 
   
