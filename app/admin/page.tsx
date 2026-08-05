@@ -90,7 +90,7 @@ export default function Admin() {
       console.log("error");
     }
   }
-
+  const [showDetails,setShowDetails]= useState(false);
   const [showForm, setShowForm] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -108,12 +108,21 @@ export default function Admin() {
     function handleStudent() {
         setRole("Student");
         setShowForm(true);
+        setShowDetails(false);
     }
 
     function handleTeacher() {
         setRole("Teacher");
         setShowForm(true);
+        setShowDetails(false);
+
     }
+
+  function handleShowDetails() {
+    setShowForm(false);
+    setShowDetails(true);
+  }
+
 
   return (
 
@@ -124,15 +133,15 @@ export default function Admin() {
         <div className="homeBody">
             <button className="button" type="button" onClick={handleLogout}>Logout</button>
         </div>
-        
+
         <div className="Account Creation ">
             <button className="Add-account" type="button" onClick={handleStudent}>Create Student Account</button>
             <button className="Add-account" type="button" onClick={handleTeacher}>Create Teacher Account</button>
         </div>
         
         <div className="View Accounts ">
-            <button className="Add-account" type="button" >Show Student Accounts</button>
-            <button className="Add-account" type="button" >Show Teacher Accounts</button>
+            <button className="Add-account" type="button" onClick={handleShowDetails} >Show Student Accounts</button>
+            <button className="Add-account" type="button"  onClick={handleShowDetails}>Show Teacher Accounts</button>
         </div>
 
         {showForm && (
