@@ -37,7 +37,17 @@ const router = useRouter();
 
 
        if (response.ok){
-          router.push("/home")
+
+          if(data.role=="Teacher"){
+            router.push("/teacher")
+          }
+          else if (data.role=="Student"){
+            router.push("/student")
+          }
+
+          else if (data.role=="Admin"){
+            router.push("/admin")
+          }
        }
        else{
         console.log(data);

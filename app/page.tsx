@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";;
 import { useState } from "react";
+
 export default function Registration() {
 
 //route hook to navigate to other pages
@@ -16,6 +17,7 @@ const router = useRouter();
     email: "",
     password: "",
     confirmPassword: "",
+    role:"",
   };
 
       if (name.trim() === "") {
@@ -40,13 +42,17 @@ const router = useRouter();
     newErrors.confirmPassword = "Passwords do not match";
   }
 
+  if(role===null){
+    newErrors.role="Do select a role"
+  }
   setError(newErrors);
   
   if (
     newErrors.name ||
     newErrors.email ||
     newErrors.password ||
-    newErrors.confirmPassword)
+    newErrors.confirmPassword ||
+    newErrors.role)
     {
     return;
   }
@@ -58,13 +64,22 @@ const router = useRouter();
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, email, password }),
+      body: JSON.stringify({ name, email, password, role }),
     });
 
     const data = await response.json();
 
     if (response.ok) {
-      router.push("/login");
+       if(data.role=="Teacher"){
+            router.push("/teacher")
+          }
+          else if (data.role=="Student"){
+            router.push("/student")
+          }
+
+          else if (data.role=="Admin"){
+            router.push("/admin")
+          }
       //window.location.href = "/login";
     } else {
       console.log(data);
@@ -78,6 +93,7 @@ const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 const [confirmPassword, setConfirmPassword] = useState("");
 
+const [role,setRole]= useState("");
 // for showing error messages
 const [error, setError] = useState({ name: "",
     email: "",
@@ -141,6 +157,30 @@ const [error, setError] = useState({ name: "",
           {error.confirmPassword && (
                 <p className="error">{error.confirmPassword}</p>
               )}
+        </div>
+        <label>Role</label>
+        <div>
+          <input
+            type="radio"
+            id="student"
+            value="Student"
+            name="role"
+            checked={role === "Student"}
+            onChange={(e) => setRole(e.target.value)}  
+          />
+          <label>Student</label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            id="teacher"
+            value="Teacher"
+            name="role"
+            checked={role === "Teacher"}
+            onChange={(e) => setRole(e.target.value)}
+          />
+          <label>Teacher</label>
         </div>
   </form>
 

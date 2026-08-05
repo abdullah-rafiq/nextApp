@@ -65,7 +65,10 @@ export const POST = async (req) => {
 
 
         return Response.json(
-            { message: "Login successful" },
+            { message: "Login successful",
+                role:user.role
+            },
+            
             { status: 200 }
         );
 
