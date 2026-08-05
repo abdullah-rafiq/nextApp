@@ -13,7 +13,12 @@ export default function Registration() {
   const [otp, setOtp] = useState("");
   const [showOTP, setShowOTP] = useState(false);
   
+  function handleCheckOTP() {
+
+    //TODO: Implement OTP verification logic here
+  }
   
+
   async function handleCheckEmail(){   
     const response = await fetch("/api/checkuser",{
 
@@ -31,7 +36,7 @@ export default function Registration() {
       //window.location.href = "/login";
           setShowOTP(true);
       }   else {
-        console.log(data);
+          console.log(data);
       }
     }
    // Later we will save user data her}e
@@ -63,10 +68,17 @@ export default function Registration() {
       
   </form>
 
+
+    {showOTP ?(
   <button className="button" type="button" onClick={handleCheckEmail}>
     Reset Password
+  </button>):
+
+  ( <button className="button" type="button" onClick={handleCheckOTP}>
+    Verify OTP
   </button>
-  
+  )
+    }
   </main>
         </div>
   );
