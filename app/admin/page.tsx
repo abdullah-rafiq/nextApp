@@ -63,13 +63,7 @@ export default function Admin() {
 
         {showForm && (
           <div className="registration-form">
-            <button
-      type="button"
-      className="close-btn"
-      onClick={() => setShowForm(false)}
-    >
-      &times;
-    </button>
+            <button type="button" className="close-btn" onClick={()=>setShowForm(false)}>Close</button>
             <form className="form">
               <div>
                 <label>Name</label>
