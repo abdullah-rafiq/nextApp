@@ -13,11 +13,11 @@ export default function AdminLayout({
 
         <Link className="text" href="/admin">Dashboard</Link>
 
-        <Link  className="text" href="/admin/students">
+        <Link  className="text" href="/admin/student">
           Students
         </Link>
 
-        <Link className="text" href="/admin/teachers">
+        <Link className="text" href="/admin/teacher">
           Teachers
         </Link>
 
