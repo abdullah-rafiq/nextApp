@@ -90,7 +90,11 @@ body {
 .button:hover {
   background: #ff5252;
 }
-
+.tetx-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
 .text-button {
   background: none;
   border: none;

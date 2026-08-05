@@ -17,7 +17,6 @@ export default function VerifyOTP() {
           <h1 className="title">Verify OTP</h1>
           <form className="form">
             <div>
-              <label>OTP</label>
               <input
                 className="input-field"
                 type="text"

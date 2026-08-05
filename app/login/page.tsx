@@ -54,14 +54,15 @@ const router = useRouter();
   </form>
 
     
+  <div className="text-buttons">
   <button className="text-button" type="button" onClick={handleClickCreateAccount}>
     Create New Account
   </button>
   <button className="text-button" type="button" onClick={handleClickForgetPassword}>
     Forget Password?
   </button>
+  </div>
  
-
     </main>
         </div>
  );
