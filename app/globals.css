@@ -135,3 +135,20 @@ body {
 .Add-account:hover {
   background: rgb(40, 190, 240);
 }
+.admin-layout{
+    display:flex;
+    min-height:100vh;
+}
+
+.sidebar{
+    width:260px;
+    background:#1f2937;
+    color:white;
+    padding:20px;
+}
+
+.content{
+    flex:1;
+    padding:40px;
+    background:#f5f5f5;
+}
