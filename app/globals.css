@@ -102,7 +102,6 @@ body {
   cursor: pointer;
   font-size: 14px;
   margin-top: 10px;
-  justify-content: space-between;;
 }
 .text-button:hover {
   color: #ff5252;
