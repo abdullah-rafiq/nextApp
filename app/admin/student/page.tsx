@@ -1,18 +1,33 @@
 "use client";
 
+import Student from "@/app/student/page";
 import {useRouter} from "next/navigation"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function Student() {
+export default function Students() {
  
+    type Students = {
+    _id: string;
+    name: string;
+    email: string;
+    role: string;
+  };
+
+  const [students, setStudents] = useState<Students[]>([]);
   const router = useRouter();
 
-  // Temporary sample data to avoid "Cannot find name 'usersData'" error
-  const usersData = [
-    { id: 1, name: 'Alice Johnson', role: 'Student', subject: 'Mathematics' },
-    { id: 2, name: 'Bob Smith', role: 'Student', subject: 'History' },
-    { id: 3, name: 'Carol Lee', role: 'Student', subject: 'Biology' },
-  ];
+
+  useEffect(()=>{
+
+    async function getStuddents() {    
+        const respone = await fetch("/api/getstudens");
+        const data = await respone.json();
+        setStudents(data);   
+        
+    }
+    getStuddents();
+
+  },[]);
 
   return (
     <div className="page">
@@ -22,15 +37,16 @@ export default function Student() {
       <tr>
         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Role</th>
-        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Specialization</th>
+        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
       </tr>
     </thead>
     <tbody className="bg-white divide-y divide-gray-200">
-      {usersData.map((user) => (
-        <tr key={user.id}>
+      {students.map((user) => (
+        <tr key={user._id}>
           <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{user.name}</td>
           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.role}</td>
-          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.subject}</td>
+          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.email}</td>
+
         </tr>
       ))}
     </tbody>
