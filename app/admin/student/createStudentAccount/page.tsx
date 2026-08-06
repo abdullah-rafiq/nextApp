@@ -8,7 +8,7 @@ export default function Admin() {
   const router = useRouter();
 
   function handleBack(){
-        router.push("/admin/students")
+        router.push("/admin/student")
   };
 
   async function handleRegister(){
@@ -98,7 +98,7 @@ export default function Admin() {
 
 <div className="page">
     <div>
-        <button className="Add-Account" type="button" onClick={handleBack}>Back</button>
+        <button className="Add-account" type="button" onClick={handleBack}>Back</button>
     </div>
   <main className="homePage">
    {complete ? (
