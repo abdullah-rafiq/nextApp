@@ -1,3 +1,7 @@
+'use client';
+
+import { type MouseEvent } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 export default function AdminLayout({
@@ -5,6 +9,25 @@ export default function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
+    const router = useRouter();
+
+    async function handleLogout() {
+        
+    const respone = await fetch("/api/logout",{
+        method: "Post",
+
+    });
+
+    if(respone.ok){
+    router.push("/login");
+    }
+    else{
+
+      console.log("error");
+    }
+        router.push("/login");
+    }
+
   return (
 
     <div className="admin-layout">
@@ -30,7 +53,7 @@ export default function AdminLayout({
           Settings
         </Link>
           </nav>
-        <button className="logout-btn">Logout</button>
+        <button className="logout-btn" type="button" onClick={handleLogout}>Logout</button>
       </aside>
       
       <main className="content">

@@ -5,6 +5,9 @@ import { useState } from "react";
 
 export default function Admin() {
 
+    function handleBack(){
+        router.push("/admin/teacher")
+  };
   const router = useRouter();
   async function handleRegister(){
     // Later we will save user data here
@@ -92,7 +95,9 @@ export default function Admin() {
 
 <div className="page">
   <main className="homePage">
-   
+   <div>
+        <button className="Add-account" type="button" onClick={handleBack}>Back</button>
+    </div>
    <h1 className="title">Create Teacher Account</h1>
         
 
