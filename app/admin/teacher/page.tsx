@@ -1,161 +1,62 @@
 "use client";
 
+import Student from "@/app/student/page";
 import {useRouter} from "next/navigation"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function Admin() {
-
-  const router = useRouter();
-  async function handleRegister(){
-    // Later we will save user data here
-    const newErrors = {
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    role: "",
+export default function Teachers() {
+ 
+    type Students = {
+    _id: string;
+    name: string;
+    email: string;
+    role: string;
   };
 
-  if (name.trim() === "") {
-    newErrors.name = "Name is required";
+  function handleAddUser(){
+
+    router.push("/admin/teacher/createTeacherAccount")
   }
-
-  if (email.trim() === "") {
-    newErrors.email = "Email is required";
-  } else if (!/\S+@\S+\.\S+/.test(email)) {
-    newErrors.email = "Invalid email format";
-  }
-
-  if (password.trim() === "") {
-    newErrors.password = "Password is required";
-  } else if (password.length < 6) {
-    newErrors.password = "Password must be at least 6 characters long";
-  }
-
-  if (confirmPassword.trim() === "") {
-    newErrors.confirmPassword = "Confirm Password is required";
-  } else if (confirmPassword !== password) {
-    newErrors.confirmPassword = "Passwords do not match";
-  }
-
-  if(role===""){
-    newErrors.role="Do select a role"
-  }
-  setError(newErrors);
-  
-  if (
-    newErrors.name ||
-    newErrors.email ||
-    newErrors.password ||
-    newErrors.confirmPassword ||
-    newErrors.role)
-    {
-    return;
-  }
-  // If there are no errors, proceed with registration
-    //router.push("/login");
-
-    const response = await fetch("/api/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, email, password, role}),
-    });
-
-    const data = await response.json();
-    if (response.ok) {
-      //TODO implement Email send       
-        console.log("data");
-    } else {
-      console.log(data);
-    }
-
-  }
+  const [students, setStudents] = useState<Students[]>([]);
+  const router = useRouter();
 
 
-  
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  
-  const [role, setRole] = useState("Teacher");
+  useEffect(()=>{
 
-  const [error, setError] = useState({ name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    role:"",
-  });
-  return (
-
-<div className="page">
-  <main className="homePage">
-   
-   <h1 className="title">Create Teacher Account</h1>
+    async function getStuddents() {    
+        const respone = await fetch("/api/getTeachers");
+        const data = await respone.json();
+        setStudents(data);   
         
+    }
+    getStuddents();
 
-      
-          <div className="registration-form">
-            <form className="form">
-              <div>
-                <label>Name</label>
-                <input
-                  className="input-field"
-                  type="text"
-                  placeholder="Enter your name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-                {error.name && <p className="error">{error.name}</p>}
-              </div>
+  },[]);
 
-              <div>
-                <label>Email</label>
-                <input
-                  className="input-field"
-                  type="email"
-                  placeholder="Enter your email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                {error.email && <p className="error">{error.email}</p>}
-              </div>
+  return (
+      <div className="admin-page">
+        <button className="Add-account" type="button" onClick={handleAddUser}>Add Student</button>
+            <div className="overflow-x-auto border rounded-lg">
+  <table className="min-w-full divide-y divide-gray-200">
+    <thead className="bg-gray-50">
+      <tr>
+        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
+        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Role</th>
+        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
+      </tr>
+    </thead>
+    <tbody className="bg-white divide-y divide-gray-200">
+      {students.map((user) => (
+        <tr key={user._id}>
+          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{user.name}</td>
+          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.role}</td>
+          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.email}</td>
 
-              <div>
-                <label>Password</label>
-                <input
-                  className="input-field"
-                  type="password"
-                  placeholder="Enter your password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                {error.password && <p className="error">{error.password}</p>}
-              </div>
-
-              <div>
-                <label>Confirm Password</label>
-                <input
-                  className="input-field"
-                  type="password"
-                  placeholder="Confirm your password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                />
-                {error.confirmPassword && (
-                  <p className="error">{error.confirmPassword}</p>
-                )}
-              </div>
-
-              <div>
-                <button type="button" className="Add-account" onClick={handleRegister}>Create Account</button>
-              </div>
-            </form>
-          </div>
-      
-    </main>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
         </div>
  );
 }
