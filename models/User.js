@@ -24,12 +24,18 @@ const userSchema = new mongoose.Schema({
     enum: ["Student", "Teacher", "Admin"],
     required:true,
   },
-   
+  
+  attendance:{
+    type:Number,
+    required:false,
+  },
+  
   isVerified:{
     type:Boolean,
     required:true,
   },
-  
+
+
   date: {
     type: Date,
     default: Date.now,
