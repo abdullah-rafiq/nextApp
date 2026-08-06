@@ -1,11 +1,33 @@
 "use client";
 
 import {useRouter} from "next/navigation"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Admin() {
 
   const router = useRouter();
+  const [studentCount, setStudentCount]=useState(0);
+  const [teacherCount, setTeacherCount]=useState(0);
+useEffect(() => {
+  async function getStudentCount() {
+    const response = await fetch("/api/countStudent");
+    const data = await response.json();
+
+    setStudentCount(data.count);
+  }
+
+  getStudentCount();
+}, []);
+useEffect(() => {
+  async function getTeacherCount() {
+    const response = await fetch("/api/countTeachers");
+    const data = await response.json();
+
+    setTeacherCount(data.count);
+  }
+
+  getTeacherCount();
+}, []);
 
   return (
 
@@ -19,11 +41,13 @@ export default function Admin() {
     <div className="stat-grid">
       <div className="stat-card">
         <p className="stat-text"> Students</p>
-        <h2 className="stat-heading">120</h2>
+        <h2 className="stat-heading">{studentCount}</h2>
       </div>
 
-
-
+      <div className="stat-card">
+        <p className="stat-text"> Teachers</p>
+        <h2 className="stat-heading">{teacherCount}</h2>
+      </div>
 
 
 
