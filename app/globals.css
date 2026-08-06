@@ -191,7 +191,8 @@ body {
 
 /// stat card
 .stat-card{
-
+border-radius: 8px;
+background:yellow;
 }
 
 //stat text
