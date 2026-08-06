@@ -16,7 +16,8 @@ export default function edit() {
   async function getTeacher() {
     const response = await fetch(`/api/teachers/${id}`);
     const data = await response.json();
-
+     console.log("Status:", response.status);
+    console.log("Data:", data);
     setName(data.name);
     setEmail(data.email);
   }
