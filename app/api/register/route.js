@@ -1,6 +1,8 @@
 import { connectDB } from "../../../lib/mongodb";
 import User from "../../../models/User";
 import bcrypt from "bcryptjs";
+import crypto from "crypto";
+import { sendVerificationEmail } from "../../../lib/sendEmail";
 
 export const POST = async (req) => {
   try {
@@ -18,17 +20,18 @@ export const POST = async (req) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
+    const verificationToken = crypto.randomBytes(32).toString("hex");
 
     const newUser = new User({
       name,
       email,
       password: hashedPassword,
       role,
-      isVerified:true,
+      isVerified:false,
     });
 
     await newUser.save();
-
+    
     return Response.json(
       { message: "User created successfully" },
       { status: 201 }
