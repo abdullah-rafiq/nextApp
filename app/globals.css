@@ -182,14 +182,11 @@ body {
 
 
 
-///admin dashborad 
 
-// stat gird
 .stat-grid{
   display:grid;
 }
 
-/// stat card
 .stat-card{
  background: #8b5cf6;
   color: white;
@@ -202,13 +199,11 @@ body {
   justify-content: space-between;
 }
 
-//stat text
 
 .stat-text{
    font-size: 18px;
 
 }
-//stat number
 
 .stat-heading{
    font-size: 22px;
