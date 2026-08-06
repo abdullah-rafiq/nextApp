@@ -1,6 +1,5 @@
 "use client";
 
-import Student from "@/app/student/page";
 import {useRouter} from "next/navigation"
 import { useEffect, useState } from "react";
 

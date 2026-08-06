@@ -1,6 +1,5 @@
 "use client";
 
-import Student from "@/app/student/page";
 import {useRouter} from "next/navigation"
 import { useEffect, useState } from "react";
 
@@ -17,6 +16,7 @@ export default function Teachers() {
 
     router.push("/admin/teacher/createTeacherAccount")
   }
+  
   const [students, setStudents] = useState<Students[]>([]);
   const router = useRouter();
 
@@ -35,7 +35,8 @@ export default function Teachers() {
 
   return (
       <div className="admin-page">
-        <button className="Add-account" type="button" onClick={handleAddUser}>Add Student</button>
+        <button className="Add-account" type="button" onClick={handleAddUser}>Add</button>
+
             <div className="overflow-x-auto border rounded-lg">
   <table className="min-w-full divide-y divide-gray-200">
     <thead className="bg-gray-50">

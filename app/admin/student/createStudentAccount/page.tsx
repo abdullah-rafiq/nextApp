@@ -97,10 +97,10 @@ export default function Admin() {
   return (
 
 <div className="page">
+  <main className="homePage">
     <div>
         <button className="Add-account" type="button" onClick={handleBack}>Back</button>
     </div>
-  <main className="homePage">
    {complete ? (
     <h1 className="title">Account Created Successfully</h1>
    ) : (
