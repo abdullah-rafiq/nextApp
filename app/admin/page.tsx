@@ -10,7 +10,7 @@ export default function Admin() {
   const [teacherCount, setTeacherCount]=useState(0);
 useEffect(() => {
   async function getStudentCount() {
-    const response = await fetch("/api/countStudent");
+    const response = await fetch("/api/countStudents");
     const data = await response.json();
 
     setStudentCount(data.count);
