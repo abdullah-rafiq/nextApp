@@ -6,6 +6,11 @@ import { useState } from "react";
 export default function Admin() {
   const [complete, setcomplete]=useState(false);
   const router = useRouter();
+
+  function handleBack(){
+        router.push("/admin/students")
+  };
+
   async function handleRegister(){
     // Later we will save user data here
     const newErrors = {
@@ -88,9 +93,13 @@ export default function Admin() {
     confirmPassword: "",
     role:"",
   });
+  
   return (
 
 <div className="page">
+    <div>
+        <button className="Add-Account" type="button" onClick={handleBack}>Back</button>
+    </div>
   <main className="homePage">
    {complete ? (
     <h1 className="title">Account Created Successfully</h1>
