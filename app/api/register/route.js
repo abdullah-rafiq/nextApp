@@ -28,10 +28,18 @@ export const POST = async (req) => {
       password: hashedPassword,
       role,
       isVerified:false,
+      verificationToken,
+      verificationTokenExpiry:Date.now() + 24 * 60 * 60 * 1000
     });
 
     await newUser.save();
-    
+
+    await sendVerificationEmail(
+      email,
+      verificationToken
+    );
+
+
     return Response.json(
       { message: "User created successfully" },
       { status: 201 }
