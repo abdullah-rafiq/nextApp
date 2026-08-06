@@ -16,6 +16,7 @@ export default function edit() {
   const router = useRouter();
 
   useEffect(() => {
+    
   async function getTeacher() {
     const response = await fetch(`/api/teachers/${id}`);
     const data = await response.json();

@@ -1,12 +1,13 @@
+import { stat } from "fs";
 import { connectDB } from "../../../../lib/mongodb";
 import User from "../../../../models/User";
+import { error } from "console";
 
 export async function GET(req, { params }) {
-  console.log("ID:", params.id);
 
   try {
     await connectDB();
-const { id } = await params;
+    const { id } = await params;
     const user = await User.findById(id).select("-password");
       
     if (!user) {
@@ -24,4 +25,37 @@ const { id } = await params;
       { status: 500 }
     );
   }
+}
+
+
+export async function PUT(req,{params}) {
+  try{
+    await connectDB();                              
+    const { id } = await params;
+    const {name,email} = await req.json();
+    
+    const updateTeacher = await User.findByIdAndUpdate(
+      id,{
+        name,
+        email,
+      },
+      {
+        new:true,
+      }
+    ).select("-password");
+    if(!updateTeacher){
+      return Response.json(
+        {message:"Teacher Not Found"},{status:200}
+      )}
+    
+    return Response.json(
+       updateTeacher,{status:200},
+    )
+  }
+  catch{error}{
+    return Response.json(
+      {message:error.message},{ status:500}
+    )
+  }
+  
 }
