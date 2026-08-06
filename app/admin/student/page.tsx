@@ -20,7 +20,7 @@ export default function Students() {
   useEffect(()=>{
 
     async function getStuddents() {    
-        const respone = await fetch("/api/getstudens");
+        const respone = await fetch("/api/getUsers");
         const data = await respone.json();
         setStudents(data);   
         
