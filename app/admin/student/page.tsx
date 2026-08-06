@@ -13,6 +13,10 @@ export default function Students() {
     role: string;
   };
 
+  function handleAddUser(){
+
+    router.push("/createStudentAccount")
+  }
   const [students, setStudents] = useState<Students[]>([]);
   const router = useRouter();
 
@@ -31,6 +35,7 @@ export default function Students() {
 
   return (
     <div className="page">
+        <button className="Add-account" type="button" onClick={handleAddUser}>Add Student</button>
             <div className="overflow-x-auto border rounded-lg">
   <table className="min-w-full divide-y divide-gray-200">
     <thead className="bg-gray-50">
