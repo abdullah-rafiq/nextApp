@@ -9,7 +9,7 @@ import { cookies } from "next/headers";
 export const POST = async (req) => {
     
     try{
-        const { email, password ,isVerified} = await req.json();
+        const { email, password} = await req.json();
 
         await connectDB();
 
@@ -31,7 +31,7 @@ export const POST = async (req) => {
             );
         }
 
-        if (!isVerified) {
+        if (!user.isVerified) {
             return Response.json(
                 { message: "Please Verify First" },
                 { status: 401 }
