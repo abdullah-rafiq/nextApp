@@ -186,20 +186,31 @@ body {
 
 // stat gird
 .stat-grid{
-
+  display:grid;
 }
 
 /// stat card
 .stat-card{
-border-radius: 8px;
-background:yellow;
+ background: #8b5cf6;
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  height: 140px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 //stat text
 
 .stat-text{
+   font-size: 18px;
 
 }
 //stat number
 
-.stat-number{}
+.stat-number{
+   font-size: 22px;
+   font-weight:bold;
+}
