@@ -16,7 +16,7 @@ export default function Teachers() {
 
     router.push("/admin/teacher/createTeacherAccount")
   }
-  
+
   const [students, setStudents] = useState<Students[]>([]);
   const router = useRouter();
 
@@ -52,6 +52,8 @@ export default function Teachers() {
           <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{user.name}</td>
           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.role}</td>
           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.email}</td>
+          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">edit info</td>
+
 
         </tr>
       ))}
