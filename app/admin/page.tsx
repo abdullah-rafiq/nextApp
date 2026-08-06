@@ -49,6 +49,11 @@ useEffect(() => {
         <h2 className="stat-heading">{teacherCount}</h2>
       </div>
 
+        <div className="stat-card">
+        <p className="stat-text"> Total</p>
+        <h2 className="stat-heading">{studentCount + teacherCount}</h2>
+      </div>
+      
 
 
 
