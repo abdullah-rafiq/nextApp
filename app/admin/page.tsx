@@ -8,6 +8,7 @@ export default function Admin() {
   const router = useRouter();
   const [studentCount, setStudentCount]=useState(0);
   const [teacherCount, setTeacherCount]=useState(0);
+
 useEffect(() => {
   async function getStudentCount() {
     const response = await fetch("/api/countStudents");
@@ -18,6 +19,7 @@ useEffect(() => {
 
   getStudentCount();
 }, []);
+
 useEffect(() => {
   async function getTeacherCount() {
     const response = await fetch("/api/countTeachers");
@@ -33,8 +35,6 @@ useEffect(() => {
 
 <div>
   <main className="homePage">
-   
-   <h1 className="title">Admin</h1>
         <div className="homeBody">
 </div>
 
@@ -53,13 +53,6 @@ useEffect(() => {
         <p className="stat-text"> Total</p>
         <h2 className="stat-heading">{studentCount + teacherCount}</h2>
       </div>
-      
-
-
-
-
-
-
     </div>
     </main>
         </div>
