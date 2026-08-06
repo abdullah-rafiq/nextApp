@@ -3,7 +3,7 @@
 import {useRouter} from "next/navigation"
 import { useState } from "react";
 
-export default function Admin() {
+export default function edit() {
 
     function handleBack(){
         router.push("/admin/teacher")
