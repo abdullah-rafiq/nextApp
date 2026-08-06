@@ -15,7 +15,7 @@ export default function Students() {
 
   function handleAddUser(){
 
-    router.push("/student/createStudentAccount")
+    router.push("/admin/student/createStudentAccount")
   }
   const [students, setStudents] = useState<Students[]>([]);
   const router = useRouter();
