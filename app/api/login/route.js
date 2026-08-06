@@ -9,7 +9,7 @@ import { cookies } from "next/headers";
 export const POST = async (req) => {
     
     try{
-        const { email, password } = await req.json();
+        const { email, password ,isVerified} = await req.json();
 
         await connectDB();
 
@@ -27,6 +27,13 @@ export const POST = async (req) => {
         if (!isMatch) {
             return Response.json(
                 { message: "Invalid credentials" },
+                { status: 401 }
+            );
+        }
+
+        if (!isVerified) {
+            return Response.json(
+                { message: "Please Verify First" },
                 { status: 401 }
             );
         }
@@ -68,7 +75,7 @@ export const POST = async (req) => {
             { message: "Login successful",
                 role:user.role
             },
-            
+
             { status: 200 }
         );
 
