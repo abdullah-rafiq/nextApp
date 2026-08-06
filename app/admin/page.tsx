@@ -126,7 +126,7 @@ export default function Admin() {
 
   return (
 
-<div className="page">
+<div>
   <main className="homePage">
    
    <h1 className="title">Admin</h1>
