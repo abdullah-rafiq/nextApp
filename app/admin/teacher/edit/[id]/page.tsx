@@ -2,13 +2,20 @@
 
 import {useRouter} from "next/navigation"
 import { useState } from "react";
+import { useParams } from "next/navigation";
+
+
 
 export default function edit() {
 
-    function handleBack(){
+  const params = useParams();
+  const id = params.id;
+  const router = useRouter();
+
+  
+  function handleBack(){
         router.push("/admin/teacher")
   };
-  const router = useRouter();
   async function handleRegister(){
     // Later we will save user data here
     const newErrors = {
