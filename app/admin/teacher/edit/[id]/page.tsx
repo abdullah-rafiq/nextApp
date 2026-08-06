@@ -8,6 +8,9 @@ import { ParamValue } from "next/dist/server/request/params";
 
 export default function edit() {
   
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+  
   const params = useParams();
   const id = params.id;
   const router = useRouter();
@@ -16,7 +19,8 @@ export default function edit() {
   async function getTeacher() {
     const response = await fetch(`/api/teachers/${id}`);
     const data = await response.json();
-     console.log("Status:", response.status);
+    
+    console.log("Status:", response.status);
     console.log("Data:", data);
     setName(data.name);
     setEmail(data.email);
@@ -69,9 +73,6 @@ export default function edit() {
   alert(data.message);
 }
   }
-
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
   const [error, setError] = useState({ name: "",
     email: "",
     role:"",
