@@ -34,7 +34,7 @@ export default function Students() {
   },[]);
 
   return (
-      <div className="page">
+      <div className="admin-page">
         <button className="Add-account" type="button" onClick={handleAddUser}>Add Student</button>
             <div className="overflow-x-auto border rounded-lg">
   <table className="min-w-full divide-y divide-gray-200">
