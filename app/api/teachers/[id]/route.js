@@ -7,7 +7,7 @@ export async function GET(req, { params }) {
   try {
     await connectDB();
 const { id } = await params;
-    const user = await User.findById(params.id).select("-password");
+    const user = await User.findById(id).select("-password");
       
     if (!user) {
     return Response.json(
