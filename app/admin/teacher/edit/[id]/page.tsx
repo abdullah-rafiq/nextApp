@@ -6,7 +6,6 @@ import { useParams } from "next/navigation";
 import { ParamValue } from "next/dist/server/request/params";
 
 
-
 export default function edit() {
   
   const params = useParams();
@@ -44,7 +43,6 @@ export default function edit() {
   } else if (!/\S+@\S+\.\S+/.test(email)) {
     newErrors.email = "Invalid email format";
   }
-
   
   if (
     newErrors.name ||
@@ -54,7 +52,6 @@ export default function edit() {
   }
   // If there are no errors, proceed with registration
     //router.push("/login");
-
     const response = await fetch(`/api/teachers/${id}`, {
       method: "PUT",
       headers: {
@@ -112,7 +109,6 @@ export default function edit() {
                 />
                 {error.email && <p className="error">{error.email}</p>}
               </div>
-
 
               <div>
                 <button type="button" className="Add-account" onClick={handleRegister}>Update</button>
