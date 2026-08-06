@@ -10,6 +10,7 @@ export default function Students() {
     name: string;
     email: string;
     role: string;
+    attendance:number;
   };
 
   function handleAddUser(){
@@ -42,6 +43,9 @@ export default function Students() {
         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Role</th>
         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
+        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Attendece</th>
+        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Edit Info</th>
+
       </tr>
     </thead>
     <tbody className="bg-white divide-y divide-gray-200">
@@ -50,6 +54,10 @@ export default function Students() {
           <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{user.name}</td>
           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.role}</td>
           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.email}</td>
+          
+          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.attendance}</td>
+          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><button className="Add-account">Edit</button></td>
+
 
         </tr>
       ))}

@@ -46,7 +46,7 @@ export default function Teachers() {
         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Role</th>
         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Attendece</th>
-        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Edit Infp</th>
+        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Edit Info</th>
 
 
       </tr>
