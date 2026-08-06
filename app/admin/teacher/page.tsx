@@ -34,6 +34,11 @@ export default function Teachers() {
 
   },[]);
 
+
+  function handleEdit(id:string){
+    router.push(`/admin/teacher/edit/${id}`);
+  }
+
   return (
       <div className="admin-page">
         <button className="Add-account" type="button" onClick={handleAddUser}>Add</button>
@@ -60,7 +65,7 @@ export default function Teachers() {
           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.attendance}</td>
 
 
-          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><button className="Add-account">Edit</button></td>
+          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><button className="Add-account" type="button" onClick={()=>handleEdit(user._id)}>Edit</button></td>
 
 
         </tr>
