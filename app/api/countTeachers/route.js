@@ -9,7 +9,7 @@ export const GET = async() => {
 
         await connectDB();
         const teacherCount = await User.countDocuments({
-      role: "Teachers",});
+      role: "Teacher",});
 
       return Response.json(
         {count:teacherCount},{status:200})

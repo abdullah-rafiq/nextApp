@@ -7,7 +7,7 @@ export const GET = async() => {
 
     try{
 
-        await connectDB;
+        await connectDB();
         const studentCount = await User.countDocuments({
       role: "Student",});
 
