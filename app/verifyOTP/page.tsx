@@ -1,7 +1,7 @@
 "use client";
 
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 
@@ -9,6 +9,10 @@ export default function Login() {
 
 const router = useRouter();
 
+    const searchParams = useSearchParams();
+  const email = searchParams.get("email");
+
+  console.log("URL email param:", email);
 
  const [OTP, setOTP] = useState("");
 

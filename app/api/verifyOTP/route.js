@@ -15,7 +15,7 @@ export async function POST(req) {
     if (!user) {
       return Response.json({ message: "First Register Yourself" }, { status: 400 });
     }
-
+    
     if (user.verificationOTPExpiry < Date.now()) {
       return Response.json({ message: "Expired OTP" }, { status: 400 });
     }
