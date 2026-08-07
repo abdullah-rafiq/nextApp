@@ -14,8 +14,6 @@ export default function Admin() {
     const newErrors = {
     name: "",
     email: "",
-    password: "",
-    confirmPassword: "",
     role: "",
   };
 
@@ -29,28 +27,15 @@ export default function Admin() {
     newErrors.email = "Invalid email format";
   }
 
-  if (password.trim() === "") {
-    newErrors.password = "Password is required";
-  } else if (password.length < 6) {
-    newErrors.password = "Password must be at least 6 characters long";
-  }
-
-  if (confirmPassword.trim() === "") {
-    newErrors.confirmPassword = "Confirm Password is required";
-  } else if (confirmPassword !== password) {
-    newErrors.confirmPassword = "Passwords do not match";
-  }
-
   if(role===""){
     newErrors.role="Do select a role"
   }
+
   setError(newErrors);
   
   if (
     newErrors.name ||
     newErrors.email ||
-    newErrors.password ||
-    newErrors.confirmPassword ||
     newErrors.role)
     {
     return;
@@ -58,12 +43,12 @@ export default function Admin() {
   // If there are no errors, proceed with registration
     //router.push("/login");
 
-    const response = await fetch("/api/register", {
+    const response = await fetch("/api/adminRegister", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, email, password, role}),
+      body: JSON.stringify({ name, email, role}),
     });
 
     const data = await response.json();
@@ -80,15 +65,11 @@ export default function Admin() {
   
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   
   const [role, setRole] = useState("Teacher");
 
   const [error, setError] = useState({ name: "",
     email: "",
-    password: "",
-    confirmPassword: "",
     role:"",
   });
   return (
@@ -128,31 +109,6 @@ export default function Admin() {
                 {error.email && <p className="error">{error.email}</p>}
               </div>
 
-              <div>
-                <label>Password</label>
-                <input
-                  className="input-field"
-                  type="password"
-                  placeholder="Enter your password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                {error.password && <p className="error">{error.password}</p>}
-              </div>
-
-              <div>
-                <label>Confirm Password</label>
-                <input
-                  className="input-field"
-                  type="password"
-                  placeholder="Confirm your password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                />
-                {error.confirmPassword && (
-                  <p className="error">{error.confirmPassword}</p>
-                )}
-              </div>
 
               <div>
                 <button type="button" className="Add-account" onClick={handleRegister}>Create Account</button>
