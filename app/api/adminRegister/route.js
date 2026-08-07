@@ -2,7 +2,7 @@ import { connectDB } from "../../../lib/mongodb";
 import User from "../../../models/User";
 import crypto from "crypto";
 import bcrypt from "bcryptjs";
-import { sendOTP } from "../../../lib/sendEmail";
+import { sendOTP } from "../../../lib/sendOTP";
 
 export const POST = async (req) => {
 
