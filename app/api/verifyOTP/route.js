@@ -26,12 +26,14 @@ export async function POST (req){
         }
         
         if(user.verificationOTP==OTP){
-        user.isverified=true
+        user.isVerified=true
         user.verificationOTPExpiry=null;
         user.verificationOTP=null;
-        }
         await user.save();
         return Response.redirect(`${process.env.NEXT_PUBLIC_URL}/login`)
+        }
+        return Response.redirect(`${process.env.NEXT_PUBLIC_URL}/home`)
+
 
     }
     catch(error){
