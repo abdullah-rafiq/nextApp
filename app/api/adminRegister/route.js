@@ -7,7 +7,7 @@ import { sendOTP } from "../../../lib/sendOTP";
 export const POST = async (req) => {
 
     try{
-        const {name, email,role} = await req.json();
+        const {name, email, role} = await req.json();
 
         await connectDB();
 
@@ -15,25 +15,23 @@ export const POST = async (req) => {
         if(existingUser){
             return Response.json({message:"User Already Exists"},{status:400})
         }
+
         const randomPasswordg = crypto.randomBytes(12).toString("hex");
         const hashedPassword = await bcrypt.hash(randomPasswordg, 10);
-        const radnomOTP = Math.floor(Math.random() * 900000) + 100000;
 
         const newUser = new User({
-            name,
-            email,
+            name:name,
+            email:email,
             role:role,
             password:hashedPassword,
-            isVerified:false,
-            verificationOTP:radnomOTP,
-            verificationOTPExpiry:Date.now() + 10 * 60 * 1000
+            isVerified:true,
         })
 
         await newUser.save();
 
-        await sendOTP(
+        await sendCredientals(
             email,
-            radnomOTP,
+            password,
         )
 
         return Response.json(
