@@ -7,7 +7,7 @@ import { sendOTP } from "../../../lib/sendOTP";
 export const POST = async (req) => {
 
     try{
-        const {name, email, phone, cnic, gender, DOB,role} = await req.json();
+        const {name, email,role} = await req.json();
 
         await connectDB();
 
@@ -22,11 +22,7 @@ export const POST = async (req) => {
         const newUser = new User({
             name,
             email,
-            phone,
             role:role,
-            cnic,
-            gender,
-            DOB,
             password:hashedPassword,
             isVerified:false,
             verificationOTP:radnomOTP,
