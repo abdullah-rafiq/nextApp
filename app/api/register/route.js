@@ -2,7 +2,7 @@ import { connectDB } from "../../../lib/mongodb";
 import User from "../../../models/User";
 import bcrypt from "bcryptjs";
 import crypto from "crypto";
-import { sendOTPEmail } from "../../../lib/sendEmail";
+import { sendVerificationEmail } from "../../../lib/sendEmail";
 
 export const POST = async (req) => {
   try {
@@ -34,7 +34,7 @@ export const POST = async (req) => {
 
     await newUser.save();
 
-    await sendOTPEmail(
+    await sendVerificationEmail(
       email,
       verificationOTP
     );
