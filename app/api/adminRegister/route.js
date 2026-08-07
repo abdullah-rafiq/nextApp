@@ -1,13 +1,13 @@
 import { connectDB } from "../../../lib/mongodb";
 import User from "../../../models/User";
-import user from "../../../models/User"
 import crypto from "crypto";
+import bcrypt from "bcryptjs";
 
 
 export const POST = async (req) => {
 
     try{
-        const {name, email, phone, cnic, gender, DOB} = await req.json();
+        const {name, email, phone, cnic, gender, DOB,role} = await req.json();
 
         await connectDB();
 
@@ -15,21 +15,22 @@ export const POST = async (req) => {
         if(existingUser){
             return Response.json({message:"User Already Exists"},{status:400})
         }
-        const randomPasswordg = crypto.randomBytes(12);
-        const hashedPassword = await bcrypt.hash(randomPassworddg, 10);
-        const radnomOTP = crypto.randomBytes(6);
+        const randomPasswordg = crypto.randomBytes(12).toString("hex");
+        const hashedPassword = await bcrypt.hash(randomPasswordg, 10);
+        const radnomOTP = Math.floor(Math.random() * 900000) + 100000;
 
         const newUser = new User({
             name,
             email,
             phone,
-            role,
+            role:role,
             cnic,
             gender,
             DOB,
-            password:randomPasswordg,
+            password:hashedPassword,
             isVerified:false,
-            verificationOTPExpiry:Date.now() + 24 * 60 * 60 * 1000
+            verificationOTP:radnomOTP,
+            verificationOTPExpiry:Date.now() + 10 * 60 * 1000
         })
 
         await newUser.save();
