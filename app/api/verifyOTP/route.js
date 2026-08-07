@@ -33,8 +33,6 @@ export async function POST (req){
         return Response.redirect(`${process.env.NEXT_PUBLIC_URL}/login`)
         }
         return Response.redirect(`${process.env.NEXT_PUBLIC_URL}/home`)
-
-
     }
     catch(error){
         return Response.json({message:error.message},{status:400})

@@ -1,5 +1,5 @@
 "use client";
-
+import { useSearchParams } from "next/navigation";
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -8,7 +8,8 @@ import { useState } from "react";
 export default function Login() {
 
 const router = useRouter();
-
+const searchParams = useSearchParams();
+const email = searchParams.get("email");
 
  const [OTP, setOTP] = useState("");
 
@@ -22,7 +23,7 @@ const router = useRouter();
       headers: { 
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ OTP }),
+      body: JSON.stringify({ email,OTP }),
     });
        const data = await response.json();
 
