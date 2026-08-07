@@ -2,7 +2,7 @@ import { connectDB } from "../../../lib/mongodb";
 import User from "../../../models/User";
 import bcrypt from "bcryptjs";
 import crypto from "crypto";
-import { sendVerificationEmail } from "../../../lib/sendEmail";
+import { sendOTPEmail } from "../../../lib/sendEmail";
 
 export const POST = async (req) => {
   try {
@@ -20,7 +20,7 @@ export const POST = async (req) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const verificationToken = crypto.randomBytes(32).toString("hex");
+    const code = crypto.randomBytes(3).toString("hex");
 
     const newUser = new User({
       name,
@@ -28,15 +28,15 @@ export const POST = async (req) => {
       password: hashedPassword,
       role,
       isVerified:false,
-      verificationToken,
-      verificationTokenExpiry:Date.now() + 24 * 60 * 60 * 1000
+      verificationOTP,
+      verificationOTPExpiry:Date.now() + 10 * 60 * 1000
     });
 
     await newUser.save();
 
-    await sendVerificationEmail(
+    await sendOTPEmail(
       email,
-      verificationToken
+      verificationOTP
     );
 
 
