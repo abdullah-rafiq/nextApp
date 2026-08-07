@@ -1,7 +1,7 @@
 import { connectDB } from "../../../lib/mongodb";
 import User from "../../../models/User";
 import user from "../../../models/User"
-import bcrypt from "crypto";
+import crypto from "crypto";
 
 
 export const POST = async (req) => {
