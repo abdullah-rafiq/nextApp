@@ -1,40 +1,35 @@
 import { connectDB } from "../../../lib/mongodb";
+import User from "../../../models/User";
 
+export async function POST(req) {
+  try {
+    await connectDB();
+    const { email, OTP } = await req.json();
 
-import User from "../../../models/User"
-
-
-export async function POST (req){
-
-
-    try{
-
-        await connectDB();
-        const {email,OTP}= await req.json();
-
-        const user = await User.findOne({email});
-
-        if(!user){
-            return Response.json({
-                message:"First Register Yourself"
-            },{status:400})
-        }
-
-        if(user.verificationOTPExpiry < Date.now()){
-            return Response.json({messaeg:"Expired OTP"},{status:400})
-
-        }
-        
-        if(user.verificationOTP==OTP){
-        user.isVerified=true
-        user.verificationOTPExpiry=null;
-        user.verificationOTP=null;
-        await user.save();
-        return Response.redirect(`${process.env.NEXT_PUBLIC_URL}/login`)
-        }
-        return Response.redirect(`${process.env.NEXT_PUBLIC_URL}/home`)
+    if (!email || !OTP) {
+      return Response.json({ message: "Email and OTP are required" }, { status: 400 });
     }
-    catch(error){
-        return Response.json({message:error.message},{status:400})
+
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return Response.json({ message: "First Register Yourself" }, { status: 400 });
     }
+
+    if (user.verificationOTPExpiry < Date.now()) {
+      return Response.json({ message: "Expired OTP" }, { status: 400 });
+    }
+
+    if (user.verificationOTP === OTP) {
+      user.isVerified = true;
+      user.verificationOTPExpiry = null;
+      user.verificationOTP = null;
+      await user.save();
+      return Response.json({ message: "Verified" }, { status: 200 });
+    }
+
+    return Response.json({ message: "Invalid OTP" }, { status: 400 });
+  } catch (error) {
+    return Response.json({ message: error.message }, { status: 500 });
+  }
 }
