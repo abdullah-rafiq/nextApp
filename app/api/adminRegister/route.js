@@ -31,7 +31,7 @@ export const POST = async (req) => {
 
         await sendCredientals(
             email,
-            password,
+            randomPasswordg,
         )
 
         return Response.json(
