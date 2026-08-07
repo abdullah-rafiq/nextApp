@@ -24,10 +24,12 @@ export async function POST (req){
             return Response.json({messaeg:"Expired OTP"},{status:400})
 
         }
-
+        
+        if(user.verificationOTP==OTP){
         user.isverified=true
         user.verificationOTPExpiry=null;
-
+        user.verificationOTP=null;
+        }
         await user.save();
         return Response.redirect(`${process.env.NEXT_PUBLIC_URL}/login`)
 
