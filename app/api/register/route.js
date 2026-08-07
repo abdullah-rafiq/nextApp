@@ -21,14 +21,15 @@ export const POST = async (req) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const code = crypto.randomBytes(3).toString("hex");
+    console.log("OTP code:", code);
 
     const newUser = new User({
-      name,
-      email,
+      name:name,
+      email:email,
       password: hashedPassword,
-      role,
+      role:role,
       isVerified:false,
-      verificationOTP,
+      verificationOTP:code,
       verificationOTPExpiry:Date.now() + 10 * 60 * 1000
     });
 
@@ -36,7 +37,7 @@ export const POST = async (req) => {
 
     await sendVerificationEmail(
       email,
-      verificationOTP
+      code
     );
 
 

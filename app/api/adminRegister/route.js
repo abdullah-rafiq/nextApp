@@ -16,7 +16,7 @@ export const POST = async (req) => {
             return Response.json({message:"User Already Exists"},{status:400})
         }
 
-        const randomPasswordg = crypto.randomBytes(12).toString("hex");
+        const randomPasswordg = crypto.randomBytes(4).toString("hex");
         const hashedPassword = await bcrypt.hash(randomPasswordg, 10);
 
         const newUser = new User({
