@@ -130,7 +130,7 @@ export default function Registration() {
     Verify OTP
       </button>):
       
-   step==="passeword" ?(
+   step==="password" ?(
     <button className="button" type="button" onClick={handleUdpatePassword}>
       Update Password
       </button>):null
