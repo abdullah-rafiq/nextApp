@@ -34,8 +34,8 @@ export async function POST(req) {
 export async function PUT(req) {
     try{
         await connectDB();
-        const [name, code, title, creditHours,grade, teacher]=await req.json;}
-
+        
+    }
     catch(error){
         return Response.json({message:error.message},{status:500})
     };
@@ -46,7 +46,9 @@ export async function PUT(req) {
 export async function GET(req) {
     try{
         await connectDB();
-        const [name, code, title, creditHours,grade, teacher]=await req.json;}
+        const course = await Course.find();
+        return Response.json(course,{status:200}) 
+    }
 
     catch(error){
         return Response.json({message:error.message},{status:500})
