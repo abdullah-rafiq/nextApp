@@ -4,9 +4,9 @@ import User from "../../../models/User";
 export async function POST(req) {
   try {
     await connectDB();
-    const { email, OTP } = await req.json();
+    const { email, otp } = await req.json();
 
-    if (!email || !OTP) {
+    if (!email || !otp) {
       return Response.json({ message: "Email and OTP are required" }, { status: 400 });
     }
 
@@ -20,10 +20,10 @@ export async function POST(req) {
       return Response.json({ message: "Expired OTP" }, { status: 400 });
     }
 
-    if (user.verificationOTP === OTP) {
+    if (user.resetOTP === otp) {
       user.isVerified = true;
-      user.verificationOTPExpiry = null;
-      user.verificationOTP = null;
+      user.resetOTPExpiry = null;
+      user.resetOTP = null;
       await user.save();
       return Response.json({ message: "Verified" }, { status: 200 });
     }

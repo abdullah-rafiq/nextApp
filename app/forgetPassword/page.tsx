@@ -6,6 +6,7 @@ import { useState } from "react";
 export default function Registration() {
 
   function handleGoLogin(){
+
     router.push("/login")
   }
   const router = useRouter();
@@ -13,6 +14,7 @@ export default function Registration() {
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
   const [showOTP, setShowOTP] = useState(false);
+  
   
   async function handleCheckOTP() {
       const response = await fetch("api/verifyOTP",{
@@ -44,19 +46,7 @@ export default function Registration() {
       const data = await response.json();
 
       if  (response.ok) {
-      
           setShowOTP(true);
-          const response = await fetch("/api/verfiyOTP",{
-            method:"POST",
-            headers:{
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({email,otp}),
-          })
-
-          if(response.ok){
-            router.push("/login")
-          }
       }   else {
           console.log(data);
       }
