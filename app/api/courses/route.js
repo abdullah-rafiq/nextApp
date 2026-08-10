@@ -12,7 +12,7 @@ export async function POST(req) {
             title:title,
             code:code,
             status:status,
-            creditHours:creditHoures,
+            creditHours:creditHours,
             semster:semster,
             program:program,
             department:department,
@@ -34,7 +34,7 @@ export async function POST(req) {
 export async function PUT(req) {
     try{
         await connectDB();
-        const [name, code, title, creditHoures,grade, teacher]=await req.json;}
+        const [name, code, title, creditHours,grade, teacher]=await req.json;}
 
     catch(error){
         return Response.json({message:error.message},{status:500})
@@ -46,7 +46,7 @@ export async function PUT(req) {
 export async function GET(req) {
     try{
         await connectDB();
-        const [name, code, title, creditHoures,grade, teacher]=await req.json;}
+        const [name, code, title, creditHours,grade, teacher]=await req.json;}
 
     catch(error){
         return Response.json({message:error.message},{status:500})
