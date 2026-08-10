@@ -23,7 +23,7 @@ export const POST = async (req) => {
             name:name,
             email:email,
             role:role,
-            password:hashedPassword,
+            passwordHash:hashedPassword,
             isVerified:true,
         })
 

@@ -37,7 +37,7 @@ export default function Courses() {
       <h1 className="font-bold text-2xl"> Courses </h1>
       <button className="bg-blue-600 text-white px-4 py-2 rounded-md" onClick={handleAddCourse}>Add Courses</button>
 </div>
-    <div className="border-b">
+    <div>
         <table>
               <thead>
         <tr className="border-b">
