@@ -22,6 +22,7 @@ export default function Courses() {
   const [program, setProgram] = useState("");
   const [creditHours, setCreditHours] = useState("");
   const [semester, setSemester] = useState("");
+  const [status, setStatus]=useState(""); 
 
   async function handleSave() {
     const respone = await fetch("/api/courses",{
@@ -127,6 +128,20 @@ export default function Courses() {
             onChange={(e) => setCreditHours(e.target.value)}
           />
         </div>
+        {/* Status */}
+        <div>
+          <input type="radio"
+          name="status"
+          value="active"
+          checked={ status === "active" }
+          onChange={(e) => setStatus(e.target.value)}/>
+
+          <input type="radio"
+          name="status"
+          checked={ status === "inactive" }
+          value={status} onChange={(e) => setStatus(e.target.value)}/>
+        </div>
+
 
         {/* Buttons */}
         <div className="flex gap-4 mt-4">

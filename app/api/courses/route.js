@@ -34,7 +34,18 @@ export async function POST(req) {
 export async function PUT(req) {
     try{
         await connectDB();
-        
+         const {
+            id,
+            title,
+            code,
+            department,
+            program,
+            creditHours,
+            semester
+    } = await req.json();
+    const course = await Course.findById(id);
+    
+
     }
     catch(error){
         return Response.json({message:error.message},{status:500})
