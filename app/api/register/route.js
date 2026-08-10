@@ -26,7 +26,7 @@ export const POST = async (req) => {
     const newUser = new User({
       name:name,
       email:email,
-      password: hashedPassword,
+      passwordHash: hashedPassword,
       role:role,
       isVerified:false,
       verificationOTP:code,

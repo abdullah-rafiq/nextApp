@@ -24,7 +24,7 @@ export default function Registration() {
   
   
   async function handleCheckOTP() {
-      const response = await fetch("api/verifyOTP",{
+      const response = await fetch("/api/verifyOTP",{
         method:"POST",
         headers:{
           "Content-Type":"application/json",
