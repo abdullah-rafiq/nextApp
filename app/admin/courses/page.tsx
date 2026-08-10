@@ -5,16 +5,16 @@ export default function Courses() {
         
     };
     return (
+    <div>
     <div className="flex justify-between items-center">
       <h1 className="font-bold text-2xl"> Courses </h1>
       <button className="bg-blue-600 text-white px-4 py-2 rounded-md" onClick={handleAddCourse}>Add Courses</button>
 
-    
+    <div className="Table_out">
 
-        <div className="overflow-x-auto">
-  <table className="w-full border-collapse">
-    <thead>
-      <tr className="border-b">
+        <table>
+              <thead>
+        <tr className="border-b">
         <th className="p-3 text-left">Code</th>
         <th className="p-3 text-left">Title</th>
         <th className="p-3 text-left">Department</th>
@@ -25,7 +25,6 @@ export default function Courses() {
         <th className="p-3 text-left">Actions</th>
       </tr>
     </thead>
-
     <tbody>
       <tr className="border-b">
         <td className="p-3">CS101</td>
@@ -41,8 +40,14 @@ export default function Courses() {
         </td>
       </tr>
     </tbody>
-  </table>
-</div>
-</div>
+        </table>
+
+            
+
+
+    </div>
+
+    </div>
+    </div>
   );
 }
