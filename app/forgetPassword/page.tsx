@@ -110,17 +110,16 @@ export default function Registration() {
   </form>
   
   { step==="email" ? 
-    
-    ( 
-    <button className="button" type="button" onClick={handleCheckOTP}>
-    Verify OTP
-      </button>
-  ):step==="opt"?
     (
     <button className="button" type="button" onClick={handleCheckEmail}>
       Reset Password
       </button>
-    ):
+    )
+  :step==="opt"?
+    ( 
+    <button className="button" type="button" onClick={handleCheckOTP}>
+    Verify OTP
+      </button>):
     (
     <button className="button" type="button" onClick={handleUdpatePassword}>
       Update Password
