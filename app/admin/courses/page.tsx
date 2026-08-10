@@ -74,7 +74,7 @@ export default function Courses() {
       </td>
 
       <td className="p-3">
-        {<div className="flex"><button>Edit</button>  <button>Delete</button></div>}
+        {<div className="flex gap-10"><button className="Add-account" >Edit</button>  <button className="Add-account" >Delete</button></div>}
       </td>
     </tr>
   ))}
