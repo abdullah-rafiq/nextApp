@@ -17,6 +17,7 @@ export const POST = async (req) => {
         { status: 401 }
       );
     }
+    
     const OTP = crypto.randomBytes(4).toString("hex");
     user.verificationOTP = OTP;
     user.verificationOTPExpiry = Date.now() + 10 * 60 * 1000;
