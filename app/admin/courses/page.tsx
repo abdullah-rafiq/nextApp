@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 
+import { useRouter } from "next/router";
 type Course = {
   _id: string;
   code: string;
@@ -14,7 +15,9 @@ type Course = {
 };
 
 export default function Courses() {
+  const router= useRouter();
     const handleAddCourse = () =>{
+      router.push("/courses/addCourses")
         
     };
     const [courses,setCourses]=useState<Course[]>([]);
