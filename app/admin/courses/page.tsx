@@ -36,7 +36,7 @@ export default function Courses() {
     <div className="flex justify-between items-center">
       <h1 className="font-bold text-2xl"> Courses </h1>
       <button className="bg-blue-600 text-white px-4 py-2 rounded-md" onClick={handleAddCourse}>Add Courses</button>
-
+</div>
     <div className="Table_out">
 
         <table>
@@ -72,7 +72,7 @@ export default function Courses() {
       </td>
 
       <td className="p-3">
-        {<div className="flex-column"><button> Edit</button> / <button>Delete</button></div>}
+        {<div className="flex-column"><button>Edit</button>  <button>Delete</button></div>}
       </td>
     </tr>
   ))}
@@ -84,7 +84,6 @@ export default function Courses() {
 
     </div>
 
-    </div>
     </div>
   );
 }
