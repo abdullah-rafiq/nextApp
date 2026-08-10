@@ -116,17 +116,19 @@ export default function Registration() {
       </button>
     )
   :step==="opt"?
+   (
+    <button className="button" type="button" onClick={handleUdpatePassword}>
+      Update Password
+      </button>):
+    
     ( 
     <button className="button" type="button" onClick={handleCheckOTP}>
     Verify OTP
-      </button>):
-    (
-    <button className="button" type="button" onClick={handleUdpatePassword}>
-      Update Password
       </button>)
+      
   }
 
-  {step ? null :(
+  {showOTP ? null :(
 
      <button className="button" type="button" onClick={handleGoLogin}>
       Login
