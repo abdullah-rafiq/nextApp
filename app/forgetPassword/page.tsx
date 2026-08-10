@@ -15,9 +15,9 @@ export default function Registration() {
   const [otp, setOtp] = useState("");
   const [showOTP, setShowOTP] = useState(false);
   
-  function handleCheckOTP() {
-      const response = await fetch("api/verifyOTP".{
-        method:POST,
+  async function handleCheckOTP() {
+      const response = await fetch("api/verifyOTP",{
+        method:"POST",
         headers:{
           "Content-Type":"application/json",
         },
