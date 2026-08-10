@@ -16,7 +16,18 @@ export default function Registration() {
   const [showOTP, setShowOTP] = useState(false);
   
   function handleCheckOTP() {
+      const response = await fetch("api/verifyOTP".{
+        method:POST,
+        headers:{
+          "Content-Type":"application/json",
+        },
+        body:JSON.stringify({email,otp}),
+      });
+      const data= response.json();
 
+      if(response.ok){
+        router.push("/login")
+      }
     //TODO: Implement OTP verification logic here
   }
   
