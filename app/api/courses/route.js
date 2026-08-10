@@ -6,7 +6,7 @@ export async function POST(req) {
 
     try{
         await connectDB();
-        const {name, code, title, creditHours, semster, program, department, status, prerequisites} = await req.json();
+        const {name, code, title, creditHours, semester, program, department, status, prerequisites} = await req.json();
         const newCourse = new Course({
             name:name,
             title:title,
