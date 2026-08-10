@@ -13,7 +13,7 @@ export async function POST(req) {
             code:code,
             status:status,
             creditHours:creditHours,
-            semster:semster,
+            semester:semester,
             program:program,
             department:department,
             prerequisites: prerequisites,
