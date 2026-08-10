@@ -20,7 +20,7 @@ export default function Registration() {
   const [otp, setOtp] = useState("");
   const [showOTP, setShowOTP] = useState(false);
   const [step,setStep] = useState("email"); 
-  
+  const [password,setPassword]=useState(""); 
   
   
   async function handleCheckOTP() {
@@ -43,6 +43,15 @@ export default function Registration() {
   }
   
   async function handleUdpatePassword() {
+
+    const response = await fetch("/api/updatePassword",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({email,password}),
+    });
+      if (response.ok){
+        router.push("/login")
+      }
 
     
   }
