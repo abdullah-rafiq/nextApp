@@ -115,24 +115,23 @@ export default function Registration() {
       Reset Password
       </button>
     )
-  :step==="opt"?
-   (
-    <button className="button" type="button" onClick={handleUdpatePassword}>
-      Update Password
-      </button>):
-    
-    ( 
+  :step==="otp"?
+  ( 
     <button className="button" type="button" onClick={handleCheckOTP}>
     Verify OTP
-      </button>)
+      </button>):
       
+   step==="passeword" ?(
+    <button className="button" type="button" onClick={handleUdpatePassword}>
+      Update Password
+      </button>):null
   }
 
-  {showOTP ? null :(
+  { step === "email" ? (
 
      <button className="button" type="button" onClick={handleGoLogin}>
       Login
-      </button>)
+      </button>):null
   }
 
   
