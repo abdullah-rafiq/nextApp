@@ -4,178 +4,138 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Registration() {
-  const router = useRouter();
 
+  const titles = {
+  email: "Reset Password",
+  otp: "Verify OTP",
+  password: "Reset Password",
+  };
+  function handleGoLogin(){
+
+    router.push("/login")
+  }
+  const router = useRouter();
+  
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-
   const [showOTP, setShowOTP] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-
-  function handleGoLogin() {
-    router.push("/login");
-  }
-
-  // Verify OTP
+  const [step,setStep] = useState("email"); 
+  
+  
+  
   async function handleCheckOTP() {
-    const response = await fetch("/api/verifyOTP", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        OTP: otp,
-      }),
-    });
+      const response = await fetch("api/verifyOTP",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+        },
+        body:JSON.stringify({email,otp}),
+      });
+      const data = await response.json();
 
-    const data = await response.json();
-
-    if (response.ok) {
-      setShowPassword(true);
-    } else {
-      console.log(data);
-    }
+      if(response.ok){
+        setStep("password");
+      }
+      else{
+        console.log(data);
+      }
+    //TODO: Implement OTP verification logic here
   }
+  
+  async function handleUdpatePassword() {
 
-  // Check email
-  async function handleCheckEmail() {
-    const response = await fetch("/api/checkuser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email }),
-    });
-
-    const data = await response.json();
-
-    if (response.ok) {
-      setShowOTP(true);
-    } else {
-      console.log(data);
-    }
+    
   }
+  async function handleCheckEmail(){   
+
+    const response = await fetch("/api/checkuser",{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+      
+      const data = await response.json();
+
+      if  (response.ok) {
+          setStep("otp");
+      }   else {
+          console.log(data);
+      }
+    }
 
   return (
-    <main>
+    <div className="page">
+      <main className="registration-form">
+        <h1 className="title">{step ==="email" ? "Reset Password":step==="otp" ? "Verify OTP":"Reset Password"}</h1>
 
-      {/* TITLE */}
-      <h1>
-        {!showOTP
-          ? "Reset Password"
-          : !showPassword
-          ? "Verify OTP"
-          : "Reset Password"}
-      </h1>
+  <form className="form">
+      { step==="email" ? (
+         <div>
+          <label>Email</label>
+          <input className="input-field"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email address"/>
+        </div>
+       ) :step==="otp"?
+        ( <div>
+          <label>Enter OTP</label>
+          <input className="input-field"
+            type="text"
+            value={otp}
+            onChange={(e) => setOtp(e.target.value)}
+            placeholder="Enter OTP"/>
+        </div>
+        ):(
+        <div>
+        <div>
+          <label>Enter Password</label>
+          <input className="input-field"
+            type="password"
+            placeholder="Enter Password"/>
+        
+        </div>
+        <div>
+          <input className="input-field"
+            type="password"
+            placeholder="Confirm Password"/>
+        </div>
+        </div>
+        )
+        }
+      
+  </form>
+  
+  { step==="email" ? 
+    
+    ( 
+    <button className="button" type="button" onClick={handleCheckOTP}>
+    Verify OTP
+      </button>
+  ):step==="opt"?
+    (
+    <button className="button" type="button" onClick={handleCheckEmail}>
+      Reset Password
+      </button>
+    ):
+    (
+    <button className="button" type="button" onClick={handleUdpatePassword}>
+      Update Password
+      </button>)
+  }
 
+  {showOTP ? null :(
 
-      {/* EMAIL STEP */}
-      {!showOTP && (
-        <>
-          <div>
-            <label>Email</label>
+     <button className="button" type="button" onClick={handleGoLogin}>
+      Login
+      </button>)
+  }
 
-            <input
-              className="input-field"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
-            />
-          </div>
-
-          <button
-            className="button"
-            type="button"
-            onClick={handleCheckEmail}
-          >
-            Send OTP
-          </button>
-        </>
-      )}
-
-
-      {/* OTP STEP */}
-      {showOTP && !showPassword && (
-        <>
-          <div>
-            <label>Enter OTP</label>
-
-            <input
-              className="input-field"
-              type="text"
-              value={otp}
-              onChange={(e) => setOtp(e.target.value)}
-              placeholder="Enter OTP"
-            />
-          </div>
-
-          <button
-            className="button"
-            type="button"
-            onClick={handleCheckOTP}
-          >
-            Verify OTP
-          </button>
-        </>
-      )}
-
-
-      {/* PASSWORD STEP */}
-      {showPassword && (
-        <>
-          <div>
-            <label>New Password</label>
-
-            <input
-              className="input-field"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter new password"
-            />
-          </div>
-
-
-          <div>
-            <label>Confirm Password</label>
-
-            <input
-              className="input-field"
-              type="password"
-              value={confirmPassword}
-              onChange={(e) =>
-                setConfirmPassword(e.target.value)
-              }
-              placeholder="Confirm password"
-            />
-          </div>
-
-
-          <button
-            className="button"
-            type="button"
-          >
-            Reset Password
-          </button>
-        </>
-      )}
-
-
-      {/* LOGIN BUTTON */}
-      {!showPassword && (
-        <button
-          className="button"
-          type="button"
-          onClick={handleGoLogin}
-        >
-          Login
-        </button>
-      )}
-
+  
     </main>
+      </div>
   );
 }
