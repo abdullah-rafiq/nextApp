@@ -1,12 +1,28 @@
 import { connectDB } from "../../../lib/mongodb"
 import  Course from "../../../models/courses"
+
 //for adding coures
 export async function POST(req) {
+
     try{
         await connectDB();
-        const [name, code, title, creditHoures,grade, teacher] = await req.json();
-    
+        const {name, code, title, creditHours, semster, program, department, status, prerequisites} = await req.json();
+        const newCourse = new Course({
+            name:name,
+            title:title,
+            code:code,
+            status:status,
+            creditHours:creditHoures,
+            semster:semster,
+            program:program,
+            department:department,
+            prerequisites: prerequisites,
+         })
 
+         await Course.Save();
+
+         return Response.json({message:"Success"},{status:200}
+         )
     }
     catch(error){
         return Response.json({message:error.message},{status:500})

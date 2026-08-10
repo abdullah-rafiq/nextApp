@@ -23,16 +23,15 @@ export default function Courses() {
   const [creditHours, setCreditHours] = useState("");
   const [semester, setSemester] = useState("");
 
-  function handleSave() {
-    console.log({
-      title,
-      code,
-      department,
-      program,
-      creditHours,
-      semester,
-    });
-  }
+  async function handleSave() {
+    const respone = await fetch("/course",{
+        method:"POST",
+        headers:{"Content-type":"application/json"},
+        body:JSON.stringify({title, code, department, program, creditHours, semester}),
+    })
+    const data= await respone.json();
+
+      }
 
   function handleCancel() {
     router.push("/admin/courses");

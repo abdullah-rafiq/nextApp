@@ -10,7 +10,6 @@ const coursesSchema = new mongoose.Schema({
     
     description: {
       type: String,
-      required: true,
     },
 
     code: {
@@ -23,6 +22,7 @@ const coursesSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+
     department:{
         type:String,
         required:true,
@@ -37,12 +37,10 @@ const coursesSchema = new mongoose.Schema({
     },
     prerequisites:{
         type:String,
-        required:true,
     },
 
     status:{
-            type:Boolean,
-            default:true,
+            type:String,
     },
 
     created_at: {
