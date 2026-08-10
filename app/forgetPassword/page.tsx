@@ -126,7 +126,7 @@ export default function Registration() {
       </button>)
   }
 
-  {showOTP ? null :(
+  {step ? null :(
 
      <button className="button" type="button" onClick={handleGoLogin}>
       Login
