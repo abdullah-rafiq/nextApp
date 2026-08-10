@@ -19,7 +19,7 @@ export async function POST(req) {
             prerequisites: prerequisites,
          })
 
-         await Course.Save();
+         await Course.save();
 
          return Response.json({message:"Success"},{status:200}
          )
