@@ -1,9 +1,36 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
+type Course = {
+  _id: string;
+  code: string;
+  title: string;
+  department: string;
+  program: string;
+  creditHours: number;
+  semester: string;
+  status: boolean;
+};
+
 export default function Courses() {
     const handleAddCourse = () =>{
         
     };
+    const [courses,setCourses]=useState<Course[]>([]);
+    
+    useEffect(()=>{
+        async function getCourses() {
+            const response = await fetch("/api/courses");
+            const data = await response.json();
+
+            if(response.ok){
+                setCourses(data);
+            }
+        }
+
+        getCourses();
+    },[])
     return (
     <div>
     <div className="flex justify-between items-center">
@@ -26,21 +53,31 @@ export default function Courses() {
       </tr>
     </thead>
     <tbody>
-      <tr className="border-b">
-        <td className="p-3">CS101</td>
-        <td className="p-3">Programming Fundamentals</td>
-        <td className="p-3">Computer Science</td>
-        <td className="p-3">BSCS</td>
-        <td className="p-3">3</td>
-        <td className="p-3">1</td>
-        <td className="p-3">Active</td>
-        <td className="p-3">
-          <button>Edit</button>
-          <button>Delete</button>
-        </td>
-      </tr>
-    </tbody>
-        </table>
+  {courses.map((courses) => (
+    <tr key={courses._id} className="border-b">
+      <td className="p-3">{courses.code}</td>
+
+      <td className="p-3">{courses.title}</td>
+
+      <td className="p-3">{courses.department}</td>
+
+      <td className="p-3">{courses.program}</td>
+
+      <td className="p-3">{courses.creditHours}</td>
+
+      <td className="p-3">{courses.semester}</td>
+
+      <td className="p-3">
+        {courses.status ? "Active" : "Inactive"}
+      </td>
+
+      <td className="p-3">
+        {<div className="flex-column"><button> Edit</button> / <button>Delete</button></div>}
+      </td>
+    </tr>
+  ))}
+</tbody>
+      </table>
 
             
 
