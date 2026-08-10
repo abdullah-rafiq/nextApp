@@ -17,7 +17,7 @@ type Course = {
 export default function Courses() {
   const router= useRouter();
     const handleAddCourse = () =>{
-      router.push("/courses/addCourses")
+      router.push("/admin/courses/addCourses")
         
     };
     const [courses,setCourses]=useState<Course[]>([]);
