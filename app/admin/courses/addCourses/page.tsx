@@ -129,17 +129,22 @@ export default function Courses() {
           />
         </div>
         {/* Status */}
-        <div>
+        <div className="gap-2">
+          <label>
           <input type="radio"
           name="status"
           value="active"
           checked={ status === "active" }
           onChange={(e) => setStatus(e.target.value)}/>
-
+          Active
+          </label>
+          <label>
           <input type="radio"
           name="status"
           checked={ status === "inactive" }
           value={status} onChange={(e) => setStatus(e.target.value)}/>
+          InActive
+          </label>
         </div>
 
 
