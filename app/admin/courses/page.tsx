@@ -74,7 +74,7 @@ export default function Courses() {
       </td>
 
       <td className="p-3">
-        {<div className="flex-column"><button>Edit</button>  <button>Delete</button></div>}
+        {<div className="flex"><button>Edit</button>  <button>Delete</button></div>}
       </td>
     </tr>
   ))}
