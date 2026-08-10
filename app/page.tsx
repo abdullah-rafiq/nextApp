@@ -69,7 +69,7 @@ const router = useRouter();
 
     const data = await response.json();
     if (response.ok) {
-       router.push("/verifyOTP")
+       router.push("/verifyOTP?email=" + encodeURIComponent(email));
       //window.location.href = "/login";
     } else {
       console.log(data);

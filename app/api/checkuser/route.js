@@ -1,6 +1,7 @@
 import { connectDB } from "../../../lib/mongodb";
 import User from "../../../models/User";
-
+import { sendOTP } from"../../../lib/sendOTP"
+import crypto from "crypto";
 
 export const POST = async (req) => {
   try {
@@ -16,8 +17,18 @@ export const POST = async (req) => {
         { status: 401 }
       );
     }
-        /// we can send a password reset link to the user's email here or return a success message 
-        return Response.json(
+    const OTP = crypto.randomBytes(4).toString("hex");
+    user.verificationOTP = OTP;
+    user.verificationOTPExpiry = Date.now() + 10 * 60 * 1000;
+
+    await user.save();
+
+    await sendOTP(
+      email,
+      OTP
+    )
+
+    return Response.json(
             { message: "User exists" },
             { status: 200 }  
         );
