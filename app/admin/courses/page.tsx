@@ -5,10 +5,10 @@ export default function Courese() {
     <div>
       <h1 className="align-item=center font-weight=bold"> Coruses </h1>
 
-      <button className="add-button">View Courese</button>
-      <button className="add-button">Add Courese</button>
-      <button className="add-button">Edit Courese</button>
-      <button className="add-button">Delete Courese</button>
+      <button className="Add-account">View Courese</button>
+      <button className="Add-account">Add Courese</button>
+      <button className="Add-account">Edit Courese</button>
+      <button className="Add-account">Delete Courese</button>
 
 
     </div>
