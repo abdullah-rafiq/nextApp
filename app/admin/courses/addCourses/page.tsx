@@ -24,7 +24,7 @@ export default function Courses() {
   const [semester, setSemester] = useState("");
 
   async function handleSave() {
-    const respone = await fetch("/course",{
+    const respone = await fetch("/api/courses",{
         method:"POST",
         headers:{"Content-type":"application/json"},
         body:JSON.stringify({title, code, department, program, creditHours, semester}),
