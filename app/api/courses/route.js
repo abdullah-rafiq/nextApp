@@ -1,0 +1,43 @@
+import { connectDB } from "../../../lib/mongodb"
+import  Course from "../../../models/courses"
+//for adding coures
+export async function POST(req) {
+    try{
+        await connectDB();
+        const [name, code, title, creditHoures,grade, teacher] = await req.json();
+    
+
+    }
+    catch(error){
+        return Response.json({message:error.message},{status:500})
+    };
+    
+    
+}
+
+export async function PUT(req) {
+    try{
+        await connectDB();
+        const [name, code, title, creditHoures,grade, teacher]=await req.json;}
+
+    catch(error){
+        return Response.json({message:error.message},{status:500})
+    };
+    
+}
+
+
+export async function GET(req) {
+    try{
+        await connectDB();
+        const [name, code, title, creditHoures,grade, teacher]=await req.json;}
+
+    catch(error){
+        return Response.json({message:error.message},{status:500})
+    };
+    
+}
+
+export async function Delete(req) {
+    
+}
