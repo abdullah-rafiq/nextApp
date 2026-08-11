@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 import { useRouter } from "next/navigation";
+
 type Course = {
   _id: string;
   code: string;
@@ -10,19 +11,23 @@ type Course = {
   department: string;
   program: string;
   creditHours: number;
-  semester: string;
-  status: boolean;
+  semester: number;
+  status: string;
 };
 
 export default function Courses() {
+   function handleEditCourse(){
+
+   };
+   function handleAddCourse (){
+       router.push("/admin/courses/addCourses")
+         
+     };
+
   const router= useRouter();
-    const handleAddCourse = () =>{
-      router.push("/admin/courses/addCourses")
-        
-    };
-    const [courses,setCourses]=useState<Course[]>([]);
+  const [courses,setCourses]=useState<Course[]>([]);
     
-    useEffect(()=>{
+  useEffect(()=>{
         async function getCourses() {
             const response = await fetch("/api/courses");
             const data = await response.json();
@@ -34,6 +39,7 @@ export default function Courses() {
 
         getCourses();
     },[])
+  
     return (
     <div>
     <div className="flex justify-between items-center">
@@ -74,7 +80,7 @@ export default function Courses() {
       </td>
 
       <td className="p-3">
-        {<div className="flex gap-10"><button className="Add-account" >Edit</button>  <button className="Add-account" >Delete</button></div>}
+        {<div className="flex gap-10"><button className="Add-account" onClick={handleEditCourse} >Edit</button>  <button className="Add-account" >Delete</button></div>}
       </td>
     </tr>
   ))}
