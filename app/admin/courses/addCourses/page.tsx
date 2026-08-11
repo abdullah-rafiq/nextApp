@@ -71,7 +71,6 @@ export default function Courses() {
         newError.creditHours= 'Must between 1 and 3'
       }
     }
-
     
     if(semester.trim()===""){
       newError.semester="Semester is required"
@@ -139,7 +138,6 @@ setError(newError);
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-          
               {error.title && (
                 <p className="error">{error.title}</p>
               )}
@@ -148,7 +146,6 @@ setError(newError);
         {/* Course Code */}
         <div className="flex items-center gap-5">
           <h3 className="w-32">Course Code</h3>
-
           <input
             className="border border-gray-300 rounded-md px-3 py-2"
             type="text"
@@ -156,7 +153,6 @@ setError(newError);
             value={code}
             onChange={(e) => setCode(e.target.value)}
           />
-          
               {error.code && (
                 <p className="error">{error.code}</p>
               )}

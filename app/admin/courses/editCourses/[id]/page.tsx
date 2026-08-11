@@ -36,7 +36,7 @@ useEffect(() => {
   async function getData() {
     const response = await fetch(`/api/courses/${courseId}`,{
       method:"GET",
-      headers:{"Content-type":"application/jsom"},
+      headers:{"Content-type":"application/json"},
     });
 
     const data = await response.json();
@@ -54,6 +54,7 @@ useEffect(() => {
 
   getData();
 }, [courseId]);
+
   async function handleUpdate() {
 
     
@@ -95,7 +96,7 @@ useEffect(() => {
     if(semester.trim()===""){
       newError.semester="Semester is required"
     }else {
-  const semesterNumber = parseInt(semester);
+    const semesterNumber = parseInt(semester);
 
   if (semesterNumber < 1 || semesterNumber > 8) {
     newError.semester = "Semester must be between 1 and 8";
