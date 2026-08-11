@@ -53,7 +53,7 @@ useEffect(() => {
   getData();
 }, [courseId]);
   async function handleUpdate() {
-        const response = await fetch(`/api/courses/[id]/${courseId}`,{
+        const response = await fetch(`/api/courses/${courseId}`,{
           method:"PUT",headers:{"Content-type":"application/json"},
            body: JSON.stringify({
       title,
