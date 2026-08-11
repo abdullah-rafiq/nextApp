@@ -81,7 +81,7 @@ export default function Courses() {
       <button className="bg-blue-600 text-white px-4 py-2 rounded-md" onClick={handleAddCourse}>Add Courses</button>
 
 </div>
-    <div className="flex justify-between width-100">
+    <div className="flex justify-between width-ful">
         <table>
     <thead>
         <tr className="border-b">
