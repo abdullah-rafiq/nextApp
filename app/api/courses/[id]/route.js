@@ -4,7 +4,6 @@ export async function PUT(req, { params }) {
     try{
         await connectDB();
          const {
-            id,
             title,
             code,
             department,
