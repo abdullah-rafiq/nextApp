@@ -17,7 +17,7 @@ type Course = {
 
 export default function Courses() {
    function handleEditCourse(){
-
+       router.push("/admin/courses/editCourses")
    };
    function handleAddCourse (){
        router.push("/admin/courses/addCourses")
