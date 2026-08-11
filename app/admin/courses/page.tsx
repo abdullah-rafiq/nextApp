@@ -16,8 +16,8 @@ type Course = {
 };
 
 export default function Courses() {
-   function handleEditCourse(){
-       router.push("/admin/courses/editCourses")
+   function handleEditCourse(id:string){
+       router.push("/admin/courses/editCourses?id=${id}")
    };
    function handleAddCourse (){
        router.push("/admin/courses/addCourses")
@@ -80,7 +80,7 @@ export default function Courses() {
       </td>
 
       <td className="p-3">
-        {<div className="flex gap-10"><button className="Add-account" onClick={handleEditCourse} >Edit</button>  <button className="Add-account" >Delete</button></div>}
+        {<div className="flex gap-10"><button className="Add-account" onClick={()=>handleEditCourse (courses._id)} >Edit</button>  <button className="Add-account" >Delete</button></div>}
       </td>
     </tr>
   ))}
