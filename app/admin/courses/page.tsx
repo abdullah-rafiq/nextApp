@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 
 import { useRouter } from "next/navigation";
-import { useSearchParams } from "next/navigation";
 type Course = {
   _id: string;
   code: string;
@@ -16,8 +15,6 @@ type Course = {
 };
 
 export default function Courses() {
-  const searchParams = useSearchParams();
-const courseId = searchParams.get("id");
    function handleEditCourse(id:string){
        router.push(`/admin/courses/editCourses?id=${id}`)
    };
@@ -28,27 +25,20 @@ const courseId = searchParams.get("id");
 
   const router= useRouter();
   const [courses,setCourses]=useState<Course[]>([]);
-    useEffect(() => {
-  if (!courseId) return;
+    
+  useEffect(()=>{
+        async function getCourses() {
+            const response = await fetch("/api/courses");
+            const data = await response.json();
 
-  async function getData() {
-    const response = await fetch(`/api/courses?id=${courseId}`);
+            if(response.ok){
+                setCourses(data);
+            }
+        }
 
-    const data = await response.json();
-
-    if (response.ok) {
-      setTitle(data.title);
-      setCode(data.code);
-      setDepartment(data.department);
-      setProgram(data.program);
-      setCreditHours(data.creditHours);
-      setSemester(data.semester);
-      setStatus(data.status);
-    }
-  }
-
-  getData();
-}, [courseId]);
+        getCourses();
+    },[])
+  
     return (
     <div>
     <div className="flex justify-between items-center">
