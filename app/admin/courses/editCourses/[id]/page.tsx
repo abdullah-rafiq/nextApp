@@ -18,8 +18,6 @@ export default function Courses() {
   const router = useRouter();
 
   
-  const searchParams = useSearchParams();
-  const courseId = searchParams.get("id");
 
   const [title, setTitle] = useState("");
   const [code, setCode] = useState("");

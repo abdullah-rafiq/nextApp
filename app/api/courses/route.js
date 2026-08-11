@@ -32,6 +32,7 @@ export async function POST(req) {
 }
 
 export async function PUT(req) {
+   
     try{
         await connectDB();
          const {
@@ -54,7 +55,7 @@ export async function PUT(req) {
 }
 
 
-export async function GET(req) {
+export async function GET(req, { params }) {
     try{
         await connectDB();
         const course = await Course.find();
