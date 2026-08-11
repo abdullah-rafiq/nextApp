@@ -76,9 +76,6 @@ export async function GET(req, { params }) {
             return Response.json(course, { status: 200 });
         }
 
-        const courses = await Course.find();
-
-        return Response.json(courses, { status: 200 }); 
     }
 
     catch(error){
