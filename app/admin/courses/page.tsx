@@ -81,7 +81,7 @@ export default function Courses() {
       <button className="bg-blue-600 text-white px-4 py-2 rounded-md" onClick={handleAddCourse}>Add Courses</button>
 
 </div>
-    <div className="flex justify-between w-ful m=10">
+    <div className="flex justify-between w-full m-10">
         <table>
     <thead>
         <tr className="border-b">
@@ -120,6 +120,8 @@ export default function Courses() {
             : "bg-green-500 hover:bg-green-600"
             }`}
             onClick={()=>handleStatusChange(courses._id)}>{ courses.status === "active" ?("inactive"):("active")}</button>
+        <button className="px-2 py-1 rounded-md text-white " onClick={()=>handleEditCourse (courses._id)} >Edit</button>
+        <button className="px-2 py-1 rounded-md text-white " onClick={()=>handleDeleteCourse (courses._id)} >Delete</button>  
         </div>}
       </td>
     </tr>
