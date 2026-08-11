@@ -31,7 +31,7 @@ export async function POST(req) {
     
 }
 
-export async function PUT(req) {
+export async function PUT(req, { params }) {
    
     try{
         await connectDB();
@@ -42,11 +42,23 @@ export async function PUT(req) {
             department,
             program,
             creditHours,
-            semester
+            semester,
+            status
     } = await req.json();
-    const course = await Course.findById(id);
     
-
+       const { id } = await params;
+    
+    if(id){
+        const course = await Course.findByIdAndUpdate(id);
+        if (!course) {
+            return Response.json(
+                { message: "Course not found" },
+                { status: 404 }
+                );
+            }
+        return Response.json(course, { status: 200 });    
+    }
+    
     }
     catch(error){
         return Response.json({message:error.message},{status:500})
@@ -59,9 +71,7 @@ export async function GET(req, { params }) {
     try{
        
         await connectDB();
-
-        const { searchParams } = new URL(req.url);
-        const id = searchParams.get("id");
+        const { id } = await params;
 
         if (id) {
             const course = await Course.findById(id);
