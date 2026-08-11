@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
 import { useRouter } from "next/navigation";
+
 type Course = {
   _id: string;
   code: string;
@@ -15,6 +15,23 @@ type Course = {
 };
 
 export default function Courses() {
+     
+  useEffect(()=>{
+        async function getCourses() {
+            const response = await fetch("/api/courses", {
+              method: "GET",
+              headers: { "Content-Type": "application/json" },
+            });
+            const data = await response.json();
+
+            if(response.ok){
+                setCourses(data);
+            }
+        }
+
+        getCourses();
+    },[])
+ 
   async function handleDeleteCourse(id:string){
 
       const response = await fetch(`/api/courses/${id}`,
@@ -37,22 +54,6 @@ export default function Courses() {
 
   const router= useRouter();
   const [courses,setCourses]=useState<Course[]>([]);
-    
-  useEffect(()=>{
-        async function getCourses() {
-            const response = await fetch("/api/courses", {
-              method: "GET",
-              headers: { "Content-Type": "application/json" },
-            });
-            const data = await response.json();
-
-            if(response.ok){
-                setCourses(data);
-            }
-        }
-
-        getCourses();
-    },[])
   
     return (
     <div>
@@ -101,11 +102,7 @@ export default function Courses() {
 </tbody>
       </table>
 
-            
-
-
     </div>
-
     </div>
   );
 }

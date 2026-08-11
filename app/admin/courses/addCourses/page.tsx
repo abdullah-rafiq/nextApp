@@ -1,6 +1,5 @@
 "use client";
 
-import { error } from "console";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -25,7 +24,71 @@ export default function Courses() {
   const [semester, setSemester] = useState("");
   const [status, setStatus]=useState(""); 
 
+  const [error,setError]=useState({
+    title:"",
+    code:"",
+    department:"",
+    program:"",
+    creditHours:"",
+    semester:"",
+    status:"",
+  });
+  
+
   async function handleSave() {
+
+    const newError={
+      title:"",
+      code:"",
+      department:"",
+      program:"",
+      creditHours:"",
+      semester:"",
+      status:"",
+    };
+
+    if(title.trim()===""){
+      newError.title="Title is required"
+    }
+    
+    if(code.trim()===""){
+      newError.code="Code is required"
+    }
+    
+    if(department.trim()===""){
+      newError.department="Department is required"
+    }
+    
+    if(program.trim()===""){
+      newError.program="Program is required"
+    }
+    
+    if(creditHours.trim()===""){
+      newError.creditHours="Credit Hours are required"
+    }
+    
+    if(semester.trim()===""){
+      newError.semester="Semester is required"
+    }else {
+  const semesterNumber = parseInt(semester);
+
+  if (semesterNumber < 1 || semesterNumber > 9) {
+    newError.semester = "Semester must be between 1 and 9";
+  }
+}
+setError(newError);
+
+ if (
+    newError.title ||
+    newError.code ||
+    newError.department ||
+    newError.program ||
+    newError.creditHours ||
+    newError.semester)
+    {
+    return;
+  }
+
     const response = await fetch("/api/courses",{
         method:"POST",
         headers:{"Content-type":"application/json"},
@@ -70,6 +133,10 @@ export default function Courses() {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
+          
+              {error.title && (
+                <p className="error">{error.title}</p>
+              )}
         </div>
 
         {/* Course Code */}
@@ -83,6 +150,10 @@ export default function Courses() {
             value={code}
             onChange={(e) => setCode(e.target.value)}
           />
+          
+              {error.code && (
+                <p className="error">{error.code}</p>
+              )}
         </div>
 
         {/* Department */}
@@ -96,6 +167,10 @@ export default function Courses() {
             value={department}
             onChange={(e) => setDepartment(e.target.value)}
           />
+          
+              {error.department && (
+                <p className="error">{error.department}</p>
+              )}
         </div>
 
         {/* Program */}
@@ -109,6 +184,10 @@ export default function Courses() {
             value={program}
             onChange={(e) => setProgram(e.target.value)}
           />
+          
+              {error.program && (
+                <p className="error">{error.program}</p>
+              )}
         </div>
 
         {/* Semester */}
@@ -122,6 +201,10 @@ export default function Courses() {
             value={semester}
             onChange={(e) => setSemester(e.target.value)}
           />
+          
+              {error.semester && (
+                <p className="error">{error.semester}</p>
+              )}
         </div>
 
         {/* Credit Hours */}
@@ -135,6 +218,10 @@ export default function Courses() {
             value={creditHours}
             onChange={(e) => setCreditHours(e.target.value)}
           />
+          
+              {error.creditHours && (
+                <p className="error">{error.creditHours}</p>
+              )}
         </div>
         {/* Status */}
         <div className="gap-2">
