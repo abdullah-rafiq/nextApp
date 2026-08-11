@@ -80,6 +80,8 @@ export default function Courses() {
 
   {courses.map((courses) => (
     <tr key={courses._id} className="border-b">
+      <td className="p-3"><input type="checkbox"/></td>
+      
       <td className="p-3">{courses.code}</td>
 
       <td className="p-3">{courses.title}</td>
