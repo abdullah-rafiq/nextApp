@@ -1,6 +1,5 @@
 'use client';
 
-import { type MouseEvent } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -12,29 +11,25 @@ export default function AdminLayout({
     const router = useRouter();
 
     async function handleLogout() {
-        
     const respone = await fetch("/api/logout",{
         method: "POST",
-
     });
 
     if(respone.ok){
     router.push("/login");
     }
     else{
-
       console.log("error");
     }
         router.push("/login");
     }
-
   return (
 
     <div className="admin-layout">
 
       <aside className="sidebar">
         <h2 className="title">Admin Panel</h2>
- <nav className="nav-links">
+        <nav className="nav-links">
         <Link className="text" href="/admin">Dashboard</Link>
 
         <Link  className="text" href="/admin/student">

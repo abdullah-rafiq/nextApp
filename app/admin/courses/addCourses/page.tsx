@@ -30,7 +30,10 @@ export default function Courses() {
         headers:{"Content-type":"application/json"},
         body:JSON.stringify({title, code, department, program, creditHours, semester}),
     })
-    const data= await respone.json();
+    if(respone.ok){
+      alert("Course Added");
+      router.back;
+    }
 
       }
 
