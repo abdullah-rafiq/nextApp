@@ -19,6 +19,11 @@ export default function Courses() {
       const response = await fetch(`/api/courses/${id}`,
         {method:"DELETE",headers:{"Content-type":"application/json"}}
         )
+      const data = await response.json();
+
+            if(response.ok){
+                router.push("/login");
+            }
   }
   function handleEditCourse(id:string){
        router.push(`/admin/courses/editCourses/${id}`)

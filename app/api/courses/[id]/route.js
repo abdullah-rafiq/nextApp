@@ -19,7 +19,6 @@ export async function PUT(req, { params }) {
     
     
     if(id){
-        
         const course = await Course.findByIdAndUpdate(id, {
             title,
             code,
@@ -66,7 +65,6 @@ export async function DELETE(req) {
     await connectDB();
 
     const { id } = await params;
-
     const course = await Course.findByIdAndDelete(id);
 
     if (!course) {

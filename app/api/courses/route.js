@@ -46,7 +46,3 @@ export async function GET(req) {
     };
     
 }
-
-export async function DELETE(req) {
-    
-}
