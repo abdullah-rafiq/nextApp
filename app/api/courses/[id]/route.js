@@ -60,7 +60,7 @@ export async function GET(req,{params}) {
 }
 
 
-export async function DELETE(req) {
+export async function DELETE(req , { params }) {
     try {
     await connectDB();
 
