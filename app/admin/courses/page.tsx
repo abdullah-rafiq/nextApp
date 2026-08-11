@@ -38,7 +38,7 @@ export default function Courses() {
         }
         getCourses();
     },[])
- 
+
   async function handleDeleteCourse(id:string){
       const response = await fetch(`/api/courses/${id}`,
         {method:"DELETE",headers:{"Content-type":"application/json"}}
@@ -75,14 +75,15 @@ export default function Courses() {
          <button className="Add-account"> Assign To</button>
          </>
         }</div>
-    <div className="flex justify-between items-center">
-      
+
+    <div className="flex justify-between items-center">      
       <h1 className="font-bold text-2xl"> Courses </h1>
       <button className="bg-blue-600 text-white px-4 py-2 rounded-md" onClick={handleAddCourse}>Add Courses</button>
+
 </div>
-    <div>
+    <div className="width-100">
         <table>
-              <thead>
+    <thead>
         <tr className="border-b">
         <th className="p-3 text-left"></th>  
         <th className="p-3 text-left">Code</th>
