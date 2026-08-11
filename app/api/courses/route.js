@@ -39,7 +39,7 @@ export async function GET(req) {
 
         const course = await Course.find();
 
-        return Response.json({message:course},{status:200});
+        return Response.json(course,{status:200});
     }
     catch(error){
         return Response.json({message:error.message},{status:500})
