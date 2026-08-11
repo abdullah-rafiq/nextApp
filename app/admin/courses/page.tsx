@@ -23,7 +23,8 @@ export default function Courses() {
       alert("success status changed");
     }
 
-  }
+  };
+
   useEffect(()=>{
         async function getCourses() {
             const response = await fetch("/api/courses", {
@@ -31,19 +32,17 @@ export default function Courses() {
               headers: { "Content-Type": "application/json" },
             });
             const data = await response.json();
-
             if(response.ok){
                 setCourses(data);
             }
         }
         getCourses();
-    },[])
+    },[]);
 
   async function handleDeleteCourse(id:string){
       const response = await fetch(`/api/courses/${id}`,
-        {method:"DELETE",headers:{"Content-type":"application/json"}}
-        )
-      const data = await response.json();
+        {method:"DELETE",headers:{"Content-type":"application/json"}})
+        const data = await response.json();
             if(response.ok){
               alert("Succesfully deleted");
               setCourses((currentCourses)=>currentCourses.filter((course) => course._id !== id));
@@ -69,7 +68,8 @@ export default function Courses() {
     <div>
       <div className="flex gap-2">
         { checkBox && 
-        <><button className="Add-account"> Status Active All</button>
+        <>
+         <button className="Add-account"> Status Active All</button>
          <button className="Add-account"> Status Inactive All</button>
          <button className="Add-account"> Delete All</button> 
          <button className="Add-account"> Assign To</button>
@@ -85,7 +85,7 @@ export default function Courses() {
         <table>
     <thead>
         <tr className="border-b">
-        <th className="p-3 text-left"></th>  
+        <th className="p-3 text-left gap-2"><input type="checkbox"/>Select All</th>  
         <th className="p-3 text-left">Course Code</th>
         <th className="p-3 text-left">Title</th>
         <th className="p-3 text-left">Department</th>
