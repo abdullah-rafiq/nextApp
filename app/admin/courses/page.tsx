@@ -86,7 +86,7 @@ export default function Courses() {
     <thead>
         <tr className="border-b">
         <th className="p-3 text-left"></th>  
-        <th className="p-3 text-left">Code</th>
+        <th className="p-3 text-left">Course Code</th>
         <th className="p-3 text-left">Title</th>
         <th className="p-3 text-left">Department</th>
         <th className="p-3 text-left">Program</th>
@@ -112,12 +112,13 @@ export default function Courses() {
       </td>
 
       <td className="p-3">
-        {<div className="flex gap-10"><button className={`px-3 py-1 rounded-md text-white ${
-         courses.status === "active"
-          ? "bg-red-500 hover:bg-red-600"
-          : "bg-green-500 hover:bg-green-600"
-        }`}
-        onClick={()=>handleStatusChange(courses._id)}>{ courses.status === "active" ?("inactive"):("active")}</button>
+        {<div className="flex gap-10">
+          <button className={`px-2 py-1 rounded-md text-white ${
+            courses.status === "active"
+            ? "bg-red-500 hover:bg-red-600"
+            : "bg-green-500 hover:bg-green-600"
+            }`}
+            onClick={()=>handleStatusChange(courses._id)}>{ courses.status === "active" ?("inactive"):("active")}</button>
         <button className="Add-account" onClick={()=>handleEditCourse (courses._id)} >Edit</button>
         <button className="Add-account" onClick={()=>handleDeleteCourse (courses._id)} >Delete</button>  
         </div>}
