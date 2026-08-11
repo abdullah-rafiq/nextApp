@@ -10,7 +10,7 @@ type Course = {
   program: string;
   creditHours: number;
   semester: number;
-  status: boolean;
+  status: string;
 };
 
 export default function Courses() {
@@ -75,12 +75,13 @@ export default function Courses() {
     if(semester.trim()===""){
       newError.semester="Semester is required"
     }else {
-  const semesterNumber = parseInt(semester);
+    const semesterNumber = parseInt(semester);
 
-  if (semesterNumber < 1 || semesterNumber > 8) {
+    if (semesterNumber < 1 || semesterNumber > 8) {
     newError.semester = "Semester must be between 1 and 8";
   }
 }
+
 setError(newError);
 
  if (
