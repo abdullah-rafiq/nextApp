@@ -103,8 +103,13 @@ export default function Courses() {
       </td>
 
       <td className="p-3">
-        {<div className="flex gap-10"><button className="Add-account" onClick={()=>handleEditCourse (courses._id)} >Edit</button>  <button className="Add-account" onClick={()=>handleDeleteCourse (courses._id)} >Delete</button>
-          <button className="Add-account" onClick={handleStatusChange}>{ courses.status ?("active"):("inactive")}</button>
+        {<div className="flex gap-10"><button className={`px-3 py-1 rounded-md text-white ${
+    courses.status === "active"
+      ? "bg-green-500 hover:bg-green-600"
+      : "bg-red-500 hover:bg-red-600"
+  }`} onClick={handleStatusChange}>{ courses.status ?("active"):("inactive")}</button>
+        <button className="Add-account" onClick={()=>handleEditCourse (courses._id)} >Edit</button>  <button className="Add-account" onClick={()=>handleDeleteCourse (courses._id)} >Delete</button>
+          
         </div>}
       </td>
     </tr>
