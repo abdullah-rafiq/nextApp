@@ -32,7 +32,10 @@ useEffect(() => {
   if (!courseId) return;
 
   async function getData() {
-    const response = await fetch(`/api/courses?id=${courseId}`);
+    const response = await fetch(`/api/courses?id=${courseId}`,{
+      method:"GET",
+      headers:{"Content-type":"application/jsom"},
+    });
 
     const data = await response.json();
 
