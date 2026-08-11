@@ -1,4 +1,3 @@
-
 export async function PUT(req, { params }) {
    
     try{
@@ -15,8 +14,19 @@ export async function PUT(req, { params }) {
     
     const { id } = await params;
     
+    
     if(id){
-        const course = await Course.findByIdAndUpdate(id);
+        
+        const course = await Course.findByIdAndUpdate(id, {
+            title,
+            code,
+            department,
+            program,
+            creditHours,
+            semester,
+            status
+        }, { new: true });
+
         if (!course) {
             return Response.json(
                 { message: "Course not found" },
@@ -33,17 +43,13 @@ export async function PUT(req, { params }) {
     
 }
 
-
-
 export async function GET(req,{params}) {
-    try{
-       
+    try{       
         await connectDB();
         const { id } = await params;
+        const course = await Course.findById(id);
 
-        const course = await Course.findbyId(id);
-
-        return Response.json({message:course},{status:200});
+        return Response.json(course,{status:200});
     }
     catch(error){
         return Response.json({message:error.message},{status:500})
