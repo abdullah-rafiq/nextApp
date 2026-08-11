@@ -53,7 +53,26 @@ useEffect(() => {
   getData();
 }, [courseId]);
   async function handleUpdate() {
-    
+        const response = await fetch(`/api/courses/[id]/${courseId}`,{
+          method:"PUT",headers:{"Content-type":"application/json"},
+           body: JSON.stringify({
+      title,
+      code,
+      department,
+      program,
+      creditHours,
+      semester,
+      status,
+      })
+        })
+        const data = await response.json();
+
+  if (response.ok) {
+    alert("Course updated successfully");
+    router.push("/admin/courses");
+  } else {
+    alert(data.message);
+  }
       }
 
   function handleCancel() {
