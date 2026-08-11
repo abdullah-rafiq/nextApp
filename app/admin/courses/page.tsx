@@ -28,12 +28,10 @@ export default function Courses() {
                 setCourses(data);
             }
         }
-
         getCourses();
     },[])
  
   async function handleDeleteCourse(id:string){
-
       const response = await fetch(`/api/courses/${id}`,
         {method:"DELETE",headers:{"Content-type":"application/json"}}
         )
@@ -46,12 +44,14 @@ export default function Courses() {
               alert(data.message);
             }
   }
+
   function handleEditCourse(id:string){
        router.push(`/admin/courses/editCourses/${id}`)
-   };
-   function handleAddCourse (){
+  };
+
+  function handleAddCourse (){
        router.push("/admin/courses/addCourses") 
-     };
+  };
 
   const router= useRouter();
   const [courses,setCourses]=useState<Course[]>([]);
@@ -77,6 +77,7 @@ export default function Courses() {
       </tr>
     </thead>
     <tbody>
+
   {courses.map((courses) => (
     <tr key={courses._id} className="border-b">
       <td className="p-3">{courses.code}</td>
@@ -92,7 +93,7 @@ export default function Courses() {
       <td className="p-3">{courses.semester}</td>
 
       <td className="p-3">
-        {courses.status ? "Active" : "Inactive"}
+        {courses.status}
       </td>
 
       <td className="p-3">
