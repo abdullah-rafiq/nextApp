@@ -15,12 +15,16 @@ type Course = {
 };
 
 export default function Courses() {
-   function handleEditCourse(id:string){
+  async function handleDeleteCourse(id:string){
+      const response = await fetch(`/api/courses/${id}`,
+        {method:"DELETE",headers:{"Content-type":"application/json"}}
+        )
+  }
+  function handleEditCourse(id:string){
        router.push(`/admin/courses/editCourses/${id}`)
    };
    function handleAddCourse (){
-       router.push("/admin/courses/addCourses")
-         
+       router.push("/admin/courses/addCourses") 
      };
 
   const router= useRouter();
@@ -82,7 +86,7 @@ export default function Courses() {
       </td>
 
       <td className="p-3">
-        {<div className="flex gap-10"><button className="Add-account" onClick={()=>handleEditCourse (courses._id)} >Edit</button>  <button className="Add-account" >Delete</button></div>}
+        {<div className="flex gap-10"><button className="Add-account" onClick={()=>handleEditCourse (courses._id)} >Edit</button>  <button className="Add-account" onClick={()=>handleDeleteCourse (courses._id)} >Delete</button></div>}
       </td>
     </tr>
   ))}

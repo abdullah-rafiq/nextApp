@@ -59,3 +59,32 @@ export async function GET(req,{params}) {
     };
     
 }
+
+
+export async function DELETE(req) {
+    try {
+    await connectDB();
+
+    const { id } = await params;
+
+    const course = await Course.findByIdAndDelete(id);
+
+    if (!course) {
+      return Response.json(
+        { message: "Course not found" },
+        { status: 404 }
+      );
+    }
+
+    return Response.json(
+      { message: "Course deleted successfully" },
+      { status: 200 }
+    );
+
+  } catch (error) {
+    return Response.json(
+      { message: error.message },
+      { status: 500 }
+    );
+  }
+}
