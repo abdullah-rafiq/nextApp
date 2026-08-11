@@ -10,7 +10,7 @@ type Course = {
   program: string;
   creditHours: number;
   semester: number;
-  status: boolean;
+  status: string;
 };
 
 export default function Courses() {
@@ -24,13 +24,14 @@ export default function Courses() {
   const [semester, setSemester] = useState("");
   const [status, setStatus]=useState(""); 
   const [courseId, setCourseId] = useState("");
-  
+
 useEffect(() => {
   async function getData() {
     const response = await fetch(`/api/courses?id=${courseId}`);
 
     const data = await response.json();
 
+    setCourseId(data.id);
     setTitle(data.title);
     setCode(data.code);
     setDepartment(data.department);
