@@ -26,19 +26,19 @@ export default function Courses() {
   const [status, setStatus]=useState(""); 
 
   async function handleSave() {
-    const respone = await fetch("/api/courses",{
+    const response = await fetch("/api/courses",{
         method:"POST",
         headers:{"Content-type":"application/json"},
         body:JSON.stringify({title, code, department, program, creditHours, semester}),
     })
-    if(respone.ok){
+    const data = await response.json();
+    if(response.ok){
       alert("Course Added");
       router.push("/admin/courses");
     }
-
     else
     {
-      alert(error)
+      alert(data.message);
     }
       }
 

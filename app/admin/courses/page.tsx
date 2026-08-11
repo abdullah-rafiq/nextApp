@@ -16,13 +16,16 @@ type Course = {
 
 export default function Courses() {
   async function handleDeleteCourse(id:string){
+
       const response = await fetch(`/api/courses/${id}`,
         {method:"DELETE",headers:{"Content-type":"application/json"}}
         )
       const data = await response.json();
-
             if(response.ok){
-                router.push("/login");
+              alert("Succesfully deleted");
+            }
+            else{
+              alert(data.message);
             }
   }
   function handleEditCourse(id:string){
