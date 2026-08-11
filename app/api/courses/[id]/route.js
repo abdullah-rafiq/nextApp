@@ -1,8 +1,7 @@
 import { connectDB } from "../../../../lib/mongodb";
 import Course from "../../../../models/courses";
 
-export async function PUT(req, { params }) {
-   
+export async function PUT(req, { params }) {  
     try{
         await connectDB();
          const {
@@ -16,7 +15,6 @@ export async function PUT(req, { params }) {
     } = await req.json();
     
     const { id } = await params;
-    
     
     if(id){
         const course = await Course.findByIdAndUpdate(id, {
@@ -59,11 +57,10 @@ export async function GET(req,{params}) {
     
 }
 
-
 export async function DELETE(req , { params }) {
     try {
-    await connectDB();
 
+    await connectDB();
     const { id } = await params;
     const course = await Course.findByIdAndDelete(id);
 
