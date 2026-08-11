@@ -14,7 +14,7 @@ export default function AdminLayout({
     async function handleLogout() {
         
     const respone = await fetch("/api/logout",{
-        method: "Post",
+        method: "POST",
 
     });
 
