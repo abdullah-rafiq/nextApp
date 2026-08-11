@@ -1,5 +1,6 @@
 "use client";
 
+import { error } from "console";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -35,6 +36,10 @@ export default function Courses() {
       router.push("/admin/courses");
     }
 
+    else
+    {
+      alert(error)
+    }
       }
 
   function handleCancel() {
