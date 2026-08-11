@@ -17,7 +17,7 @@ type Course = {
 export default function Courses() {
   function handleStatusChange(){
 
-    
+
   }
   useEffect(()=>{
         async function getCourses() {
@@ -69,6 +69,7 @@ export default function Courses() {
         <table>
               <thead>
         <tr className="border-b">
+        <th className="p-3 text-left"></th>  
         <th className="p-3 text-left">Code</th>
         <th className="p-3 text-left">Title</th>
         <th className="p-3 text-left">Department</th>
