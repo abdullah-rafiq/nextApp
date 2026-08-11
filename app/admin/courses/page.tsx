@@ -120,8 +120,6 @@ export default function Courses() {
             : "bg-green-500 hover:bg-green-600"
             }`}
             onClick={()=>handleStatusChange(courses._id)}>{ courses.status === "active" ?("inactive"):("active")}</button>
-        <button className="Add-account" onClick={()=>handleEditCourse (courses._id)} >Edit</button>
-        <button className="Add-account" onClick={()=>handleDeleteCourse (courses._id)} >Delete</button>  
         </div>}
       </td>
     </tr>
