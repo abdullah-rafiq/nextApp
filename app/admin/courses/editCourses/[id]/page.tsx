@@ -75,7 +75,7 @@ useEffect(() => {
       {/* Heading */}
       <div className="flex justify-center mb-8">
         <h1 className="font-bold text-2xl">
-          Edit Information of Course ${title}
+          Edit Information of Course {title}
         </h1>
       </div>
 
