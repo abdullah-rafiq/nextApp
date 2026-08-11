@@ -104,7 +104,7 @@ export default function Courses() {
 
       <td className="p-3">
         {<div className="flex gap-10"><button className="Add-account" onClick={()=>handleEditCourse (courses._id)} >Edit</button>  <button className="Add-account" onClick={()=>handleDeleteCourse (courses._id)} >Delete</button>
-          <button className="Add-account" onClick={habdleStatusChange}>{ courses.status ?("active"):("inactive")}</button>
+          <button className="Add-account" onClick={handleStatusChange}>{ courses.status ?("active"):("inactive")}</button>
         </div>}
       </td>
     </tr>
