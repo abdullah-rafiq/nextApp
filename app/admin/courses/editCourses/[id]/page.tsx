@@ -1,8 +1,7 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
 
 type Course = {
   code: string;
@@ -17,7 +16,9 @@ type Course = {
 export default function Courses() {
   const router = useRouter();
 
-  
+  const params = useParams();
+
+  const courseId = params.id as string;
 
   const [title, setTitle] = useState("");
   const [code, setCode] = useState("");
