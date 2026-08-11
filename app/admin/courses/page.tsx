@@ -62,7 +62,7 @@ export default function Courses() {
   
     return (
     <div>
-      <div>
+      <div className="flex gap-2">
         { checkBox && 
         <><button className="Add-account"> Status Active All</button>
          <button className="Add-account"> Status Inactive All</button>
