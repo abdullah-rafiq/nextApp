@@ -151,9 +151,9 @@ useEffect(() => {
           />
         </div>
         {/* Status */}
-        <div className="gap-5">
+        <div className="flex gap-5">
           <label>
-          <input className="gap-5" type="radio"
+          <input className="flex items-center gap-2" type="radio"
           name="status"
           value="active"
           checked={ status === "active" }
@@ -162,7 +162,7 @@ useEffect(() => {
           </label>
 
           <label>
-          <input className="gap-5" type="radio"
+          <input className="flex items-center gap-2" type="radio"
           name="status"
           value="inactive"
           checked={ status === "inactive" }
