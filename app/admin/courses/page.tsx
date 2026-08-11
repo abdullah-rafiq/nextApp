@@ -15,7 +15,10 @@ type Course = {
 };
 
 export default function Courses() {
-     
+  function handleStatusChange(){
+
+    
+  }
   useEffect(()=>{
         async function getCourses() {
             const response = await fetch("/api/courses", {
@@ -99,7 +102,9 @@ export default function Courses() {
       </td>
 
       <td className="p-3">
-        {<div className="flex gap-10"><button className="Add-account" onClick={()=>handleEditCourse (courses._id)} >Edit</button>  <button className="Add-account" onClick={()=>handleDeleteCourse (courses._id)} >Delete</button></div>}
+        {<div className="flex gap-10"><button className="Add-account" onClick={()=>handleEditCourse (courses._id)} >Edit</button>  <button className="Add-account" onClick={()=>handleDeleteCourse (courses._id)} >Delete</button>
+          <button className="Add-account" onClick={habdleStatusChange}>{ courses.status ?("active"):("inactive")}</button>
+        </div>}
       </td>
     </tr>
   ))}
