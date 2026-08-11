@@ -84,33 +84,13 @@ useEffect(() => {
       newError.program="Program is required"
     }
     
-    if(creditHours.trim()===""){
-      newError.creditHours="Credit Hours are required"
-    }else{
-      const creditNo= parseInt(creditHours);
-      if(creditNo < 1 || creditNo > 3){
-        newError.creditHours= 'Must between 1 and 3'
-      }
-    }
-    
-    if(semester.trim()===""){
-      newError.semester="Semester is required"
-    }else {
-    const semesterNumber = parseInt(semester);
-
-  if (semesterNumber < 1 || semesterNumber > 8) {
-    newError.semester = "Semester must be between 1 and 8";
-  }
-}
 setError(newError);
 
  if (
     newError.title ||
     newError.code ||
     newError.department ||
-    newError.program ||
-    newError.creditHours ||
-    newError.semester)
+    newError.program)
     {
     return;
   }
@@ -232,9 +212,7 @@ setError(newError);
             value={semester}
             onChange={(e) => setSemester(e.target.value)}
           />
-                   {error.semester && (
-                <p className="error">{error.semester}</p>
-              )}
+                  
      
         </div>
 
@@ -249,10 +227,7 @@ setError(newError);
             value={creditHours}
             onChange={(e) => setCreditHours(e.target.value)}
           />
-                   {error.creditHours && (
-                <p className="error">{error.creditHours}</p>
-              )}
-     
+                  
         </div>
         {/* Status */}
         <div className="flex gap-5">

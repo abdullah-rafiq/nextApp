@@ -47,29 +47,49 @@ export default function Courses() {
       status:"",
     };
 
-    if(title.trim() === ""){
+    if(title.trim()===""){
       newError.title="Title is required"
     }
     
-    if(code.trim() === ""){
+    if(code.trim()===""){
       newError.code="Code is required"
     }
     
-    if(department.trim() === ""){
+    if(department.trim()===""){
       newError.department="Department is required"
     }
     
-    if(program.trim() === ""){
+    if(program.trim()===""){
       newError.program="Program is required"
     }
     
+    if(creditHours.trim()===""){
+      newError.creditHours="Credit Hours are required"
+    }else{
+      const creditNo= parseInt(creditHours);
+      if(creditNo < 1 || creditNo > 3){
+        newError.creditHours= 'Must between 1 and 3'
+      }
+    }
+    
+    if(semester.trim()===""){
+      newError.semester="Semester is required"
+    }else {
+  const semesterNumber = parseInt(semester);
+
+  if (semesterNumber < 1 || semesterNumber > 8) {
+    newError.semester = "Semester must be between 1 and 8";
+  }
+}
 setError(newError);
 
  if (
     newError.title ||
     newError.code ||
     newError.department ||
-    newError.program)
+    newError.program ||
+    newError.creditHours ||
+    newError.semester)
     {
     return;
   }
@@ -184,6 +204,9 @@ setError(newError);
             onChange={(e) => setSemester(e.target.value)}
           />
           
+              {error.semester && (
+                <p className="error">{error.semester}</p>
+              )}
         </div>
 
         {/* Credit Hours */}
@@ -198,6 +221,9 @@ setError(newError);
             onChange={(e) => setCreditHours(e.target.value)}
           />
           
+              {error.creditHours && (
+                <p className="error">{error.creditHours}</p>
+              )}
         </div>
         {/* Status */}
         <div className="gap-2">
