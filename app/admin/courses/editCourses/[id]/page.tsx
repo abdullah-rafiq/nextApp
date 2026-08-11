@@ -3,16 +3,6 @@
 import { useRouter, useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-type Course = {
-  code: string;
-  title: string;
-  department: string;
-  program: string;
-  creditHours: number;
-  semester: number;
-  status: string;
-};
-
 export default function Courses() {
   const router = useRouter();
 
@@ -85,7 +75,7 @@ useEffect(() => {
       {/* Heading */}
       <div className="flex justify-center mb-8">
         <h1 className="font-bold text-2xl">
-          Add Information of Course
+          Edit Information of Course {title}
         </h1>
       </div>
 
