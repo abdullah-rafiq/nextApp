@@ -32,7 +32,7 @@ export default function Courses() {
     })
     if(respone.ok){
       alert("Course Added");
-      router.back;
+      router.push("/admin/courses");
     }
 
       }
