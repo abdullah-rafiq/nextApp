@@ -15,8 +15,13 @@ type Course = {
 };
 
 export default function Courses() {
-  function handleStatusChange(){
+  async function handleStatusChange(id:string){
 
+    const response = await fetch(`/api/courses/${id}`,{method:"PATCH"});
+    const data = await response.json();
+    if(response.ok){
+      alert("success status changed");
+    }
 
   }
   useEffect(()=>{
@@ -94,20 +99,13 @@ export default function Courses() {
 
   {courses.map((courses) => (
     <tr key={courses._id} className="border-b">
-      <td className="p-3"><input type="checkbox" onClick={() => setCheckBox(true)}/></td>
-      
+      <td className="p-3"><input type="checkbox" onChange={(e) => (e.target.checked)}/></td>
       <td className="p-3">{courses.code}</td>
-
       <td className="p-3">{courses.title}</td>
-
       <td className="p-3">{courses.department}</td>
-
       <td className="p-3">{courses.program}</td>
-
       <td className="p-3">{courses.creditHours}</td>
-
       <td className="p-3">{courses.semester}</td>
-
       <td className="p-3">
         {courses.status}
       </td>
@@ -115,18 +113,18 @@ export default function Courses() {
       <td className="p-3">
         {<div className="flex gap-10"><button className={`px-3 py-1 rounded-md text-white ${
          courses.status === "active"
-      ? "bg-red-500 hover:bg-red-600"
-      : "bg-green-500 hover:bg-green-600"
-  }`} onClick={handleStatusChange}>{ courses.status === "active" ?("active"):("inactive")}</button>
-        <button className="Add-account" onClick={()=>handleEditCourse (courses._id)} >Edit</button>  <button className="Add-account" onClick={()=>handleDeleteCourse (courses._id)} >Delete</button>
-          
+          ? "bg-red-500 hover:bg-red-600"
+          : "bg-green-500 hover:bg-green-600"
+        }`}
+        onClick={()=>handleStatusChange(courses._id)}>{ courses.status === "active" ?("inactive"):("active")}</button>
+        <button className="Add-account" onClick={()=>handleEditCourse (courses._id)} >Edit</button>
+        <button className="Add-account" onClick={()=>handleDeleteCourse (courses._id)} >Delete</button>  
         </div>}
       </td>
     </tr>
   ))}
 </tbody>
       </table>
-
     </div>
     </div>
   );

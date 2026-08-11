@@ -83,3 +83,23 @@ export async function DELETE(req , { params }) {
     );
   }
 }
+
+
+export async function PATCH (req,{params}) {
+    try{
+    await connectDB();
+    const {id }= await params;
+    const course = await Course.findById(id);
+    const newStatus= course.status==="active"?"inactive":"active";
+
+    course.status=newStatus;
+
+    await course.save();
+
+    return Response.json({message:"Success"},{status:200})
+}
+catch(error){
+    return Response.json({message:error.message},{status:500})
+}
+    
+}
