@@ -85,10 +85,10 @@ export default function Courses() {
         <table>
     <thead>
         <tr className="border-b">
-        <th className="p-3 text-left gap-2"><input type="checkbox"/>Select All</th>  
+        <th className="flex p-3 text-left gap-2"><input type="checkbox"/>Select All</th>  
         <th className="p-3 text-left">Course Code</th>
         <th className="p-3 text-left">Title</th>
-        
+
         <th className="p-3 text-left">Department</th>
         <th className="p-3 text-left">Program</th>
         <th className="p-3 text-left">Credit Hours</th>
