@@ -65,15 +65,21 @@ export default function Courses() {
     
     if(creditHours.trim()===""){
       newError.creditHours="Credit Hours are required"
+    }else{
+      const creditNo= parseInt(creditHours);
+      if(creditNo < 1 || creditNo>=3){
+        newError.creditHours= 'Must between 1 and 3'
+      }
     }
+
     
     if(semester.trim()===""){
       newError.semester="Semester is required"
     }else {
   const semesterNumber = parseInt(semester);
 
-  if (semesterNumber < 1 || semesterNumber > 9) {
-    newError.semester = "Semester must be between 1 and 9";
+  if (semesterNumber < 1 || semesterNumber >= 8) {
+    newError.semester = "Semester must be between 1 and 8";
   }
 }
 setError(newError);
