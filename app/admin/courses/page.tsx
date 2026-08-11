@@ -40,6 +40,7 @@ export default function Courses() {
       const data = await response.json();
             if(response.ok){
               alert("Succesfully deleted");
+              setCourses((currentCourses)=>currentCourses.filter((course) => course._id !== id));
             }
             else{
               alert(data.message);
