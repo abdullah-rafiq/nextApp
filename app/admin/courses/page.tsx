@@ -28,7 +28,10 @@ export default function Courses() {
     
   useEffect(()=>{
         async function getCourses() {
-            const response = await fetch("/api/courses");
+            const response = await fetch("/api/courses", {
+              method: "GET",
+              headers: { "Content-Type": "application/json" },
+            });
             const data = await response.json();
 
             if(response.ok){
