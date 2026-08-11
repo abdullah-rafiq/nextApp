@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 import { useRouter } from "next/navigation";
-
+import { useSearchParams } from "next/navigation";
 type Course = {
   _id: string;
   code: string;
@@ -16,8 +16,10 @@ type Course = {
 };
 
 export default function Courses() {
+  const searchParams = useSearchParams();
+const courseId = searchParams.get("id");
    function handleEditCourse(id:string){
-       router.push("/admin/courses/editCourses?id=${id}")
+       router.push(`/admin/courses/editCourses?id=${id}`)
    };
    function handleAddCourse (){
        router.push("/admin/courses/addCourses")
@@ -26,20 +28,27 @@ export default function Courses() {
 
   const router= useRouter();
   const [courses,setCourses]=useState<Course[]>([]);
-    
-  useEffect(()=>{
-        async function getCourses() {
-            const response = await fetch("/api/courses");
-            const data = await response.json();
+    useEffect(() => {
+  if (!courseId) return;
 
-            if(response.ok){
-                setCourses(data);
-            }
-        }
+  async function getData() {
+    const response = await fetch(`/api/courses?id=${courseId}`);
 
-        getCourses();
-    },[])
-  
+    const data = await response.json();
+
+    if (response.ok) {
+      setTitle(data.title);
+      setCode(data.code);
+      setDepartment(data.department);
+      setProgram(data.program);
+      setCreditHours(data.creditHours);
+      setSemester(data.semester);
+      setStatus(data.status);
+    }
+  }
+
+  getData();
+}, [courseId]);
     return (
     <div>
     <div className="flex justify-between items-center">

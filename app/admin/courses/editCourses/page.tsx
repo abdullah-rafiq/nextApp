@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 type Course = {
   code: string;
@@ -16,6 +17,10 @@ type Course = {
 export default function Courses() {
   const router = useRouter();
 
+  
+  const searchParams = useSearchParams();
+  const courseId = searchParams.get("id");
+
   const [title, setTitle] = useState("");
   const [code, setCode] = useState("");
   const [department, setDepartment] = useState("");
@@ -23,27 +28,28 @@ export default function Courses() {
   const [creditHours, setCreditHours] = useState("");
   const [semester, setSemester] = useState("");
   const [status, setStatus]=useState(""); 
-  const [courseId, setCourseId] = useState("");
 
 useEffect(() => {
+  if (!courseId) return;
+
   async function getData() {
     const response = await fetch(`/api/courses?id=${courseId}`);
 
     const data = await response.json();
 
-    setCourseId(data.id);
-    setTitle(data.title);
-    setCode(data.code);
-    setDepartment(data.department);
-    setProgram(data.program);
-    setCreditHours(data.creditHours);
-    setSemester(data.semester);
-    setStatus(data.status);
+    if (response.ok) {
+      setTitle(data.title);
+      setCode(data.code);
+      setDepartment(data.department);
+      setProgram(data.program);
+      setCreditHours(data.creditHours);
+      setSemester(data.semester);
+      setStatus(data.status);
+    }
   }
 
   getData();
 }, [courseId]);
-
   async function handleUpdate() {
     
       }
