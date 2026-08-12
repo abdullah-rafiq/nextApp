@@ -45,6 +45,35 @@ export default function Courses() {
       console.log(data);
     } 
   };
+  
+ async function handleDeleteAll(){
+    const response = await fetch(`/api/course/delete`,{method:"DELETE",headers: {
+    "Content-Type": "application/json"},body:JSON.stringify({ids:selectedCourses})});
+    const data = await response.json();
+    
+    if(response.ok){
+      alert("Scuues");
+      const newcourses=[];
+      for(let i=0;i<courses.length;i++){
+        const course= courses[i];
+        if(!selectedCourses.includes(course._id)){
+        newcourses.push(course);
+
+        }
+        else{
+        }
+        
+      }
+      setCourses(newcourses);
+      setSelectedCourses([]);
+
+    }
+    else{
+      alert("Error");
+      console.log(data);
+    }
+
+  }
 
  async function handleStatusInactiveAll(){
     const respone = await fetch(`/api/courses/status`,{
@@ -55,7 +84,7 @@ export default function Courses() {
     const data= await respone.json();
     if(respone.ok){
       alert("Status InActive All");
-            const newcourses=[];
+      const newcourses=[];
       for(let i=0;i<courses.length;i++){
         const course= courses[i];
         if(selectedCourses.includes(course._id)){
@@ -131,7 +160,7 @@ export default function Courses() {
               alert(data.message);
             }
   }
-
+  
   function handleEditCourse(id:string){
        router.push(`/admin/courses/editCourses/${id}`)
   };
@@ -144,9 +173,6 @@ export default function Courses() {
   const [courses,setCourses]=useState<Course[]>([]);
   const [selectedCourses,setSelectedCourses]= useState<string[]>([]);
 
-  function handleDeleteAll(){
-
-  }
     return (
 
     <div className="">
