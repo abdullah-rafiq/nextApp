@@ -5,12 +5,12 @@ export async function DELETE(req,{params}) {
 
     try{
         await connectDB();
-        const {id}= await req.json();
+        const {ids}= await req.json();
         const course = Course.findById(id);
         const result = await Course.deleteMany({
         _id: { $in: ids }
         });
-        return Response,json({message:"Success"},{status:200})
+        return Response.json({message:"Success"},{status:200})
     }
 
     catch(error){
