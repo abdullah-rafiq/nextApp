@@ -212,13 +212,21 @@ export default function Courses() {
           }
 
         }}/>Select All</th>  
-        <th className="p-3 text-left">Course Code</th>
-        <th className="p-3 text-left">Title</th>
-        <th className="p-3 text-left">Department</th>
+            <Trash2 color="#dee0e3" size={18}/>
+        <th className="p-3 text-left" >Course Code</th>
+            <Trash2 color="#dee0e3" size={18}/>
+        <th className="p-3 text-left" >Title</th>
+            <Trash2 color="#dee0e3" size={18}/>
+        <th className="p-3 text-left" >Department</th>
+            <Trash2 color="#dee0e3" size={18}/>
         <th className="p-3 text-left">Program</th>
+            <Trash2 color="#dee0e3" size={18}/>
         <th className="p-3 text-left">Credit Hours</th>
+            <Trash2 color="#dee0e3" size={18}/>
         <th className="p-3 text-left">Semester</th>
+            <Trash2 color="#dee0e3" size={18}/>
         <th className="p-3 text-left">Status</th>
+            <Trash2 color="#dee0e3" size={18}/>
         <th className="p-3 text-left">Actions</th>
       </tr>
     </thead>
@@ -253,8 +261,8 @@ export default function Courses() {
             }`}
             onClick={()=>handleStatusChange(courses._id)}>
             {courses.status==="active"?
-           ( < CheckCircle color="#e3dede" size={18}/>):
-           ( < XCircle color="#dee3de" size={18}/>)
+           ( < CheckCircle color="#f20b0b" size={18}/>):
+           ( < XCircle color="#14fe14" size={18}/>)
             }
             </button>
           <button className="px-2 py-1 rounded-md text-white bg-blue-500" onClick={()=>handleEditCourse(courses._id)}>
