@@ -261,9 +261,9 @@ export default function Courses() {
       <button className="bg-blue-600 text-white px-4 py-2 rounded-md" onClick={handleAddCourse}>Add Courses</button>
 
 </div>
-<div className="bg-white-500 gap-2 mb-10">
-  <Search color="#e9e9e9" size={18} />
-<input placeholder="Search"
+<div className="lex items-center gap-2 mb-10 bg-white border border-gray-200 rounded-lg px-3 py-2 w-80">
+  <Search color="#9ca3af" size={18} />
+<input className="outline-none bg-transparent w-full"  placeholder="/Search"
 />
 </div>
     <div className="w-full">
