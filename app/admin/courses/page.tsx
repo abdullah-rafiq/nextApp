@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowUpDown, Pencil, Trash2, CheckCircle, XCircle } from 'lucide-react';
+import { ArrowUpDown, Pencil, Trash2, CheckCircle, XCircle, SortAsc } from 'lucide-react';
 
 
 type Course = {
@@ -178,7 +178,7 @@ export default function Courses() {
     return (
 
     <div className="">
-      <div className="flex gap-2">
+      <div className="flex gap-2 mb-10">
         { selectedCourses.length > 0  && 
         <>
          <button className="Add-account" onClick={handleStatusActiveAll}> Status Active</button>
@@ -213,22 +213,15 @@ export default function Courses() {
 
         }}/>Select All</th>  
         <th className="p-3 text-left">
-          <div className="flex items-center gap-2">
-            Course Code  <ArrowUpDown size={16} />
-          </div>
+            Course Code  
           </th>
         <th className="p-3 text-left">
-          <div className="flex items-center gap-2">
           Title  <ArrowUpDown size={16} />
-          </div></th>
+        </th>
         <th className="p-3 text-left">
-          <div className="flex items-center gap-2">
-          
-          Department <ArrowUpDown size={16} /> </div></th>
+          Department </th>
         <th className="p-3 text-left">
-          <div className="flex items-center gap-2">
-          
-          Program <ArrowUpDown size={16} /></div></th>
+          Program <ArrowUpDown size={16} /></th>
         <th className="p-3 text-left">
           <div className="flex items-center gap-2">
           Credit Hours  <ArrowUpDown size={16} /></div></th>
