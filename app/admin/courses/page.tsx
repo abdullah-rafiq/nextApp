@@ -261,15 +261,15 @@ export default function Courses() {
       <button className="bg-blue-600 text-white px-4 py-2 rounded-md" onClick={handleAddCourse}>Add Courses</button>
 
 </div>
-<div className="flex items-center gap-2 mb-10 bg-white border border-gray-400 rounded-1g px-3 py-2 w-80 hover:border-blue-500 transition-colors duration-200 focus-within:border-blue-500">
+<div className="flex items-center gap-2 mb-10 bg-white border border-gray-400 rounded-lg px-3 py-2 w-80 hover:border-blue-500 transition-colors duration-200 focus-within:border-blue-500">
   < Search color = "#9ca3af" size={18} />
 <input className="outline-none bg-transparent w-full"  placeholder="Search " onChange={(e)=>setSearch(e.target.value)}
 />
 </div>
     <div className="flex items-center w-full">
-        <table className="w-full border rounded-1g">
+        <table className="w-full border rounded-lg">
     <thead >
-        <tr className="border rounded-1g">
+        <tr className="border rounded-lg">
           <div className="flex gap-2">
         <th className="p-3 text-left"><input type="checkbox" 
           checked={courses.length>0 &&  selectedCourses.length === courses.length}
@@ -325,7 +325,7 @@ export default function Courses() {
     <tbody>
 
   {courses.map((courses) => (
-    <tr key={courses._id} className="border rounded-1g">
+    <tr key={courses._id} className="border rounded-lg">
       <td className="p-3"><input type="checkbox" 
         checked={selectedCourses.includes(courses._id)}
         onChange={(e)=>{
