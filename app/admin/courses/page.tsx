@@ -23,9 +23,21 @@ export default function Courses() {
 
   function myStatusSort(status:string){
 
-    if(status==="active"){}
+   if (status === "active") {
+    const sortedCourses = [...courses].sort((a, b) => {
+      return a.status === "active" ? -1 : 1;
+    });
 
-    else if(status==="inactive"){}
+    setCourses(sortedCourses);
+  }
+
+  else if (status === "inactive") {
+    const sortedCourses = [...courses].sort((a, b) => {
+      return a.status === "inactive" ? -1 : 1;
+    });
+
+    setCourses(sortedCourses);
+  }
   }
   function myIntSort(sort:string){
    
