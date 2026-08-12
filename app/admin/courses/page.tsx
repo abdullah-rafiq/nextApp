@@ -108,7 +108,6 @@ export default function Courses() {
             setSelectedCourses((prev)=>prev.filter((id)=> id!==courses._id))
         }
       }}/></td>
-      //we need to add in the array what ever is selected;
       <td className="p-3">{courses.code}</td>
       <td className="p-3">{courses.title}</td>
       <td className="p-3">{courses.department}</td>
