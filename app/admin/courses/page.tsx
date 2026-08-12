@@ -261,7 +261,7 @@ export default function Courses() {
       <button className="bg-blue-600 text-white px-4 py-2 rounded-md" onClick={handleAddCourse}>Add Courses</button>
 
 </div>
-<div className="flex items-center gap-2 mb-10 bg-white border border-gray-200 rounded-lg px-3 py-2 w-80">
+<div className="flex items-center gap-2 mb-10 bg-white border border-gray-400 rounded-lg px-3 py-2 w-80">
   <Search color="#9ca3af" size={18} />
 <input className="outline-none bg-transparent w-full"  placeholder="/Search " onChange={(e)=>setSearch(e.target.value)}
 />
