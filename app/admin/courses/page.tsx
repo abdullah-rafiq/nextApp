@@ -353,15 +353,15 @@ export default function Courses() {
           <button className="px-3 py-2 rounded-lg text-white bg-[#EBEBEB]"
             onClick={()=>handleStatusChange(courses._id)}>
             {courses.status==="active"?
-           ( < CheckCircle color="#f00808" size={18}/>):
-           ( < XCircle color="#14fe14" size={18}/>)
+              ( < CheckCircle color="#f00808" size={18}/>):
+              ( < XCircle color="#14fe14" size={18}/>)
             }
             </button>
           <button className="px-3 py-2 rounded-lg text-white bg-[#EBEBEB]" onClick={()=>handleEditCourse(courses._id)}>
-            <Pencil color="#dee0e3" size={18} />
+            <Pencil color="#171717" size={18} />
           </button>
           <button className="px-3 py-2 rounded-lg text-white bg-[#EBEBEB]" onClick={()=>handleDeleteCourse(courses._id)}>
-            <Trash2 color="#dee0e3" size={18}/>
+            <Trash2 color="#171717" size={18}/>
           </button>
         </div>
       </td>
