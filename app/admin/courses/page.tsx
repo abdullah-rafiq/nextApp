@@ -269,7 +269,7 @@ export default function Courses() {
     <div className="flex items-center w-full">
         <table className="w-full ">
     <thead >
-        <tr className="border-b">
+        <tr className="border">
         <th className="flex p-3 text-left gap-2 "><input type="checkbox" 
           checked={courses.length>0 &&  selectedCourses.length === courses.length}
           onChange={(e)=>{
