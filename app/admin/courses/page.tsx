@@ -256,7 +256,7 @@ export default function Courses() {
             }`}
             onClick={()=>handleStatusChange(courses._id)}>{ courses.status === "active" ? "Inactive" : "Active"}</button>
           <button className="px-2 py-1 rounded-md text-white bg-blue-500" onClick={()=>handleEditCourse(courses._id)}>
-            <Pencil color="#3b82f6" size={18} />
+            <Pencil color="#dee0e3" size={18} />
           </button>
           <button className="px-2 py-1 rounded-md text-white bg-blue-500" onClick={()=>handleDeleteCourse(courses._id)}>
             Delete
