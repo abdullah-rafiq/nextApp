@@ -269,7 +269,7 @@ export default function Courses() {
     <div className="flex items-center w-full">
         <table className="w-full border rounded-1g">
     <thead >
-        <tr className="border">
+        <tr className="border rounded-1g">
           <div className="flex gap-2">
         <th className="p-3 text-left"><input type="checkbox" 
           checked={courses.length>0 &&  selectedCourses.length === courses.length}
@@ -325,11 +325,10 @@ export default function Courses() {
     <tbody>
 
   {courses.map((courses) => (
-    <tr key={courses._id} className="border">
+    <tr key={courses._id} className="border rounded-1g">
       <td className="p-3"><input type="checkbox" 
         checked={selectedCourses.includes(courses._id)}
         onChange={(e)=>{
-
         if( e.target.checked ){
           setSelectedCourses( (prev) => [...prev,courses._id])
         }
