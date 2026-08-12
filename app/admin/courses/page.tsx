@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowUpDown,ArrowUp, ArrowDown, Pencil, Trash2, CheckCircle, XCircle, SortAsc } from 'lucide-react';
+import { ArrowUp, ArrowDown, Pencil,Search ,Trash2, CheckCircle, XCircle, } from 'lucide-react';
 
 
 type Course = {
@@ -260,6 +260,11 @@ export default function Courses() {
       <h1 className="font-bold text-2xl"> Courses </h1>
       <button className="bg-blue-600 text-white px-4 py-2 rounded-md" onClick={handleAddCourse}>Add Courses</button>
 
+</div>
+<div className="rounded bg-grey-500 gap-2">
+  <Search color="#e9e9e9" size={18} />
+<input placeholder="Search"
+/>
 </div>
     <div className="w-full">
         <table className="w-full">
