@@ -147,7 +147,7 @@ export default function Courses() {
   }
     return (
     <div>
-      <div className="flex gap-2">
+      <div className="flex gap-2 mb-10">
         { selectedCourses.length > 0  && 
         <>
          <button className="Add-account" onClick={handleStatusActiveAll}> Status Active</button>
