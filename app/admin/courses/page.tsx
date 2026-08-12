@@ -325,7 +325,7 @@ export default function Courses() {
     <tbody>
 
   {courses.map((courses) => (
-    <tr key={courses._id} className="border-b">
+    <tr key={courses._id} className="border">
       <td className="p-3"><input type="checkbox" 
         checked={selectedCourses.includes(courses._id)}
         onChange={(e)=>{
