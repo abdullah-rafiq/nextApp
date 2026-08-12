@@ -23,18 +23,18 @@ export default function Courses() {
 
   function myStatusSort(status:string){
 
-   if (status === "Active") {
+   if (status === "active") {
     const sortedCourses = [...courses].sort((a, b) => {
-      return a.status === "Active" ? -1 : 1;
+      return a.status === "active" ? -1 : 1;
     });
 
     setCourses(sortedCourses);
     setStatusSort("Dsc");
   }
 
-  else if (status === "Inactive") {
+  else if (status === "inactive") {
     const sortedCourses = [...courses].sort((a, b) => {
-      return a.status === "Inactive" ? -1 : 1;
+      return a.status === "inactive" ? -1 : 1;
     });
 
     setCourses(sortedCourses);
@@ -307,8 +307,8 @@ export default function Courses() {
         <th className="p-3 text-left">
           <div className="flex items-center gap-2">
           Status  
-          {sortStatus ==="Asc"? (<button type="button" onClick={()=>myStatusSort("Active")}>< ArrowUp size={16} /></button>):
-            <button type="button" onClick={()=>myStatusSort("Inactive")}>< ArrowDown size={16} /> </button>}
+          {sortStatus ==="Asc"? (<button type="button" onClick={()=>myStatusSort("active")}>< ArrowUp size={16} /></button>):
+            <button type="button" onClick={()=>myStatusSort("inactive")}>< ArrowDown size={16} /> </button>}
             
           </div> </th>
         <th className="p-3 text-left">
