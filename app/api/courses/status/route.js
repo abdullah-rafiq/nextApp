@@ -8,8 +8,8 @@ export async function PATCH(req,{params}){
         const {ids,status} = await req.json(); 
         
         await courses.updateMany(
-            { _id:{#in:ids}},
-            { #set:{status:status} }
+            { _id:{$in:ids}},
+            { $set:{status:status} }
         )
 
         return Response.json({message:"Success"},{status:200})
