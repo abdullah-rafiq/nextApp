@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowUpDown, Pencil, Trash2, CheckCircle, XCircle, SortAsc } from 'lucide-react';
+import { ArrowUpDown,ArrowUp, ArrowDown, Pencil, Trash2, CheckCircle, XCircle, SortAsc } from 'lucide-react';
 
 
 type Course = {
@@ -17,6 +17,13 @@ type Course = {
 };
 
 export default function Courses() {
+
+  function myIntSort(parameter:string){
+      return {
+
+      }
+
+  };
   
   async function handleStatusActiveAll(){
     const respone = await fetch(`/api/courses/status`,{
@@ -216,12 +223,12 @@ export default function Courses() {
             Course Code  
           </th>
         <th className="p-3 text-left">
-          Title  <ArrowUpDown size={16} />
+          Title  
         </th>
         <th className="p-3 text-left">
           Department </th>
         <th className="p-3 text-left">
-          Program <ArrowUpDown size={16} /></th>
+          Program </th>
         <th className="p-3 text-left">
           <div className="flex items-center gap-2">
           Credit Hours  <ArrowUpDown size={16} /></div></th>
@@ -232,8 +239,7 @@ export default function Courses() {
           <div className="flex items-center gap-2">
           Status  <ArrowUpDown size={16} /></div> </th>
         <th className="p-3 text-left">
-          <div className="flex items-center gap-2">
-          Actions  <ArrowUpDown size={16} /> </div></th>
+          Actions  </th>
       </tr>
     </thead>
     <tbody>
