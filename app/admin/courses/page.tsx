@@ -270,7 +270,8 @@ export default function Courses() {
         <table className="w-full ">
     <thead >
         <tr className="border">
-        <th className="flex p-3 text-left gap-2 "><input type="checkbox" 
+          <div className="flex gap-2">
+        <th className="p-3 text-left"><input type="checkbox" 
           checked={courses.length>0 &&  selectedCourses.length === courses.length}
           onChange={(e)=>{
           if (e.target.checked){
@@ -284,7 +285,7 @@ export default function Courses() {
             setSelectedCourses([]);
           }
 
-        }}/></th>  
+        }}/></th>  </div>
         <th className="p-3 text-left">
           Course Code  
           </th>
