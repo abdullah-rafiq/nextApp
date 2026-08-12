@@ -249,15 +249,12 @@ export default function Courses() {
 
       <td className="p-3">
         <div className="flex gap-10">
-          <button className={`px-2 py-1 rounded-md text-white ${
-            courses.status === "active"
-            ? "bg-red-500 hover:bg-red-600"
-            : "bg-green-500 hover:bg-green-600"
+          <button className={`px-2 py-1 rounded-md text-white bg-blue-500
             }`}
             onClick={()=>handleStatusChange(courses._id)}>
             {courses.status==="active"?
-           ( < CheckCircle color="#dee0e3" size={18}/>):
-           ( < XCircle color="#dee0e3" size={18}/>)
+           ( < CheckCircle color="#e3dede" size={18}/>):
+           ( < XCircle color="#dee3de" size={18}/>)
             }
             </button>
           <button className="px-2 py-1 rounded-md text-white bg-blue-500" onClick={()=>handleEditCourse(courses._id)}>
