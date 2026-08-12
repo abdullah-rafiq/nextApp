@@ -118,7 +118,9 @@ export default function Courses() {
 
   {courses.map((courses) => (
     <tr key={courses._id} className="border-b">
-      <td className="p-3"><input type="checkbox" onChange={(e)=>{
+      <td className="p-3"><input type="checkbox" 
+        checked={selectedCourses.includes(courses._id)}
+        onChange={(e)=>{
 
         if(e.target.checked){
           setSelectedCourses((prev)=>[...prev,courses._id])
