@@ -168,8 +168,9 @@ export default function Courses() {
         <table className="w-full">
     <thead>
         <tr className="border-b">
-        <th className="flex p-3 text-left gap-2"><input type="checkbox" onChange={(e)=>{
-
+        <th className="flex p-3 text-left gap-2"><input type="checkbox" 
+          checked={courses.length>0 &&  selectedCourses.length === courses.length}
+          onChange={(e)=>{
           if (e.target.checked){
             const ids = [];
             for(let i=0;i<courses.length;i++){
