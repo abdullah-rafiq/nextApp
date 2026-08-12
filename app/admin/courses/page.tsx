@@ -261,13 +261,13 @@ export default function Courses() {
       <button className="bg-blue-600 text-white px-4 py-2 rounded-md" onClick={handleAddCourse}>Add Courses</button>
 
 </div>
-<div className="flex items-center gap-2 mb-10 bg-white border border-gray-400 rounded-2g px-3 py-2 w-80 hover:border-blue-500 transition-colors duration-200 focus-within:border-blue-500">
+<div className="flex items-center gap-2 mb-10 bg-white border border-gray-400 rounded-1g px-3 py-2 w-80 hover:border-blue-500 transition-colors duration-200 focus-within:border-blue-500">
   < Search color = "#9ca3af" size={18} />
 <input className="outline-none bg-transparent w-full"  placeholder="Search " onChange={(e)=>setSearch(e.target.value)}
 />
 </div>
     <div className="flex items-center w-full">
-        <table className="w-full border">
+        <table className="w-full border rounded-1g">
     <thead >
         <tr className="border">
           <div className="flex gap-2">
