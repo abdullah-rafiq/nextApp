@@ -17,11 +17,33 @@ type Course = {
 export default function Courses() {
   
   async function handleStatusActiveAll(){
-    const respone = await fetch(`/api/courses/#{selectCourse}`,{method:"PATCH"} );
+    const respone = await fetch(`/api/courses/#{selectCourse}`,{
+      method:"PATCH",body: JSON.stringify({
+      ids: selectedCourses,
+      status: "active"},  
+     )});
     const data= await respone.json();
     if(respone.ok){
       alert("Status Active All");
-    }    
+    }   
+    else{
+      console.log(data);
+    } 
+  };
+
+ async function handleStatusInactiveAll(){
+    const respone = await fetch(`/api/courses/#{selectCourse}`,{
+      method:"PATCH",body: JSON.stringify({
+      ids: selectedCourses,
+      status: "Inactive"},  
+     )});
+    const data= await respone.json();
+    if(respone.ok){
+      alert("Status Active All");
+    }   
+    else{
+      console.log(data);
+    } 
   };
 
   async function handleStatusChange(id:string){
@@ -31,7 +53,6 @@ export default function Courses() {
     if(response.ok){
       alert("success status changed");
     }
-    setCourses((currentCourses)=>currentCourses.filter((course) => course._id !== id));
 
   };
 
@@ -75,9 +96,6 @@ export default function Courses() {
   const [selectedCourses,setSelectedCourses]= useState<string[]>([]);
   
 
-  function handleStatusInactiveAll(){
-
-  };
   function handleDeleteAll(){
 
   }
