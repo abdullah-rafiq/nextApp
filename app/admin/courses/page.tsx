@@ -39,6 +39,7 @@ export default function Courses() {
         
       }
       setCourses(newcourses);
+      setSelectedCourses([]);
     }   
     else{
       console.log(data);
@@ -67,6 +68,7 @@ export default function Courses() {
         
       }
       setCourses(newcourses);
+      setSelectedCourses([]);
 
     }   
     else{
