@@ -269,7 +269,7 @@ export default function Courses() {
 
       <td className="p-3">
         <div className="flex gap-10">
-          <button className={`px-3 py-2 rounded-md text-white bg-white-500
+          <button className={`px-3 py-2 rounded-md text-white bg-beige-500
             }`}
             onClick={()=>handleStatusChange(courses._id)}>
             {courses.status==="active"?
