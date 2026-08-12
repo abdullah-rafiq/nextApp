@@ -212,21 +212,13 @@ export default function Courses() {
           }
 
         }}/>Select All</th>  
-            <Trash2 color="#dee0e3" size={18}/>
         <th className="p-3 text-left" >Course Code</th>
-            <Trash2 color="#dee0e3" size={18}/>
-        <th className="p-3 text-left" >Title</th>
-            <Trash2 color="#dee0e3" size={18}/>
-        <th className="p-3 text-left" >Department</th>
-            <Trash2 color="#dee0e3" size={18}/>
+        <th className="p-3 text-left">Title</th>
+        <th className="p-3 text-left">Department</th>
         <th className="p-3 text-left">Program</th>
-            <Trash2 color="#dee0e3" size={18}/>
         <th className="p-3 text-left">Credit Hours</th>
-            <Trash2 color="#dee0e3" size={18}/>
         <th className="p-3 text-left">Semester</th>
-            <Trash2 color="#dee0e3" size={18}/>
         <th className="p-3 text-left">Status</th>
-            <Trash2 color="#dee0e3" size={18}/>
         <th className="p-3 text-left">Actions</th>
       </tr>
     </thead>
