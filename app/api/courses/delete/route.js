@@ -6,7 +6,6 @@ export async function DELETE(req,{params}) {
     try{
         await connectDB();
         const {ids}= await req.json();
-        const course = Course.findById(id);
         const result = await Course.deleteMany({
         _id: { $in: ids }
         });
