@@ -15,14 +15,13 @@ type Course = {
 };
 
 export default function Courses() {
-  async function handleStatusChange(id:string){
 
+  async function handleStatusChange(id:string){
     const response = await fetch(`/api/courses/${id}`,{method:"PATCH"});
     const data = await response.json();
     if(response.ok){
       alert("success status changed");
     }
-
   };
 
   useEffect(()=>{
@@ -62,16 +61,16 @@ export default function Courses() {
 
   const router= useRouter();
   const [courses,setCourses]=useState<Course[]>([]);
-  const [checkBox,setCheckBox]= useState(false);
+  const [selectedCourses,setSelectedCourses]= useState<string[]>([]);
   
     return (
     <div>
       <div className="flex gap-2">
-        { checkBox && 
+        { selectedCourses.length > 0  && 
         <>
-         <button className="Add-account"> Status Active All</button>
-         <button className="Add-account"> Status Inactive All</button>
-         <button className="Add-account"> Delete All</button> 
+         <button className="Add-account"> Status Active</button>
+         <button className="Add-account"> Status Inactive</button>
+         <button className="Add-account"> Delete</button> 
          <button className="Add-account"> Assign To</button>
          </>
         }</div>
@@ -88,7 +87,6 @@ export default function Courses() {
         <th className="flex p-3 text-left gap-2"><input type="checkbox"/>Select All</th>  
         <th className="p-3 text-left">Course Code</th>
         <th className="p-3 text-left">Title</th>
-
         <th className="p-3 text-left">Department</th>
         <th className="p-3 text-left">Program</th>
         <th className="p-3 text-left">Credit Hours</th>
@@ -101,7 +99,16 @@ export default function Courses() {
 
   {courses.map((courses) => (
     <tr key={courses._id} className="border-b">
-      <td className="p-3"><input type="checkbox" onChange={(e) => (e.target.checked)}/></td>
+      <td className="p-3"><input type="checkbox" onChange={(e)=>{
+
+        if(e.target.checked){
+          setSelectedCourses((prev)=>[...prev,courses._id])
+        }
+        else{
+            setSelectedCourses((prev)=>prev.filter((id)=> id!==courses._id))
+        }
+      }}/></td>
+      //we need to add in the array what ever is selected;
       <td className="p-3">{courses.code}</td>
       <td className="p-3">{courses.title}</td>
       <td className="p-3">{courses.department}</td>
@@ -119,7 +126,7 @@ export default function Courses() {
             ? "bg-red-500 hover:bg-red-600"
             : "bg-green-500 hover:bg-green-600"
             }`}
-            onClick={()=>handleStatusChange(courses._id)}>{ courses.status === "active" ?("inactive"):("active")}</button>
+            onClick={()=>handleStatusChange(courses._id)}>{ courses.status === "active" ?("Inactive"):("Active")}</button>
         <button className="px-2 py-1 rounded-md text-white bg-blue-500 " onClick={()=>handleEditCourse (courses._id)} >Edit</button>
         <button className="px-2 py-1 rounded-md text-white bg-blue-500" onClick={()=>handleDeleteCourse (courses._id)} >Delete</button>  
         </div>}
