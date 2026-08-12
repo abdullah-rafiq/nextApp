@@ -267,8 +267,8 @@ export default function Courses() {
 />
 </div>
     <div className="w-full">
-        <table className="w-full">
-    <thead className="flex items-center">
+        <table className="flex items-center w-full ">
+    <thead >
         <tr className="border-b">
         <th className="flex p-3 text-left gap-2 "><input type="checkbox" 
           checked={courses.length>0 &&  selectedCourses.length === courses.length}
