@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { ArrowsUpFromLine, Pencil, Trash2, CheckCircle, XCircle } from 'lucide-react';
+
 
 type Course = {
   _id: string;
@@ -246,16 +248,20 @@ export default function Courses() {
       </td>
 
       <td className="p-3">
-        {<div className="flex gap-10">
+        <div className="flex gap-10">
           <button className={`px-2 py-1 rounded-md text-white ${
             courses.status === "active"
             ? "bg-red-500 hover:bg-red-600"
             : "bg-green-500 hover:bg-green-600"
             }`}
-            onClick={()=>handleStatusChange(courses._id)}>{ courses.status === "active" ? ("Inactive") : ("Active")}</button>
-        <button className="px-2 py-1 rounded-md text-white bg-blue-500 " onClick={()=>handleEditCourse (courses._id)} >Edit</button>
-        <button className="px-2 py-1 rounded-md text-white bg-blue-500" onClick={()=>handleDeleteCourse (courses._id)} >Delete</button>  
-        </div>}
+            onClick={()=>handleStatusChange(courses._id)}>{ courses.status === "active" ? "Inactive" : "Active"}</button>
+          <button className="px-2 py-1 rounded-md text-white bg-blue-500" onClick={()=>handleEditCourse(courses._id)}>
+            <Pencil color="#3b82f6" size={18} />
+          </button>
+          <button className="px-2 py-1 rounded-md text-white bg-blue-500" onClick={()=>handleDeleteCourse(courses._id)}>
+            Delete
+          </button>
+        </div>
       </td>
     </tr>
   ))}
