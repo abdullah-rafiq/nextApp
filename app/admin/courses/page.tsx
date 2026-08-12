@@ -29,6 +29,7 @@ export default function Courses() {
     });
 
     setCourses(sortedCourses);
+    setStatusSort("Dsc");
   }
 
   else if (status === "inactive") {
@@ -37,6 +38,8 @@ export default function Courses() {
     });
 
     setCourses(sortedCourses);
+    setStatusSort("Asc");
+
   }
   }
   function myIntSort(sort:string){
