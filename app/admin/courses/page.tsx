@@ -44,6 +44,7 @@ export default function Courses() {
     }   
     else{
       console.log(data);
+      alert("data");
     } 
   };
 
@@ -53,6 +54,20 @@ export default function Courses() {
     
     if(response.ok){
       alert("success status changed");
+      const newcourses= [];
+
+      for(let i=0;i<courses.length;i++){
+          const course =courses[i]; 
+          if(course._id==id){
+            newcourses.push({...course,status:course.status==="active"?"inactive":"active"})
+          }
+      };
+    setCourses(newcourses);
+    }
+
+    else{
+      console.log(data);
+      alert(data);
     }
 
   };
@@ -95,12 +110,10 @@ export default function Courses() {
   const router= useRouter();
   const [courses,setCourses]=useState<Course[]>([]);
   const [selectedCourses,setSelectedCourses]= useState<string[]>([]);
-  
 
   function handleDeleteAll(){
 
   }
-
     return (
     <div>
       <div className="flex gap-2">
@@ -125,20 +138,15 @@ export default function Courses() {
         <th className="flex p-3 text-left gap-2"><input type="checkbox" onChange={(e)=>{
 
           if (e.target.checked){
-
             const ids = [];
             for(let i=0;i<courses.length;i++){
               ids.push(courses[i]._id);
             }
             setSelectedCourses(ids);
-
           }
-
           else{
             setSelectedCourses([]);
           }
-
-
 
         }}/>Select All</th>  
         <th className="p-3 text-left">Course Code</th>
@@ -183,7 +191,7 @@ export default function Courses() {
             ? "bg-red-500 hover:bg-red-600"
             : "bg-green-500 hover:bg-green-600"
             }`}
-            onClick={()=>handleStatusChange(courses._id)}>{ courses.status === "active" ?("Inactive"):("Active")}</button>
+            onClick={()=>handleStatusChange(courses._id)}>{ courses.status === "active" ? ("Inactive") : ("Active")}</button>
         <button className="px-2 py-1 rounded-md text-white bg-blue-500 " onClick={()=>handleEditCourse (courses._id)} >Edit</button>
         <button className="px-2 py-1 rounded-md text-white bg-blue-500" onClick={()=>handleDeleteCourse (courses._id)} >Delete</button>  
         </div>}
