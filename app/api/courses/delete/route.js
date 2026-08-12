@@ -1,8 +1,7 @@
-import { json } from "stream/consumers";
 import { connectDB } from "../../../lib/mongodb"
 import  Course from "../../../models/courses"
 
-export async function DELETE(rea,{params}) {
+export async function DELETE(req,{params}) {
 
     try{
         await connectDB();
