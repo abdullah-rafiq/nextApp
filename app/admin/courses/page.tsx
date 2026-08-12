@@ -267,7 +267,7 @@ export default function Courses() {
 />
 </div>
     <div className="flex items-center w-full">
-        <table className="w-full ">
+        <table className="w-full border">
     <thead >
         <tr className="border">
           <div className="flex gap-2">
