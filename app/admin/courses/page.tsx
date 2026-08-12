@@ -18,12 +18,12 @@ type Course = {
 
 export default function Courses() {
   const [sortCredit,setSortCredit] = useState("Asc");
-  const [sortsemester,setSemesterCredit] = useState("Asc");
-  const [sortStatus,setStatusCredit] = useState("Asc");
+  const [sortsemester,setSemesterSort] = useState("Asc");
+  const [sortStatus,setStatusSort] = useState("Asc");
 
   function myStatusSort(status:string){
 
-    if(status==="active"){};
+    if(status==="active"){}
 
     else if(status==="inactive"){}
   }
@@ -44,6 +44,28 @@ export default function Courses() {
           );
           setCourses(sortedCourses);
           setSortCredit("Asc");
+
+          }
+
+  };
+  
+  function mySemseterSort(sort:string){
+   
+          if(sort==="Asc"){
+            const sortedCourses = [...courses].sort(
+          (a, b) => a.semester - b.semester
+          );
+          setCourses(sortedCourses);
+          setSemesterSort("Dsc");
+          }
+
+          else if(sort=="Dsc"){
+            
+            const sortedCourses = [...courses].sort(
+          (a, b) => b.semester - a.semester
+          );
+          setCourses(sortedCourses);
+          setSemesterSort("Asc");
 
           }
 
@@ -263,8 +285,8 @@ export default function Courses() {
         <th className="p-3 text-left">
           <div className="flex items-center gap-2">
           Semester 
-          {sortsemester ==="Asc"? (<button type="button" onClick={()=>myIntSort("Asc")}>< ArrowUp size={16} /></button>):
-            <button type="button" onClick={()=>myIntSort("Dsc")}>< ArrowDown size={16} /> </button>}
+          {sortsemester ==="Asc"? (<button type="button" onClick={()=>mySemseterSort("Asc")}>< ArrowUp size={16} /></button>):
+            <button type="button" onClick={()=>mySemseterSort("Dsc")}>< ArrowDown size={16} /> </button>}
             
           </div></th>
         <th className="p-3 text-left">
