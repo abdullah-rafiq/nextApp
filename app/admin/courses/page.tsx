@@ -254,7 +254,7 @@ export default function Courses() {
             ? "bg-red-500 hover:bg-red-600"
             : "bg-green-500 hover:bg-green-600"
             }`}
-            onClick={()=>handleStatusChange(courses._id)}>{ courses.status === "active" ? "Inactive" : "Active"}
+            onClick={()=>handleStatusChange(courses._id)}>
             {courses.status==="active"?
            ( < CheckCircle color="#dee0e3" size={18}/>):
            ( < XCircle color="#dee0e3" size={18}/>)
