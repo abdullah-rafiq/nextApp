@@ -254,12 +254,17 @@ export default function Courses() {
             ? "bg-red-500 hover:bg-red-600"
             : "bg-green-500 hover:bg-green-600"
             }`}
-            onClick={()=>handleStatusChange(courses._id)}>{ courses.status === "active" ? "Inactive" : "Active"}</button>
+            onClick={()=>handleStatusChange(courses._id)}>{ courses.status === "active" ? "Inactive" : "Active"}
+            {courses.status==="active"?
+           ( < CheckCircle color="#dee0e3" size={18}/>):
+           ( < XCircle color="#dee0e3" size={18}/>)
+            }
+            </button>
           <button className="px-2 py-1 rounded-md text-white bg-blue-500" onClick={()=>handleEditCourse(courses._id)}>
             <Pencil color="#dee0e3" size={18} />
           </button>
           <button className="px-2 py-1 rounded-md text-white bg-blue-500" onClick={()=>handleDeleteCourse(courses._id)}>
-            Delete
+            <Trash2 color="#dee0e3" size={18}/>
           </button>
         </div>
       </td>
