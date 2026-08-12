@@ -269,8 +269,7 @@ export default function Courses() {
 
       <td className="p-3">
         <div className="flex gap-10">
-          <button className={`px-3 py-2 rounded-md text-white bg-[#f9f5f5]
-            }`}
+          <button className="px-3 py-2 rounded-md text-white bg-[#f9f5f5]"
             onClick={()=>handleStatusChange(courses._id)}>
             {courses.status==="active"?
            ( < CheckCircle color="#f20b0b" size={18}/>):
