@@ -242,7 +242,7 @@ export default function Courses() {
   const router= useRouter();
   const [courses,setCourses]=useState<Course[]>([]);
   const [selectedCourses,setSelectedCourses]= useState<string[]>([]);
-
+  const [search, setSearch]=useState("");
     return (
 
     <div className="">
@@ -263,7 +263,7 @@ export default function Courses() {
 </div>
 <div className="flex items-center gap-2 mb-10 bg-white border border-gray-200 rounded-lg px-3 py-2 w-80">
   <Search color="#9ca3af" size={18} />
-<input className="outline-none bg-transparent w-full"  placeholder="/Search"
+<input className="outline-none bg-transparent w-full"  placeholder="/Search " onChange={(e)=>setSearch(e.target.value)}
 />
 </div>
     <div className="w-full">
@@ -284,7 +284,7 @@ export default function Courses() {
             setSelectedCourses([]);
           }
 
-        }}/>Select All</th>  
+        }}/></th>  
         <th className="p-3 text-left">
           Course Code  
           </th>
