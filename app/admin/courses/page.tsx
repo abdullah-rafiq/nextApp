@@ -266,12 +266,14 @@ export default function Courses() {
 <input className="outline-none bg-transparent w-full"  placeholder="Search " onChange={(e)=>setSearch(e.target.value)}
 />
 </div>
-    <div className="flex items-center w-full">
-        <table className="w-full border rounded-lg">
+    <div className="flex items-center w-full border rounded-lg">
+        <table className="w-full ">
     <thead >
-        <tr className="border rounded-lg">
+        <tr className="">
+        <th className="p-3 text-left">
           <div className="flex gap-2">
-        <th className="p-3 text-left"><input type="checkbox" 
+          
+          <input type="checkbox" 
           checked={courses.length>0 &&  selectedCourses.length === courses.length}
           onChange={(e)=>{
           if (e.target.checked){
@@ -285,7 +287,7 @@ export default function Courses() {
             setSelectedCourses([]);
           }
 
-        }}/></th>  </div>
+        }}/> </div> </th>  
         <th className="p-3 text-left">
           Course Code  
           </th>
