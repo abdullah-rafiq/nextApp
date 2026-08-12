@@ -266,8 +266,8 @@ export default function Courses() {
 <input className="outline-none bg-transparent w-full"  placeholder="/Search " onChange={(e)=>setSearch(e.target.value)}
 />
 </div>
-    <div className="w-full">
-        <table className="flex items-center w-full ">
+    <div className="flex items-center w-full">
+        <table className="w-full ">
     <thead >
         <tr className="border-b">
         <th className="flex p-3 text-left gap-2 "><input type="checkbox" 
