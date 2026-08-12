@@ -345,7 +345,7 @@ export default function Courses() {
           <button className="px-3 py-2 rounded-md text-white bg-[#918c8c]"
             onClick={()=>handleStatusChange(courses._id)}>
             {courses.status==="active"?
-           ( < CheckCircle color="#918c8c" size={18}/>):
+           ( < CheckCircle color="#f00808" size={18}/>):
            ( < XCircle color="#14fe14" size={18}/>)
             }
             </button>
