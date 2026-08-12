@@ -178,7 +178,7 @@ export default function Courses() {
     return (
 
     <div className="">
-      <div className="flex gap-2 mb-10">
+      <div className="flex gap-2">
         { selectedCourses.length > 0  && 
         <>
          <button className="Add-account" onClick={handleStatusActiveAll}> Status Active</button>
@@ -188,7 +188,7 @@ export default function Courses() {
          </>
         }</div>
 
-    <div className="flex justify-between items-center">      
+    <div className="flex justify-between items-center mb-10">      
       <h1 className="font-bold text-2xl"> Courses </h1>
       <button className="bg-blue-600 text-white px-4 py-2 rounded-md" onClick={handleAddCourse}>Add Courses</button>
 
