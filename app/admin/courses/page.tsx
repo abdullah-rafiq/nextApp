@@ -23,18 +23,18 @@ export default function Courses() {
 
   function myStatusSort(status:string){
 
-   if (status === "active") {
+   if (status === "Active") {
     const sortedCourses = [...courses].sort((a, b) => {
-      return a.status === "active" ? -1 : 1;
+      return a.status === "Active" ? -1 : 1;
     });
 
     setCourses(sortedCourses);
     setStatusSort("Dsc");
   }
 
-  else if (status === "inactive") {
+  else if (status === "Inactive") {
     const sortedCourses = [...courses].sort((a, b) => {
-      return a.status === "inactive" ? -1 : 1;
+      return a.status === "Inactive" ? -1 : 1;
     });
 
     setCourses(sortedCourses);
