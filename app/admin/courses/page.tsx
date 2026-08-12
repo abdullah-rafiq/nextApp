@@ -212,7 +212,9 @@ export default function Courses() {
           }
 
         }}/>Select All</th>  
+            <ArrowsUpFromLine color="#9dbbe8" size={18}/>
         <th className="p-3 text-left" >Course Code</th>
+            <ArrowsUpFromLine color="#9dbbe8" size={18}/>
         <th className="p-3 text-left">Title</th>
         <th className="p-3 text-left">Department</th>
         <th className="p-3 text-left">Program</th>
