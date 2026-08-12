@@ -26,12 +26,6 @@ export default function Courses() {
     const data= await respone.json();
     if(respone.ok){
       alert("Status Active All");
-      const newcourses=[];
-      for(let i=0;i<courses.length;i++){
-        const course= courses[i];
-        newcourses.push({...course,status:course.status==="active"?"inactive":"active"})
-      }
-      setCourses(newcourses);
     }   
     else{
       console.log(data);
