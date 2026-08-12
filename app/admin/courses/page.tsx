@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { stringify } from "querystring";
 
 type Course = {
   _id: string;
@@ -84,7 +85,25 @@ export default function Courses() {
         <table className="w-full">
     <thead>
         <tr className="border-b">
-        <th className="flex p-3 text-left gap-2"><input type="checkbox"/>Select All</th>  
+        <th className="flex p-3 text-left gap-2"><input type="checkbox" onChange={(e)=>{
+
+          if (e.target.checked){
+
+            const ids = [];
+            for(let i=0;i<courses.length;i++){
+              ids.push(courses[i]._id);
+            }
+            setSelectedCourses(ids);
+
+          }
+
+          else{
+            setSelectedCourses([]);
+          }
+
+
+
+        }}/>Select All</th>  
         <th className="p-3 text-left">Course Code</th>
         <th className="p-3 text-left">Title</th>
         <th className="p-3 text-left">Department</th>
