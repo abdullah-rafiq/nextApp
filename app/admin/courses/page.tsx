@@ -30,7 +30,7 @@ export default function Courses() {
       for(let i=0;i<courses.length;i++){
         const course= courses[i];
         if(selectedCourses.includes(course._id)){
-        newcourses.push({...course,status:course.status==="active"?"inactive":"active"})
+        newcourses.push({...course,status:"active"})
 
         }
         else{
@@ -58,7 +58,7 @@ export default function Courses() {
       for(let i=0;i<courses.length;i++){
         const course= courses[i];
         if(selectedCourses.includes(course._id)){
-        newcourses.push({...course,status:course.status==="active"?"inactive":"active"})
+        newcourses.push({...course,status:"inactive"})
 
         }
         else{
