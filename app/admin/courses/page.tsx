@@ -263,7 +263,7 @@ export default function Courses() {
 </div>
 <div className="flex items-center gap-2 mb-10 bg-white border border-gray-400 rounded-lg px-3 py-2 w-80">
   <Search color="#9ca3af" size={18} />
-<input className="outline-none bg-transparent w-full"  placeholder="/Search " onChange={(e)=>setSearch(e.target.value)}
+<input className="outline-none bg-transparent w-full"  placeholder="Search " onChange={(e)=>setSearch(e.target.value)}
 />
 </div>
     <div className="flex items-center w-full">
