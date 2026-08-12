@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowsUpFromLine, Pencil, Trash2, CheckCircle, XCircle } from 'lucide-react';
+import { ArrowUpDown, Pencil, Trash2, CheckCircle, XCircle } from 'lucide-react';
 
 
 type Course = {
@@ -212,16 +212,14 @@ export default function Courses() {
           }
 
         }}/>Select All</th>  
-            <ArrowsUpFromLine color="#9dbbe8" size={18}/>
-        <th className="p-3 text-left" >Course Code</th>
-            <ArrowsUpFromLine color="#9dbbe8" size={18}/>
-        <th className="p-3 text-left">Title</th>
-        <th className="p-3 text-left">Department</th>
-        <th className="p-3 text-left">Program</th>
-        <th className="p-3 text-left">Credit Hours</th>
-        <th className="p-3 text-left">Semester</th>
-        <th className="p-3 text-left">Status</th>
-        <th className="p-3 text-left">Actions</th>
+        <th className="p-3 text-left">Course Code  <ArrowUpDown size={16} /></th>
+        <th className="p-3 text-left">Title  <ArrowUpDown size={16} /></th>
+        <th className="p-3 text-left">Department <ArrowUpDown size={16} /></th>
+        <th className="p-3 text-left">Program <ArrowUpDown size={16} /></th>
+        <th className="p-3 text-left">Credit Hours  <ArrowUpDown size={16} /></th>
+        <th className="p-3 text-left">Semester  <ArrowUpDown size={16} /></th>
+        <th className="p-3 text-left">Status  <ArrowUpDown size={16} /> </th>
+        <th className="p-3 text-left">Actions  <ArrowUpDown size={16} /> </th>
       </tr>
     </thead>
     <tbody>
