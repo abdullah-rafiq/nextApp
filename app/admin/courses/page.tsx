@@ -57,9 +57,13 @@ export default function Courses() {
       const newcourses= [];
 
       for(let i=0;i<courses.length;i++){
+
           const course =courses[i]; 
           if(course._id==id){
             newcourses.push({...course,status:course.status==="active"?"inactive":"active"})
+          }
+          else{
+            newcourses.push(course);
           }
       };
     setCourses(newcourses);
