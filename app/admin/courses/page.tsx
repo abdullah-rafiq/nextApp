@@ -17,11 +17,27 @@ type Course = {
 };
 
 export default function Courses() {
+  const [sortCredit,setSortCredit] = useState("Asc");
+  const [sortsemester,setSemesterCredit] = useState("Asc");
+  const [sortStatus,setStatusCredit] = useState("Asc");
 
-  function myIntSort(parameter:string){
-      return {
 
-      }
+  function myIntSort(sort:string){
+   
+          if(sort==="Asc"){
+            const sortedCourses = [...courses].sort(
+          (a, b) => a.creditHours - b.creditHours
+          );
+          setCourses(sortedCourses);
+          }
+
+          else if(sort=="Dsc"){
+            
+            const sortedCourses = [...courses].sort(
+          (a, b) => b.creditHours - a.creditHours
+          );
+          setCourses(sortedCourses);
+          }
 
   };
   
@@ -220,7 +236,7 @@ export default function Courses() {
 
         }}/>Select All</th>  
         <th className="p-3 text-left">
-            Course Code  
+          Course Code  
           </th>
         <th className="p-3 text-left">
           Title  
@@ -231,13 +247,17 @@ export default function Courses() {
           Program </th>
         <th className="p-3 text-left">
           <div className="flex items-center gap-2">
-          Credit Hours  <ArrowUpDown size={16} /></div></th>
+          Credit Hours  <button type="button" onClick={()=>myIntSort("Asc")}>
+           {sortCredit ==="Asc"? (< ArrowUp size={16} />):
+            < ArrowDown size={16} /> }
+            </button>
+            </div></th>
         <th className="p-3 text-left">
           <div className="flex items-center gap-2">
-          Semester  <ArrowUpDown size={16} /></div></th>
+          Semester  < ArrowUpDown size={16} /></div></th>
         <th className="p-3 text-left">
           <div className="flex items-center gap-2">
-          Status  <ArrowUpDown size={16} /></div> </th>
+          Status  < ArrowUpDown size={16} /></div> </th>
         <th className="p-3 text-left">
           Actions  </th>
       </tr>
