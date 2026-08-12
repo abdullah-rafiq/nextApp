@@ -21,7 +21,12 @@ export default function Courses() {
   const [sortsemester,setSemesterCredit] = useState("Asc");
   const [sortStatus,setStatusCredit] = useState("Asc");
 
+  function myStatusSort(status:string){
 
+    if(status==="active"){};
+
+    else if(status==="inactive"){}
+  }
   function myIntSort(sort:string){
    
           if(sort==="Asc"){
@@ -257,10 +262,18 @@ export default function Courses() {
             </div></th>
         <th className="p-3 text-left">
           <div className="flex items-center gap-2">
-          Semester  < ArrowUpDown size={16} /></div></th>
+          Semester 
+          {sortsemester ==="Asc"? (<button type="button" onClick={()=>myIntSort("Asc")}>< ArrowUp size={16} /></button>):
+            <button type="button" onClick={()=>myIntSort("Dsc")}>< ArrowDown size={16} /> </button>}
+            
+          </div></th>
         <th className="p-3 text-left">
           <div className="flex items-center gap-2">
-          Status  < ArrowUpDown size={16} /></div> </th>
+          Status  
+          {sortStatus ==="Asc"? (<button type="button" onClick={()=>myStatusSort("Active")}>< ArrowUp size={16} /></button>):
+            <button type="button" onClick={()=>myStatusSort("Inactive")}>< ArrowDown size={16} /> </button>}
+            
+          </div> </th>
         <th className="p-3 text-left">
           Actions  </th>
       </tr>
