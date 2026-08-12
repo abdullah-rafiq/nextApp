@@ -211,16 +211,54 @@ export default function Courses() {
             setSelectedCourses([]);
           }
 
-        }}/>Select All</th>  
-        <th className="p-3 text-left">Course Code  <ArrowUpDown size={16} /></th>
-        <th className="p-3 text-left">Title  <ArrowUpDown size={16} /></th>
-        <th className="p-3 text-left">Department <ArrowUpDown size={16} /></th>
-        <th className="p-3 text-left">Program <ArrowUpDown size={16} /></th>
-        <th className="p-3 text-left">Credit Hours  <ArrowUpDown size={16} /></th>
-        <th className="p-3 text-left">Semester  <ArrowUpDown size={16} /></th>
-        <th className="p-3 text-left">Status  <ArrowUpDown size={16} /> </th>
-        <th className="p-3 text-left">Actions  <ArrowUpDown size={16} /> </th>
-      </tr>
+        }}/>Select All</th>  <th className="p-3 text-left">
+  <div className="flex items-center gap-2">
+    Course Code
+    <ArrowUpDown size={16} />
+  </div>
+</th>
+
+<th className="p-3 text-left">
+  <div className="flex items-center gap-2">
+    Title
+    <ArrowUpDown size={16} />
+  </div>
+</th>
+
+<th className="p-3 text-left">
+  <div className="flex items-center gap-2">
+    Department
+    <ArrowUpDown size={16} />
+  </div>
+</th>
+
+<th className="p-3 text-left">
+  <div className="flex items-center gap-2">
+    Program
+    <ArrowUpDown size={16} />
+  </div>
+</th>
+
+<th className="p-3 text-left">
+  <div className="flex items-center gap-2">
+    Credit Hours
+    <ArrowUpDown size={16} />
+  </div>
+</th>
+
+<th className="p-3 text-left">
+  <div className="flex items-center gap-2">
+    Semester
+    <ArrowUpDown size={16} />
+  </div>
+</th>
+
+<th className="p-3 text-left">
+  <div className="flex items-center gap-2">
+    Status
+    <ArrowUpDown size={16} />
+  </div>
+</th></tr>
     </thead>
     <tbody>
 
