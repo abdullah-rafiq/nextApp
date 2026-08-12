@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { stringify } from "querystring";
 
 type Course = {
   _id: string;
@@ -16,13 +15,24 @@ type Course = {
 };
 
 export default function Courses() {
+  
+  async function handleStatusActiveAll(){
+    const respone = await fetch(`/api/courses/#{selectCourse}`,{method:"PATCH"} );
+    const data= await respone.json();
+    if(respone.ok){
+      alert("Status Active All");
+    }    
+  };
 
   async function handleStatusChange(id:string){
     const response = await fetch(`/api/courses/${id}`,{method:"PATCH"});
     const data = await response.json();
+    
     if(response.ok){
       alert("success status changed");
     }
+    setCourses((currentCourses)=>currentCourses.filter((course) => course._id !== id));
+
   };
 
   useEffect(()=>{
@@ -64,14 +74,22 @@ export default function Courses() {
   const [courses,setCourses]=useState<Course[]>([]);
   const [selectedCourses,setSelectedCourses]= useState<string[]>([]);
   
+
+  function handleStatusInactiveAll(){
+
+  };
+  function handleDeleteAll(){
+
+  }
+
     return (
     <div>
       <div className="flex gap-2">
         { selectedCourses.length > 0  && 
         <>
-         <button className="Add-account"> Status Active</button>
-         <button className="Add-account"> Status Inactive</button>
-         <button className="Add-account"> Delete</button> 
+         <button className="Add-account" onClick={handleStatusActiveAll}> Status Active</button>
+         <button className="Add-account" onClick={handleStatusInactiveAll}> Status Inactive</button>
+         <button className="Add-account" onClick={handleDeleteAll}> Delete</button> 
          <button className="Add-account"> Assign To</button>
          </>
         }</div>
@@ -122,11 +140,11 @@ export default function Courses() {
         checked={selectedCourses.includes(courses._id)}
         onChange={(e)=>{
 
-        if(e.target.checked){
-          setSelectedCourses((prev)=>[...prev,courses._id])
+        if( e.target.checked ){
+          setSelectedCourses( (prev) => [...prev,courses._id])
         }
         else{
-            setSelectedCourses((prev)=>prev.filter((id)=> id!==courses._id))
+            setSelectedCourses((prev) => prev.filter((id)=> id !== courses._id))
         }
       }}/></td>
       <td className="p-3">{courses.code}</td>
