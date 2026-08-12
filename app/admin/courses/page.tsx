@@ -268,9 +268,9 @@ export default function Courses() {
 </div>
     <div className="w-full">
         <table className="w-full">
-    <thead>
+    <thead className="flex items-center">
         <tr className="border-b">
-        <th className="flex p-3 text-left gap-2"><input type="checkbox" 
+        <th className="flex p-3 text-left gap-2 "><input type="checkbox" 
           checked={courses.length>0 &&  selectedCourses.length === courses.length}
           onChange={(e)=>{
           if (e.target.checked){
@@ -320,6 +320,7 @@ export default function Courses() {
           Actions  </th>
       </tr>
     </thead>
+
     <tbody>
 
   {courses.map((courses) => (
