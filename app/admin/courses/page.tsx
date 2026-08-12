@@ -148,7 +148,8 @@ export default function Courses() {
 
   }
     return (
-    <div>
+
+    <div className=" bg-#fac5c5">
       <div className="flex gap-2 mb-10">
         { selectedCourses.length > 0  && 
         <>
