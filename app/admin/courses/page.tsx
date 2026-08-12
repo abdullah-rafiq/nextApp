@@ -29,6 +29,7 @@ export default function Courses() {
           (a, b) => a.creditHours - b.creditHours
           );
           setCourses(sortedCourses);
+          setSortCredit("Dsc");
           }
 
           else if(sort=="Dsc"){
@@ -37,6 +38,8 @@ export default function Courses() {
           (a, b) => b.creditHours - a.creditHours
           );
           setCourses(sortedCourses);
+          setSortCredit("Asc");
+
           }
 
   };
@@ -247,10 +250,10 @@ export default function Courses() {
           Program </th>
         <th className="p-3 text-left">
           <div className="flex items-center gap-2">
-          Credit Hours  <button type="button" onClick={()=>myIntSort("Asc")}>
-           {sortCredit ==="Asc"? (< ArrowUp size={16} />):
-            < ArrowDown size={16} /> }
-            </button>
+          Credit Hours
+           {sortCredit ==="Asc"? (<button type="button" onClick={()=>myIntSort("Asc")}>< ArrowUp size={16} /></button>):
+            <button type="button" onClick={()=>myIntSort("Dsc")}>< ArrowDown size={16} /> </button>}
+            
             </div></th>
         <th className="p-3 text-left">
           <div className="flex items-center gap-2">
