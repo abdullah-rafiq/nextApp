@@ -47,7 +47,7 @@ export default function Courses() {
   };
   
  async function handleDeleteAll(){
-    const response = await fetch(`/api/course/delete`,{method:"DELETE",headers: {
+    const response = await fetch(`/api/courses/delete`,{method:"DELETE",headers: {
     "Content-Type": "application/json"},body:JSON.stringify({ids:selectedCourses})});
     const data = await response.json();
     
