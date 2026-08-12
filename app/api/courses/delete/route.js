@@ -1,5 +1,5 @@
-import { connectDB } from "../../../lib/mongodb"
-import  Course from "../../../models/courses"
+import { connectDB } from "../../../../lib/mongodb";
+import Course from "../../../../models/courses";
 
 export async function DELETE(req,{params}) {
 
