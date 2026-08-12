@@ -269,7 +269,7 @@ export default function Courses() {
 
       <td className="p-3">
         <div className="flex gap-10">
-          <button className={`px-2 py-1 rounded-md text-white bg-blue-500
+          <button className={`px-3 py-2 rounded-md text-white bg-blue-500
             }`}
             onClick={()=>handleStatusChange(courses._id)}>
             {courses.status==="active"?
@@ -277,10 +277,10 @@ export default function Courses() {
            ( < XCircle color="#14fe14" size={18}/>)
             }
             </button>
-          <button className="px-2 py-1 rounded-md text-white bg-blue-500" onClick={()=>handleEditCourse(courses._id)}>
+          <button className="px-3 py-2 rounded-md text-white bg-blue-500" onClick={()=>handleEditCourse(courses._id)}>
             <Pencil color="#dee0e3" size={18} />
           </button>
-          <button className="px-2 py-1 rounded-md text-white bg-blue-500" onClick={()=>handleDeleteCourse(courses._id)}>
+          <button className="px-3 py-2 rounded-md text-white bg-blue-500" onClick={()=>handleDeleteCourse(courses._id)}>
             <Trash2 color="#dee0e3" size={18}/>
           </button>
         </div>
