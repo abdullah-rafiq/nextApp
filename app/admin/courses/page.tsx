@@ -17,8 +17,9 @@ type Course = {
 export default function Courses() {
   
   async function handleStatusActiveAll(){
-    const respone = await fetch(`/api/courses/#{selectCourse}`,{
-      method:"PATCH",body: JSON.stringify({
+    const respone = await fetch(`/api/courses/status`,{
+      method:"PATCH",
+      body: JSON.stringify({
       ids: selectedCourses,
       status: "active"},  
      )});
@@ -32,7 +33,7 @@ export default function Courses() {
   };
 
  async function handleStatusInactiveAll(){
-    const respone = await fetch(`/api/courses/#{selectCourse}`,{
+    const respone = await fetch(`/api/courses/status`,{
       method:"PATCH",body: JSON.stringify({
       ids: selectedCourses,
       status: "Inactive"},  
