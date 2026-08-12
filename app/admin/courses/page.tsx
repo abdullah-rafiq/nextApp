@@ -267,11 +267,11 @@ export default function Courses() {
 />
 </div>
     <div className="flex items-center w-full">
-        <table className="w-full border-collapse border border-gray-400">
+        <table className="w-full border">
     <thead >
-        <tr className="border border-gray-300 p-3 text-center">
+        <tr className="border">
           <div className="flex gap-2">
-        <th className="border border-gray-300 p-3 text-center"><input type="checkbox" 
+        <th className="p-3 text-left"><input type="checkbox" 
           checked={courses.length>0 &&  selectedCourses.length === courses.length}
           onChange={(e)=>{
           if (e.target.checked){
@@ -286,38 +286,38 @@ export default function Courses() {
           }
 
         }}/></th>  </div>
-        <th className="border border-gray-300 p-3 text-center">
+        <th className="p-3 text-left">
           Course Code  
           </th>
-        <th className="border border-gray-300 p-3 text-center">
+        <th className="p-3 text-left">
           Title  
         </th>
-        <th className="border border-gray-300 p-3 text-center">
+        <th className="p-3 text-left">
           Department </th>
-        <th className="border border-gray-300 p-3 text-center">
+        <th className="p-3 text-left">
           Program </th>
-        <th className="border border-gray-300 p-3 text-center">
+        <th className="p-3 text-left">
           <div className="flex items-center gap-2">
           Credit Hours
            {sortCredit ==="Asc"? (<button type="button" onClick={()=>myIntSort("Asc")}>< ArrowUp size={16} /></button>):
             <button type="button" onClick={()=>myIntSort("Dsc")}>< ArrowDown size={16} /> </button>}
             
             </div></th>
-        <th className="border border-gray-300 p-3 text-center">
+        <th className="p-3 text-left">
           <div className="flex items-center gap-2">
           Semester 
           {sortsemester ==="Asc"? (<button type="button" onClick={()=>mySemseterSort("Asc")}>< ArrowUp size={16} /></button>):
             <button type="button" onClick={()=>mySemseterSort("Dsc")}>< ArrowDown size={16} /> </button>}
             
           </div></th>
-        <th className="border border-gray-300 p-3 text-center">
+        <th className="p-3 text-left">
           <div className="flex items-center gap-2">
           Status  
           {sortStatus ==="Asc"? (<button type="button" onClick={()=>myStatusSort("active")}>< ArrowUp size={16} /></button>):
             <button type="button" onClick={()=>myStatusSort("inactive")}>< ArrowDown size={16} /> </button>}
             
           </div> </th>
-        <th className="border border-gray-300 p-3 text-center">
+        <th className="p-3 text-left">
           Actions  </th>
       </tr>
     </thead>
@@ -326,7 +326,7 @@ export default function Courses() {
 
   {courses.map((courses) => (
     <tr key={courses._id} className="border-b">
-      <td className="border border-gray-300 p-3 text-center"><input type="checkbox" 
+      <td className="p-3"><input type="checkbox" 
         checked={selectedCourses.includes(courses._id)}
         onChange={(e)=>{
 
@@ -337,17 +337,17 @@ export default function Courses() {
             setSelectedCourses((prev) => prev.filter((id)=> id !== courses._id))
         }
       }}/></td>
-      <td className="border border-gray-300 p-3 text-center">{courses.code}</td>
-      <td className="border border-gray-300 p-3 text-center">{courses.title}</td>
-      <td className="border border-gray-300 p-3 text-center">{courses.department}</td>
-      <td className="border border-gray-300 p-3 text-center">{courses.program}</td>
-      <td className="border border-gray-300 p-3 text-center">{courses.creditHours}</td>
-      <td className="border border-gray-300 p-3 text-center">{courses.semester}</td>
-      <td className="V">
+      <td className="p-3">{courses.code}</td>
+      <td className="p-3">{courses.title}</td>
+      <td className="p-3">{courses.department}</td>
+      <td className="p-3">{courses.program}</td>
+      <td className="p-3">{courses.creditHours}</td>
+      <td className="p-3">{courses.semester}</td>
+      <td className="p-3">
         {courses.status}
       </td>
 
-      <td className="border border-gray-300 p-3 text-center">
+      <td className="p-3">
         <div className="flex gap-10">
           <button className="px-3 py-2 rounded-md text-white bg-[#918c8c]"
             onClick={()=>handleStatusChange(courses._id)}>
